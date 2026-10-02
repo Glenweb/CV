@@ -1,0 +1,22 @@
+/* Shared stage: a fixed logical canvas, scaled to fit whatever is showing it.
+   In render mode the viewport equals the stage, so scale resolves to 1. */
+html, body { margin: 0; padding: 0; height: 100%; background: #000; overflow: hidden; }
+#stage {
+  position: fixed; left: 50%; top: 50%;
+  width: var(--W); height: var(--H);
+  transform: translate(-50%, -50%) scale(var(--S, 1));
+  transform-origin: center center;
+  overflow: hidden;
+}
+#stage * { box-sizing: border-box; }
+[data-scene] { position: absolute; inset: 0; }
+/* Safe area guides — preview only, never rendered. */
+#guides { position: absolute; inset: 0; display: none; pointer-events: none; }
+html[data-guides="1"] #guides { display: block; }
+#guides div { position: absolute; left: 0; right: 0; border-top: 2px dashed rgba(255,0,110,.5); }
+#hud {
+  position: fixed; left: 12px; bottom: 12px; z-index: 99;
+  font: 500 12px/1.4 ui-monospace, monospace; color: #fff;
+  background: rgba(0,0,0,.6); padding: 6px 10px; border-radius: 6px;
+}
+html[data-render="1"] #hud, html[data-render="1"] #guides { display: none !important; }

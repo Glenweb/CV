@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WebPromote — 18s Vertical</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="ad-stage.css">
+<style>
+  :root { --ink: #10122A; --paper: #EFF1F3; --lime: #C6FF4D; --dim: #A9ACC4; --rule: #2A2D4A; }
+  #stage { background: var(--ink); color: var(--paper); font-family: 'Source Serif 4', Georgia, serif; }
+  .grid {
+    position: absolute; inset: 0;
+    background-image: linear-gradient(to right, rgba(198,255,77,.07) 2px, transparent 2px),
+                      linear-gradient(to bottom, rgba(198,255,77,.07) 2px, transparent 2px);
+    background-size: 108px 108px;
+  }
+  .pad { position: absolute; left: 84px; right: 84px; top: 250px; bottom: 270px; display: flex; flex-direction: column; }
+  .spacer { flex: 1 1 auto; }
+  .brand { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 32px; letter-spacing: -.02em; }
+  .kicker { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 600; letter-spacing: .2em; text-transform: uppercase; color: var(--lime); }
+  h1 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 92px; line-height: .98; letter-spacing: -.03em; margin: 0; }
+  h1 em { font-style: normal; color: var(--lime); }
+  h2 { font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 72px; line-height: 1.0; letter-spacing: -.03em; margin: 0; }
+  .sub { font-size: 38px; line-height: 1.4; color: var(--dim); margin: 0; }
+  .barline { height: 4px; background: var(--lime); }
+
+  .row { display: grid; grid-template-columns: 170px 1fr; gap: 26px; padding-block: 28px; border-top: 2px solid var(--rule); }
+  .rowtime { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 28px; color: var(--lime); padding-top: 6px; }
+  .rowtitle { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 38px; line-height: 1.15; margin-bottom: 10px; }
+  .rowbody { font-size: 29px; line-height: 1.4; color: var(--dim); }
+
+  .cta {
+    font-family: 'Space Grotesk', sans-serif; font-size: 44px; font-weight: 700; color: var(--ink);
+    background: var(--lime); padding: 26px 40px; display: inline-block; letter-spacing: -.01em;
+  }
+  .domain { font-family: 'Space Grotesk', sans-serif; font-size: 38px; font-weight: 500; color: var(--dim); }
+  .legal { font-size: 25px; line-height: 1.45; color: var(--dim); margin: 0; }
+
+  html[data-fmt="square"] .pad { top: 100px; bottom: 100px; left: 70px; right: 70px; }
+  html[data-fmt="square"] h1 { font-size: 72px; }
+  html[data-fmt="square"] h2 { font-size: 58px; }
+  html[data-fmt="square"] .row { padding-block: 18px; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <div class="grid"></div>
+
+  <!-- SCENE A · hook -->
+  <section data-scene data-in="0" data-out="4.6">
+    <div class="pad">
+      <div class="brand" data-anim="fade" data-at="0.1" data-dur="0.4" data-out="4.1" data-outdur="0.4">WebPromote</div>
+      <div class="spacer"></div>
+      <div class="kicker" data-anim="rise" data-at="0.3" data-dur="0.45" data-out="4.1" data-outdur="0.4">Local search</div>
+      <div style="height:34px"></div>
+      <h1 data-anim="rise" data-at="0.55" data-dur="0.6" data-out="4.1" data-outdur="0.4">Someone in your<br>town just searched<br>for what you do.</h1>
+      <div style="height:44px"></div>
+      <div class="barline" data-anim="bar" data-at="1.5" data-dur="0.7" data-to="100" data-out="4.1" data-outdur="0.4" style="width:0"></div>
+      <div style="height:40px"></div>
+      <p class="sub" data-anim="rise" data-at="1.9" data-dur="0.5" data-out="4.1" data-outdur="0.4" style="color:var(--paper);font-weight:500">Did they find you —<br><em style="font-style:normal;color:var(--lime)">or your competitor?</em></p>
+      <div class="spacer" style="flex-grow:1.25"></div>
+    </div>
+  </section>
+
+  <!-- SCENE B · what happens -->
+  <section data-scene data-in="4.6" data-out="13.2">
+    <div class="pad">
+      <div class="spacer" style="flex-grow:.4"></div>
+      <h2 data-anim="rise" data-at="0.1" data-dur="0.5" data-out="8.1" data-outdur="0.45">A day with<br>your local<br>visibility manager</h2>
+      <div style="height:44px"></div>
+      <div>
+        <div class="row" data-anim="slideL" data-at="0.9" data-dur="0.45" data-out="8.1" data-outdur="0.45">
+          <div class="rowtime">8:00 AM</div>
+          <div><div class="rowtitle">Your Google listing gets checked</div><div class="rowbody">Hours, photos, customer questions — anything gone stale or wrong.</div></div>
+        </div>
+        <div class="row" data-anim="slideL" data-at="2.3" data-dur="0.45" data-out="8.1" data-outdur="0.45">
+          <div class="rowtime">12:00 PM</div>
+          <div><div class="rowtitle">A page goes live for a search you're losing</div><div class="rowbody">Written around the exact words your customers type into Google.</div></div>
+        </div>
+        <div class="row" data-anim="slideL" data-at="3.7" data-dur="0.45" data-out="8.1" data-outdur="0.45">
+          <div class="rowtime">6:00 PM</div>
+          <div><div class="rowtitle">You get a message, not a dashboard</div><div class="rowbody">Plain English, sent to your phone. Nothing to log into.</div></div>
+        </div>
+      </div>
+      <div style="height:44px"></div>
+      <p class="sub" data-anim="rise" data-at="5.3" data-dur="0.5" data-out="8.1" data-outdur="0.45" style="color:var(--paper);font-weight:500">All of it while you're on<br>the tools, not the laptop.</p>
+      <div class="spacer"></div>
+    </div>
+  </section>
+
+  <!-- SCENE C · offer -->
+  <section data-scene data-in="13.2">
+    <div class="pad">
+      <div class="spacer" style="flex-grow:.7"></div>
+      <div class="kicker" data-anim="rise" data-at="0.1" data-dur="0.4">Free, no commitment</div>
+      <div style="height:30px"></div>
+      <h2 data-anim="rise" data-at="0.3" data-dur="0.5">Send your business<br>name and town.</h2>
+      <div style="height:30px"></div>
+      <p class="sub" data-anim="rise" data-at="0.65" data-dur="0.45">We'll tell you exactly what's<br>keeping you out of the top three.</p>
+      <div style="height:48px"></div>
+      <div data-anim="pop" data-at="1.0" data-dur="0.45"><span class="cta">Check my ranking</span></div>
+      <div style="height:28px"></div>
+      <div data-anim="rise" data-at="1.3" data-dur="0.45"><span class="domain">webpromote.co.uk</span></div>
+      <div class="spacer"></div>
+      <p class="legal" data-anim="fade" data-at="1.7" data-dur="0.5">Local SEO for UK trades and service businesses. No contract, no dashboard to learn.</p>
+    </div>
+  </section>
+
+  <div id="guides"><div style="top:14%"></div><div style="bottom:20%"></div></div>
+</div>
+<div id="hud">loading…</div>
+<script src="stage-boot.js"></script>
+<script src="ad-engine.js"></script>
+<script>
+  var hud = document.getElementById('hud');
+  AdEngine.mount({ duration: 18, onFrame: function (t) { hud.textContent = t.toFixed(2) + 's / 18.00s'; } });
+</script>
+</body>
+</html>
