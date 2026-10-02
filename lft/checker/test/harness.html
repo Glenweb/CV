@@ -1,0 +1,37 @@
+<!doctype html>
+<!-- Mock of the checker's DOM, used to prove the capture script wires up
+     correctly without touching the live site. Not for production. -->
+<html lang="en-GB"><head><meta charset="utf-8"><title>Checker harness</title>
+<link rel="stylesheet" href="../lft-checker-capture.css"></head>
+<body>
+<h1>Carry-on size checker (harness)</h1>
+<input id="airlineSearch" placeholder="Search airline">
+<ul id="airlineDropdown">
+  <li data-airline="Ryanair" data-region="EU" data-enforcement="very">Ryanair</li>
+  <li data-airline="easyJet" data-region="EU" data-enforcement="strict">easyJet</li>
+</ul>
+<select id="allowanceSelect">
+  <option value="">Choose allowance</option>
+  <option value="personal_item">Personal item only (Basic)</option>
+  <option value="priority_cabin">Priority cabin bag</option>
+</select>
+<label>Units <select name="units"><option value="cm">cm</option><option value="in">in</option></select></label>
+<input id="weight" name="weight" placeholder="kg">
+<button id="checkBtn">Check my bag</button>
+<div id="verdict"></div>
+<div id="recommendButtons"><a href="/best-ryanair-cabin-bag/">Bags that fit</a></div>
+<a id="aff" href="https://amzn.to/xyz" rel="sponsored nofollow">An affiliate link</a>
+<button id="copyEmbed">Copy embed code</button>
+
+<script>
+  window.LFT_CHECKER_CONFIG = { debug: true, kitFormUid: null };
+</script>
+<script src="../lft-checker-capture.js"></script>
+<script>
+  // Simulate the tool rendering a verdict.
+  document.getElementById('checkBtn').addEventListener('click', function () {
+    document.getElementById('verdict').textContent =
+      'Too deep for Ryanair by 2cm — this bag won\'t fit.';
+  });
+</script>
+</body></html>
