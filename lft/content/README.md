@@ -1,12 +1,34 @@
 # LFT content — Spirit Airlines rewrites
 
+> ## STOP — URLs verified 3 Oct 2026, and two of them were wrong
+>
+> This file originally said "keep both URLs, no redirects." **That instruction was wrong**
+> and is retracted. Verified against the live Search Console property:
+>
+> | What I assumed | What is actually live |
+> |---|---|
+> | `/spirit-airlines-carry-on-size/` is a live rules page | **Already 301s to `/spirit-airlines-shutdown/`**, which is indexed (crawled 25 Sep 2026) |
+> | `/spirit-airlines-personal-item-size-2026/` is a live page at root | Real URL is **`/airline-baggage-rules/spirit-airlines-personal-item-size-2026/`**, and it is **"Crawled – currently not indexed"** |
+>
+> **A Spirit shutdown page already exists on the site.** Do not paste page one over a new
+> URL and do not remove the existing redirect — that would create a duplicate competing
+> with an already-indexed page. Read `/spirit-airlines-shutdown/` first and decide whether
+> to merge this draft into it or replace its body.
+>
+> Page two is still worth publishing as drafted, at the **`/airline-baggage-rules/`**
+> path, not root. It is crawled but not indexed, which usually means thin or duplicative
+> content — a substantive rewrite plus a re-request is the right response.
+>
+> Its only internal link is from `/hotels-near-heathrow-airport/`. That is almost
+> certainly why it is not indexed: no relevant internal link equity reaching it.
+
 Two pages, rewritten because **Spirit Airlines ceased operations on 2 May 2026** and both
 pages were still publishing live carry-on rules for an airline that does not fly.
 
 | File | Target URL | 12-month impressions |
 |---|---|---|
-| `spirit-airlines-carry-on-size.html` | `/spirit-airlines-carry-on-size/` | 881 |
-| `spirit-airlines-personal-item-size-2026.html` | `/spirit-airlines-personal-item-size-2026/` | 453 |
+| `spirit-airlines-carry-on-size.html` | `/spirit-airlines-shutdown/` (see banner) | 881 |
+| `spirit-airlines-personal-item-size-2026.html` | `/airline-baggage-rules/spirit-airlines-personal-item-size-2026/` | 453 |
 
 ## Why rewrite rather than delete or redirect
 
@@ -17,8 +39,9 @@ question that was asked ("what size?"), then answers the one they didn't know th
 ("which airline now?"), and earns the internal link into Frontier, Allegiant, Southwest
 and the checker.
 
-**Keep both URLs. No redirects. Keep the `2026` in the second slug** — the year is part of
-why it ranks, and the page now says what actually happened in 2026.
+**Keep the `2026` in the second slug** — the year is part of why it ranks, and the page now
+says what actually happened in 2026. On redirects, see the banner above: the carry-on URL
+already redirects to an existing shutdown page, so leave that redirect alone.
 
 ## How the two pages differ
 
