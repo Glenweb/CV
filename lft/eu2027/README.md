@@ -1,127 +1,102 @@
 # EU 2027 hand-baggage dataset
 
-The journalist-facing asset. Generated from the checker's own airline data, so it cannot
-drift from the live tool.
+Built against the primary text. **Regulation (EU) 2026/2202** of 16 September 2026,
+**OJ L, 2026/2202, 2.10.2026**, ELI `http://data.europa.eu/eli/reg/2026/2202/oj`.
 
 ```bash
-python3 lft/eu2027/build.py      # writes CSVs + the workbook into lft/eu2027/out/
+python3 lft/eu2027/build.py      # CSVs + workbook into out/
 ```
 
-**Every threshold is a parameter** in `RULE` at the top of `build.py`. If the Official
-Journal text turns out to say something different from 40×30×15 / 100cm / 7kg, change one
-dict and the entire analysis re-derives.
+## The dates, verified
 
-## What it found, and it is not the story we assumed
-
-The working assumption was "the N fare types that stop existing on 23 October 2027". **That
-story is wrong.** On the published data:
-
-**No paid cabin-bag product is abolished.** All seven allow a bag larger than the 100cm
-entitlement, and if the opt-out is real they do not disappear at all — they **invert**. The
-bag becomes the default and the no-bag fare becomes the discount:
-
-| Airline | Paid product | Over the free entitlement by |
-|---|---|---|
-| Ryanair | Priority / paid overhead cabin bag (55×40×20, 10kg) | +15cm |
-| Wizz Air | WIZZ Priority trolley bag (55×40×23, 10kg) | +18cm |
-| Aer Lingus | Cabin bag, Plus fare (55×40×24, 10kg) | +19cm |
-| easyJet | Large cabin bag (56×45×25, 15kg) | +26cm |
-| Allegiant | Paid carry-on (56×36×23) | +15cm |
-| Spirit | Paid carry-on (56×46×25) | +27cm |
-| Frontier | Paid carry-on (61×41×25, 15.9kg) | +27cm |
-
-Two things follow. A passenger whose bag fits the entitlement stops needing to buy an
-add-on, so the product only earns its keep on the band above 100cm. And because airlines may
-still sell a cheaper no-bag fare, the commercial move is not to withdraw these products but
-to flip them: price the bag into the headline fare and sell the discount for going without.
-That is a more defensible finding than "they disappear", and a more interesting one, because
-it predicts what the airlines actually do next.
-
-**Nine carriers must increase a free allowance.** This is the harder-edged finding:
-
-| Airline | Free allowance today | Shortfall |
-|---|---|---|
-| **Lufthansa** | 40 × 30 × **10** | 5cm too shallow |
-| **Swiss** | 40 × 30 × **10** | 5cm too shallow |
-| **Austrian** | 40 × 30 × **10** | 5cm too shallow |
-| Norwegian | **25** × 33 × 20 | 15cm too narrow |
-| Aer Lingus | **25** × 33 × 20 | 15cm too narrow |
-| Iberia | 35 × **20** × 20 | 10cm short |
-| SAS | 37 × **28** × 15 | 3cm short |
-| United | 43 × **25** × 23 | EU departures only |
-| Scoot | 35 × **25** × 15 | EU departures only |
-
-**The Lufthansa Group is the story.** Lufthansa, Swiss and Austrian all sit at 40×30×10 —
-the same 10cm depth, 5cm under the incoming floor, three carriers, one group. Nobody has
-reported that, and it is checkable in thirty seconds against their own published terms.
-
-One detail worth a line on its own: **easyJet's free cabin bag is 101cm linear — one
-centimetre more generous than the entitlement it is about to be measured against.**
-
-## What the file deliberately does not contain
-
-**Prices.** The add-on price columns are empty on purpose. There was no verified price data,
-nothing has been estimated, and a journalist who finds one invented number discards the
-whole dataset. Fill them from the airlines' own booking flows before sending.
-
-## Verification status, 3 Oct 2026
-
-The act is **Regulation (EU) 2026/2202 of 16 September 2026**, amending Regulation (EC)
-261/2004.
-
-**The primary text has not been read.** `eur-lex.europa.eu`, `consilium.europa.eu` and
-`europarl.europa.eu` are all blocked by this network's egress policy, as are most of the
-news sites carrying the detail. Everything below is triangulated from search results and is
-graded per figure in `RULE` at the top of `build.py`.
-
-| Figure | Status |
+| | |
 |---|---|
-| Regulation number and date | **Confirmed** — several sources |
-| Parliament 7 Jul 2026, Council 13 Jul 2026 | **Confirmed** |
-| Free personal item 40 × 30 × 15 cm, under the seat | **Confirmed** |
-| Application = OJ publication + 20 days + 12 months | **Confirmed** |
-| Fares shown inclusive of hand baggage at booking | **Confirmed** |
-| Cabin bag 100 cm combined / 7 kg in the standard fare | **Corroborated, one outlet dissents** |
-| Applies from 23 October 2027 | **Corroborated** — consistent with OJ publication ~3 Oct 2026 |
-| The Official Journal publication date | **Not verified** |
+| Parliament legislative resolution | 7 July 2026 |
+| Council decision | 13 July 2026 |
+| Signed at Strasbourg | 16 September 2026 |
+| **Published in the Official Journal** | **2 October 2026** |
+| In force (Art. 3, twentieth day following publication) | **22 October 2026** |
+| **Applies from** (Art. 3, stated expressly) | **23 October 2027** |
 
-**The one that matters.** At least one outlet says the reform does not make the trolley
-universally free and airlines may still charge for anything that will not fit under the
-seat. Recent reporting says the opposite — 100 cm / 7 kg included in the standard fare. The
-likely reconciliation is that it is included **by default**, with airlines free to sell a
-cheaper fare to a passenger who waives it. The dataset assumes that, and the verdicts say
-"inverts" rather than "abolished" as a result.
+23 October 2027 is written into Article 3. It is not derived from a formula, and it is not
+an estimate.
 
-**Someone on an unblocked connection needs to open EUR-Lex and read Regulation (EU)
-2026/2202.** Twenty minutes. Until then this is well-sourced secondary reporting, not law,
-and it must not be described to a journalist as verified.
+## Three things the earlier version got wrong
 
-## Before this goes to anyone
+**1. There is no 100 cm and no 7 kg in the act.** Those figures circulated widely in
+reporting and are absent from the adopted text. Every calculation that rested on a "free
+100 cm / 7 kg cabin entitlement" has been removed.
 
-1. **Read Regulation (EU) 2026/2202 on EUR-Lex** and confirm the baggage article, the
-   100 cm / 7 kg figures, and the opt-out.
-2. **Get the Official Journal publication date**, which fixes the application date exactly.
-3. **Get the scope reading checked.** EU/EEA carriers are treated as in scope; non-EU
-   carriers are marked in scope on EU departures only. That is a plain reading, not a legal
-   opinion.
-4. **Fill the price columns**, or delete them before sending.
-5. **Spot-check five airlines** against their own published terms. If one is wrong the
-   dataset is worthless, and it is a twenty-minute job.
+**2. The cabin trolley does not become free.** Article 11a(1) requires carriers to permit a
+personal item "and at no extra cost", and separately to permit a piece of hand baggage
+"subject to the capacity of the aircraft cabin" — with no free-of-charge wording. The same
+paragraph expressly preserves "commercially differentiated offers to passengers who
+voluntarily choose to travel without hand baggage". Recital 45 defers uniform minimum
+hand-baggage dimensions to a future review of Regulation (EC) No 1008/2008.
+
+**3. 40 × 30 × 15 is not a floor.** Article 2(ah) defines a personal item as unchecked
+baggage "either with maximum dimensions of 40 x 30 x 15 cm **or** on the condition that it
+fits under the seat in front". It is an alternative qualifying test. A carrier whose free
+bag is smaller than those dimensions is not thereby non-compliant — **which retires the
+Lufthansa Group finding entirely.** Lufthansa, Swiss and Austrian at 40 × 30 × 10 qualify
+through the under-seat limb.
+
+## What the regulation actually changes
+
+**The price display, not the bag.** Article 11a(1): "air fares including allowance for a
+piece of hand baggage shall be displayed by default before the start of any booking
+process." Carriers may still sell a cheaper no-trolley fare — but the trolley-inclusive
+price is what has to be shown first.
+
+Four EU/EEA carriers in this dataset sell a paid cabin trolley and must therefore change
+how their headline fare is displayed:
+
+| Carrier | Paid trolley product |
+|---|---|
+| **Ryanair** | Priority / paid overhead cabin bag, 55 × 40 × 20 |
+| **easyJet** | Large cabin bag, 56 × 45 × 25 |
+| **Wizz Air** | Priority trolley bag, 55 × 40 × 23 |
+| **Aer Lingus** | Cabin bag, Plus fare / Priority boarding, 55 × 40 × 24 |
+
+Spirit, Frontier and Allegiant also sell paid carry-ons, but the rule reaches them only on
+EU departures, which they do not generally operate. They are marked accordingly rather than
+counted.
+
+**Nobody in the dataset charges for the under-seat personal item today**, so the
+free-personal-item limb changes nothing for these 51 carriers. That is a finding in itself.
+
+## The story
+
+Most coverage reported that cabin bags become free in 2027. **The text does not say that.**
+It guarantees a free personal item — which essentially every carrier already provides — and
+otherwise regulates how the fare is *displayed*. Trolley dimensions are explicitly left
+unstandardised.
+
+That is the contrarian, checkable, primary-source story: *"You were told your cabin bag is
+free from 2027. Read Article 11a."* It is better than the version we had because it is
+verifiable in one click and almost nobody has written it.
+
+## Two labels not to misread
+
+- **"Not recorded in our data"** in the personal-item column is a gap in this dataset, not a
+  finding about the airline. 23 carriers, mostly full-service, record only a cabin bag in
+  our source. Most of them do allow a handbag as well. **Do not report it as non-compliance.**
+- **Prices.** The add-on price columns are empty by design. Fill them from the carriers' own
+  booking flows, or delete the columns before sending.
+
+## Before this goes to a journalist
+
+1. Spot-check five carriers against their own published terms. Twenty minutes.
+2. Fill or delete the price columns.
+3. Have the scope reading checked — Article 3 covers EU/EEA departures by any carrier, and
+   arrivals into the EU/EEA where the operator is a Union carrier. That is a plain reading,
+   not a legal opinion.
 
 ## Sheets
 
 | Sheet | What it is |
 |---|---|
-| Read me | Provenance, the rule as applied, verification status, scope caveat |
-| Summary by airline | One row per carrier — the at-a-glance view |
-| Every fare | All 112 products with the full working |
-| Paid products that shrink | The seven add-ons that survive, and by how much |
-| Below the floor | The nine free allowances that must increase |
-
-## Classification note
-
-A row whose code ends `__personal_item` is the free item bundled **inside** a fare, and it
-inherits its parent's label. An earlier version counted those as paid add-ons, which
-produced five phantom "products that become free" and double-counted the below-floor list
-at 18 instead of 9. They are now flagged and excluded from both analyses. If you extend
-this script, keep that distinction — it is the one place the data invites a wrong answer.
+| Read me | The source, what the act does and does not do, and the two labels above |
+| Summary by airline | One row per carrier |
+| Every fare | All 112 products with the article-by-article verdict |
+| Fare display must change | The four EU carriers, plus the three marked out of scope |

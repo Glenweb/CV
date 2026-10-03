@@ -1,52 +1,52 @@
-Airline,Region,In scope,Fare products listed,Best free allowance today,Free allowance meets the 40x30x15 floor,Free products below the floor,Paid products that become free,Paid products only partly superseded,Enforcement
-Ryanair,Europe,EU/EEA carrier,3,40 x 30 x 20,Yes,0,0,1,extreme
-easyJet,Europe,EU/EEA carrier,3,45 x 36 x 20,Yes,0,0,1,strict
-Wizz Air,Europe,EU/EEA carrier,3,40 x 30 x 20,Yes,0,0,1,very
-British Airways,Europe,EU/EEA carrier,2,56 x 45 x 25,Yes,0,0,0,moderate
-Lufthansa,Europe,EU/EEA carrier,3,40 x 30 x 10,NO,1,0,0,moderate
-Air France,Europe,EU/EEA carrier,3,40 x 30 x 15,Yes,0,0,0,moderate
-KLM,Europe,EU/EEA carrier,3,40 x 30 x 15,Yes,0,0,0,moderate
-Turkish Airlines,Europe,EU/EEA carrier,2,55 x 40 x 23,Yes,0,0,0,moderate
-Norwegian Air,Europe,EU/EEA carrier,3,25 x 33 x 20,NO,1,0,0,moderate
-Vueling,Europe,EU/EEA carrier,3,40 x 30 x 20,Yes,0,0,0,strict
-Iberia,Europe,EU/EEA carrier,3,35 x 20 x 20,NO,1,0,0,moderate
-SAS,Europe,EU/EEA carrier,3,37 x 28 x 15,NO,1,0,0,moderate
-Swiss International Air Lines,Europe,EU/EEA carrier,3,40 x 30 x 10,NO,1,0,0,moderate
-Austrian Airlines,Europe,EU/EEA carrier,3,40 x 30 x 10,NO,1,0,0,moderate
-TAP Air Portugal,Europe,EU/EEA carrier,3,40 x 30 x 15,Yes,0,0,0,moderate
-Finnair,Europe,EU/EEA carrier,3,40 x 30 x 15,Yes,0,0,0,moderate
-Aer Lingus,Europe,EU/EEA carrier,3,,NO,1,0,1,strict
-Jet2,Europe,EU/EEA carrier,1,56 x 45 x 25,Yes,0,0,0,moderate
-TUI Airways,Europe,EU/EEA carrier,1,55 x 40 x 20,Yes,0,0,0,moderate
-Delta Air Lines,North America,Non-EU carrier — EU departures only,2,56 x 36 x 23,Yes,0,0,0,moderate
-American Airlines,North America,Non-EU carrier — EU departures only,3,56 x 36 x 23,Yes,0,0,0,moderate
-United Airlines,North America,Non-EU carrier — EU departures only,3,56 x 35 x 23,NO,1,0,0,moderate
-Southwest Airlines,North America,Non-EU carrier — EU departures only,2,61 x 41 x 25,Yes,0,0,0,relaxed
-Spirit Airlines,North America,Non-EU carrier — EU departures only,3,45 x 35 x 20,Yes,0,0,1,extreme
-Frontier Airlines,North America,Non-EU carrier — EU departures only,3,46 x 36 x 20,Yes,0,0,1,extreme
-Allegiant Air,North America,Non-EU carrier — EU departures only,3,41 x 38 x 18,Yes,0,0,1,very
-JetBlue,North America,Non-EU carrier — EU departures only,3,56 x 36 x 23,Yes,0,0,0,moderate
-Alaska Airlines,North America,Non-EU carrier — EU departures only,2,56 x 36 x 23,Yes,0,0,0,moderate
-WestJet,North America,Non-EU carrier — EU departures only,3,55 x 39 x 23,Yes,0,0,0,moderate
-Air Canada,North America,Non-EU carrier — EU departures only,3,55 x 40 x 23,Yes,0,0,0,moderate
-Aeromexico,Latin America,Non-EU carrier — EU departures only,3,45 x 36 x 20,Yes,0,0,0,moderate
-LATAM Airlines,Latin America,Non-EU carrier — EU departures only,3,45 x 35 x 25,Yes,0,0,0,moderate
-Avianca,Latin America,Non-EU carrier — EU departures only,3,45 x 35 x 20,Yes,0,0,0,moderate
-Copa Airlines,Latin America,Non-EU carrier — EU departures only,2,56 x 35 x 23,Yes,0,0,0,moderate
-Emirates,Middle East,Non-EU carrier — EU departures only,1,,,0,0,0,moderate
-Qatar Airways,Middle East,Non-EU carrier — EU departures only,1,50 x 37 x 25,Yes,0,0,0,moderate
-Etihad Airways,Middle East,Non-EU carrier — EU departures only,1,56 x 36 x 23,Yes,0,0,0,moderate
-flydubai,Middle East,Non-EU carrier — EU departures only,2,,,0,0,0,strict
-Singapore Airlines,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 40 x 20,Yes,0,0,0,moderate
-Cathay Pacific,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 36 x 23,Yes,0,0,0,moderate
-Qantas,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 36 x 23,Yes,0,0,0,moderate
-Air New Zealand,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 36 x 23,Yes,0,0,0,moderate
-Japan Airlines (JAL),Asia Pacific,Non-EU carrier — EU departures only,1,55 x 40 x 25,Yes,0,0,0,moderate
-ANA (All Nippon Airways),Asia Pacific,Non-EU carrier — EU departures only,1,55 x 40 x 25,Yes,0,0,0,moderate
-Korean Air,Asia Pacific,Non-EU carrier — EU departures only,1,55 x 40 x 20,Yes,0,0,0,moderate
-AirAsia,Asia Pacific,Non-EU carrier — EU departures only,1,,,0,0,0,strict
-IndiGo,Asia Pacific,Non-EU carrier — EU departures only,1,55 x 35 x 25,Yes,0,0,0,strict
-Scoot,Asia Pacific,Non-EU carrier — EU departures only,3,35 x 25 x 15,NO,1,0,0,strict
-Air India,Asia Pacific,Non-EU carrier — EU departures only,1,55 x 35 x 25,Yes,0,0,0,moderate
-Thai Airways,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 45 x 25,Yes,0,0,0,moderate
-Malaysia Airlines,Asia Pacific,Non-EU carrier — EU departures only,1,56 x 36 x 23,Yes,0,0,0,moderate
+Airline,Region,In scope,Free personal item today,Under-seat size,Within 40x30x15,Paid trolley products,Must change fare display,Enforcement
+Ryanair,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 20,No — qualifies via the under-seat limb instead,1,YES,extreme
+easyJet,Europe,EU/EEA carrier,"Yes, on the entry fare",45 x 36 x 20,No — qualifies via the under-seat limb instead,1,YES,strict
+Wizz Air,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 20,No — qualifies via the under-seat limb instead,1,YES,very
+British Airways,Europe,EU/EEA carrier,Not recorded in our data,,,0,,moderate
+Lufthansa,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 10,Yes,0,,moderate
+Air France,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 15,Yes,0,,moderate
+KLM,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 15,Yes,0,,moderate
+Turkish Airlines,Europe,EU/EEA carrier,Not recorded in our data,,,0,,moderate
+Norwegian Air,Europe,EU/EEA carrier,"Yes, on the entry fare",25 x 33 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+Vueling,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 20,No — qualifies via the under-seat limb instead,0,,strict
+Iberia,Europe,EU/EEA carrier,"Yes, on the entry fare",35 x 20 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+SAS,Europe,EU/EEA carrier,"Yes, on the entry fare",37 x 28 x 15,Yes,0,,moderate
+Swiss International Air Lines,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 10,Yes,0,,moderate
+Austrian Airlines,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 10,Yes,0,,moderate
+TAP Air Portugal,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 15,Yes,0,,moderate
+Finnair,Europe,EU/EEA carrier,"Yes, on the entry fare",40 x 30 x 15,Yes,0,,moderate
+Aer Lingus,Europe,EU/EEA carrier,"Yes, on the entry fare",25 x 33 x 20,No — qualifies via the under-seat limb instead,1,YES,strict
+Jet2,Europe,EU/EEA carrier,Not recorded in our data,,,0,,moderate
+TUI Airways,Europe,EU/EEA carrier,Not recorded in our data,,,0,,moderate
+Delta Air Lines,North America,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+American Airlines,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",46 x 36 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+United Airlines,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",43 x 25 x 23,No — qualifies via the under-seat limb instead,0,,moderate
+Southwest Airlines,North America,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,relaxed
+Spirit Airlines,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",45 x 35 x 20,No — qualifies via the under-seat limb instead,1,Only if it operates EU departures,extreme
+Frontier Airlines,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",46 x 36 x 20,No — qualifies via the under-seat limb instead,1,Only if it operates EU departures,extreme
+Allegiant Air,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",41 x 38 x 18,No — qualifies via the under-seat limb instead,1,Only if it operates EU departures,very
+JetBlue,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",43 x 33 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+Alaska Airlines,North America,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+WestJet,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",41 x 15 x 33,No — qualifies via the under-seat limb instead,0,,moderate
+Air Canada,North America,Non-EU carrier — EU departures only,"Yes, on the entry fare",43 x 33 x 16,No — qualifies via the under-seat limb instead,0,,moderate
+Aeromexico,Latin America,Non-EU carrier — EU departures only,"Yes, on the entry fare",45 x 36 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+LATAM Airlines,Latin America,Non-EU carrier — EU departures only,"Yes, on the entry fare",45 x 35 x 25,No — qualifies via the under-seat limb instead,0,,moderate
+Avianca,Latin America,Non-EU carrier — EU departures only,"Yes, on the entry fare",45 x 35 x 20,No — qualifies via the under-seat limb instead,0,,moderate
+Copa Airlines,Latin America,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Emirates,Middle East,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Qatar Airways,Middle East,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Etihad Airways,Middle East,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+flydubai,Middle East,Non-EU carrier — EU departures only,"Yes, on the entry fare",55 x 38 x 20,No — qualifies via the under-seat limb instead,0,,strict
+Singapore Airlines,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Cathay Pacific,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Qantas,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Air New Zealand,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Japan Airlines (JAL),Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+ANA (All Nippon Airways),Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Korean Air,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+AirAsia,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,strict
+IndiGo,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,strict
+Scoot,Asia Pacific,Non-EU carrier — EU departures only,"Yes, on the entry fare",35 x 25 x 15,Yes,0,,strict
+Air India,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Thai Airways,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
+Malaysia Airlines,Asia Pacific,Non-EU carrier — EU departures only,Not recorded in our data,,,0,,moderate
