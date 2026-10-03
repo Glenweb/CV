@@ -1,0 +1,41 @@
+/* LFT — shared styles for the rewritten airline-status pages.
+   Load once (theme stylesheet or Customiser > Additional CSS). */
+
+.lft-status {
+  border-left: 4px solid #b42318;
+  background: #fef3f2;
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.75rem;
+  border-radius: 4px;
+}
+.lft-status p { margin: 0; }
+.lft-status--ceased strong:first-child { color: #b42318; }
+
+.lft-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.lft-table th,
+.lft-table td {
+  border: 1px solid #e4e7ec;
+  padding: 0.6rem 0.75rem;
+  text-align: left;
+  vertical-align: top;
+}
+.lft-table thead th {
+  background: #f9fafb;
+  font-weight: 600;
+}
+.lft-table tbody tr:nth-child(even) { background: #fcfcfd; }
+
+.lft-note {
+  font-size: 0.875rem;
+  color: #475467;
+}
+
+/* Tables are wide. Let them scroll rather than squash on mobile. */
+@media (max-width: 640px) {
+  .lft-table { display: block; overflow-x: auto; white-space: normal; }
+}
