@@ -16,16 +16,48 @@ OUT = os.path.join(HERE, 'out')
 os.makedirs(OUT, exist_ok=True)
 
 # ---------------------------------------------------------------- the rule
-# Sourced from reporting on the adopted regulation, NOT yet read against the
-# Official Journal text. Treat every figure here as pending verification.
+# Regulation (EU) 2026/2202 of 16 September 2026, amending Regulation (EC) 261/2004.
+#
+# VERIFICATION, 3 Oct 2026. The primary text was NOT read: eur-lex.europa.eu,
+# consilium.europa.eu and europarl.europa.eu are all blocked by this network's egress
+# policy. Everything below is triangulated from secondary reporting, graded per figure.
+#
+#   CONFIRMED (several independent sources agree)
+#     - Regulation number and date: (EU) 2026/2202, 16 September 2026
+#     - Parliament adopted 7 July 2026; Council final clearance 13 July 2026
+#     - Free personal item 40 x 30 x 15 cm, must fit under the seat in front
+#     - Application = OJ publication + 20 days + 12 months
+#     - Fares must be shown inclusive of hand baggage at the start of booking
+#
+#   CORROBORATED, ONE SOURCE DISSENTS
+#     - A larger cabin bag up to 100 cm combined and 7 kg included in the STANDARD FARE.
+#       Reporting of 1 Oct 2026 supports it; at least one outlet says the trolley is not
+#       universally free. Likely reconciliation: included by default, but airlines may
+#       sell a cheaper fare where the passenger waives it. See OPT_OUT below.
+#     - Application date 23 October 2027. Consistent with OJ publication ~3 Oct 2026.
+#
+#   NOT VERIFIED
+#     - The Official Journal publication date itself.
+#     - Any article text. Nothing here has been read against the regulation.
+#
+# Change a figure and the whole analysis re-derives.
 RULE = {
-    'personal_item_cm': (40, 30, 15),   # free, must fit under the seat
-    'cabin_linear_cm': 100,             # free, total of the three dimensions
-    'cabin_kg': 7,
-    'applies_from': '2027-10-23',       # expected; verify at source
-    'parliament': '2026-07-07',
-    'council': '2026-07-13',
+    'personal_item_cm': (40, 30, 15),   # CONFIRMED
+    'cabin_linear_cm': 100,             # CORROBORATED - one dissenting source
+    'cabin_kg': 7,                      # CORROBORATED - one dissenting source
+    'applies_from': '2027-10-23',       # CORROBORATED - derived from OJ + 20d + 12m
+    'parliament': '2026-07-07',         # CONFIRMED
+    'council': '2026-07-13',            # CONFIRMED
+    'regulation': 'Regulation (EU) 2026/2202 of 16 September 2026',
+    'oj_published': 'NOT VERIFIED',
 }
+
+# Airlines may reportedly still sell a cheaper fare to a passenger who gives up the
+# cabin bag. If so, these products are not abolished - they invert. The bag becomes the
+# default and the no-bag fare becomes the discount. That is the likelier commercial
+# outcome and the analysis says so rather than claiming the products disappear.
+OPT_OUT = True
+
 EU_PERSONAL_SORTED = sorted(RULE['personal_item_cm'], reverse=True)
 
 EEA_REGIONS = {'Europe'}
@@ -92,7 +124,8 @@ for a in db['airlines']:
                 verdict = 'Already within the free entitlement'
         else:
             if margin > 0:
-                verdict = 'Survives only for bags above the free entitlement'
+                verdict = ('Inverts — bag becomes the default fare, no-bag becomes the discount'
+                           if OPT_OUT else 'Survives only for bags above the free entitlement')
             elif kg is None:
                 verdict = 'Becomes free on size — no weight limit published, check'
             elif kg <= RULE['cabin_kg']:
@@ -130,7 +163,7 @@ for a in db['airlines']:
     best_free = max((r for r in free_rows if r['Linear cm'] != ''), key=lambda r: r['Linear cm'], default=None)
     below = [r for r in rows if r['What changes on 23 Oct 2027'].startswith('MUST INCREASE')]
     killed = [r for r in rows if r['What changes on 23 Oct 2027'].startswith('BECOMES FREE')]
-    shrunk = [r for r in rows if r['What changes on 23 Oct 2027'].startswith('Survives only')]
+    shrunk = [r for r in rows if r['What changes on 23 Oct 2027'].startswith(('Survives only', 'Inverts'))]
     summary.append({
         'Airline': a['name'],
         'Region': a.get('region') or '',
@@ -146,7 +179,7 @@ for a in db['airlines']:
 
 # ------------------------------------------------- the headline: what changes
 changes = [f for f in fares if f['What changes on 23 Oct 2027'].startswith('BECOMES FREE')]
-shrinks = [f for f in fares if f['What changes on 23 Oct 2027'].startswith('Survives only')]
+shrinks = [f for f in fares if f['What changes on 23 Oct 2027'].startswith(('Survives only', 'Inverts'))]
 below_floor = [f for f in fares if f['What changes on 23 Oct 2027'].startswith('MUST INCREASE')]
 
 def write_csv(name, rows):
@@ -215,16 +248,30 @@ readme = [
     ('incoming EU entitlement. Most reporting so far has covered the rule. This covers what it costs', 11, False),
     ('each airline to comply, fare by fare.', 11, False),
     ('', 10, False),
+    ('THE ACT', 12, True),
+    (RULE['regulation'] + ' — amending Regulation (EC) 261/2004', 11, False),
+    ('Parliament %s · Council %s' % (RULE['parliament'], RULE['council']), 11, False),
+    ('', 10, False),
     ('THE RULE, AS USED IN THIS ANALYSIS', 12, True),
     ('Free personal item: %d x %d x %d cm, under the seat' % RULE['personal_item_cm'], 11, False),
     ('Free cabin bag: %d cm total of the three dimensions, %d kg' % (RULE['cabin_linear_cm'], RULE['cabin_kg']), 11, False),
     ('Fares must be shown inclusive of hand baggage at the start of booking', 11, False),
-    ('Parliament %s · Council %s · application expected %s' % (RULE['parliament'], RULE['council'], RULE['applies_from']), 11, False),
+    ('Applies from %s (= OJ publication + 20 days + 12 months)' % RULE['applies_from'], 11, False),
+    ('Airlines may still sell a cheaper fare to a passenger who waives the cabin bag.', 11, False),
     ('', 10, False),
     ('VERIFICATION STATUS — READ BEFORE PUBLISHING', 12, True),
     ('The allowance data is taken from each airline\'s published terms and is the basis of a live', 11, False),
-    ('public tool. The REGULATION figures above are from reporting on the adopted text and have NOT', 11, False),
-    ('been read against the Official Journal. Verify them at source before printing.', 11, False),
+    ('public tool. The REGULATION figures are graded, because the primary text could not be read:', 11, False),
+    ('', 10, False),
+    ('CONFIRMED by several independent sources:', 11, True),
+    ('  the regulation number and date; Parliament 7 Jul and Council 13 Jul 2026; the free personal', 11, False),
+    ('  item at 40 x 30 x 15 cm; application = OJ publication + 20 days + 12 months; and the', 11, False),
+    ('  requirement to display fares inclusive of hand baggage.', 11, False),
+    ('CORROBORATED, but one outlet dissents:', 11, True),
+    ('  the 100 cm / 7 kg cabin bag included in the standard fare, and the 23 Oct 2027 date.', 11, False),
+    ('NOT VERIFIED:', 11, True),
+    ('  the Official Journal publication date, and any article text. Nothing here has been read', 11, False),
+    ('  against the regulation itself. Do that before printing any of it.', 11, False),
     ('', 10, False),
     ('SCOPE — the honest caveat', 12, True),
     ('EU/EEA carriers are treated as in scope. Non-EU carriers are marked as in scope on EU', 11, False),

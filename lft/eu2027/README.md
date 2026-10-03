@@ -16,8 +16,9 @@ dict and the entire analysis re-derives.
 The working assumption was "the N fare types that stop existing on 23 October 2027". **That
 story is wrong.** On the published data:
 
-**No paid cabin-bag product is abolished.** All seven survive, because every one of them
-allows a bag larger than the 100cm free entitlement:
+**No paid cabin-bag product is abolished.** All seven allow a bag larger than the 100cm
+entitlement, and if the opt-out is real they do not disappear at all — they **invert**. The
+bag becomes the default and the no-bag fare becomes the discount:
 
 | Airline | Paid product | Over the free entitlement by |
 |---|---|---|
@@ -29,10 +30,12 @@ allows a bag larger than the 100cm free entitlement:
 | Spirit | Paid carry-on (56×46×25) | +27cm |
 | Frontier | Paid carry-on (61×41×25, 15.9kg) | +27cm |
 
-What actually happens is that these products **shrink to covering only the band above
-100cm**. A passenger whose bag fits the free entitlement stops needing to buy one. That is a
-more defensible finding than "they disappear", and more interesting, because it tells you
-what the airlines will do next: reprice and resize, not withdraw.
+Two things follow. A passenger whose bag fits the entitlement stops needing to buy an
+add-on, so the product only earns its keep on the band above 100cm. And because airlines may
+still sell a cheaper no-bag fare, the commercial move is not to withdraw these products but
+to flip them: price the bag into the headline fare and sell the discount for going without.
+That is a more defensible finding than "they disappear", and a more interesting one, because
+it predicts what the airlines actually do next.
 
 **Nine carriers must increase a free allowance.** This is the harder-edged finding:
 
@@ -61,11 +64,43 @@ centimetre more generous than the entitlement it is about to be measured against
 nothing has been estimated, and a journalist who finds one invented number discards the
 whole dataset. Fill them from the airlines' own booking flows before sending.
 
+## Verification status, 3 Oct 2026
+
+The act is **Regulation (EU) 2026/2202 of 16 September 2026**, amending Regulation (EC)
+261/2004.
+
+**The primary text has not been read.** `eur-lex.europa.eu`, `consilium.europa.eu` and
+`europarl.europa.eu` are all blocked by this network's egress policy, as are most of the
+news sites carrying the detail. Everything below is triangulated from search results and is
+graded per figure in `RULE` at the top of `build.py`.
+
+| Figure | Status |
+|---|---|
+| Regulation number and date | **Confirmed** — several sources |
+| Parliament 7 Jul 2026, Council 13 Jul 2026 | **Confirmed** |
+| Free personal item 40 × 30 × 15 cm, under the seat | **Confirmed** |
+| Application = OJ publication + 20 days + 12 months | **Confirmed** |
+| Fares shown inclusive of hand baggage at booking | **Confirmed** |
+| Cabin bag 100 cm combined / 7 kg in the standard fare | **Corroborated, one outlet dissents** |
+| Applies from 23 October 2027 | **Corroborated** — consistent with OJ publication ~3 Oct 2026 |
+| The Official Journal publication date | **Not verified** |
+
+**The one that matters.** At least one outlet says the reform does not make the trolley
+universally free and airlines may still charge for anything that will not fit under the
+seat. Recent reporting says the opposite — 100 cm / 7 kg included in the standard fare. The
+likely reconciliation is that it is included **by default**, with airlines free to sell a
+cheaper fare to a passenger who waives it. The dataset assumes that, and the verdicts say
+"inverts" rather than "abolished" as a result.
+
+**Someone on an unblocked connection needs to open EUR-Lex and read Regulation (EU)
+2026/2202.** Twenty minutes. Until then this is well-sourced secondary reporting, not law,
+and it must not be described to a journalist as verified.
+
 ## Before this goes to anyone
 
-1. **Verify the regulation figures against the Official Journal.** They come from reporting
-   on the adopted text, not from the text. They are the spine of every computed column.
-2. **Verify the 23 October 2027 application date** at source.
+1. **Read Regulation (EU) 2026/2202 on EUR-Lex** and confirm the baggage article, the
+   100 cm / 7 kg figures, and the opt-out.
+2. **Get the Official Journal publication date**, which fixes the application date exactly.
 3. **Get the scope reading checked.** EU/EEA carriers are treated as in scope; non-EU
    carriers are marked in scope on EU departures only. That is a plain reading, not a legal
    opinion.
