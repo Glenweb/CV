@@ -45,7 +45,7 @@ All three verified in the tool source.
 | 5 | ryanair cabin bag size | GSC: 1,974 impressions at 9.26, plus 1,454 at 21.75 |
 | 6 | easyjet cabin bag size | GSC: 1,883 impressions, position 31.28 |
 | 7 | how strict are airlines about carry-on size | GSC: 766 impressions, position 7.62 — a pure video query already on page one |
-| 8 | EU free hand luggage 2027 / 40×30×15 | EP Transport Committee voted to mandate a free personal item (40×30×15) and small cabin bag from 2027; still needs member-state approval. Near-zero competition, no LFT page yet. |
+| 8 | EU free hand luggage 2027 / 40×30×15 | **Adopted law**, not a proposal: Parliament 7 Jul 2026, Council 13 Jul 2026. Free personal item 40×30×15 under the seat plus a cabin bag to 100cm linear / 7kg, and fares must display hand-baggage-inclusive pricing. Application expected 23 Oct 2027 — verify at source before filming. Near-zero competition, no LFT page yet. |
 
 **The strategic read:** roughly 27,000 monthly impressions across LFT's airline pages
 converting to about 17 clicks. The checker should be harvesting that demand and is currently

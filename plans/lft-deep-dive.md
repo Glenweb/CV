@@ -92,8 +92,13 @@ Ryanair?" is unanswerable. There is no Ryanair carry-on size. There are four. Ev
 competitor answering the one-airline-one-number version is giving people a confidently wrong
 answer, and the person finds out at the gate.
 
-**2. The competitors can't easily follow.** KAYAK and Momondo both ship bag-size tools, both
-built around **AR camera measurement inside an app**. That tells you what they optimise for:
+**2. The competitors probably can't easily follow — but check before claiming it.** KAYAK's
+tool is AR camera measurement in an iOS-only app (2018). **Momondo also has a web page at
+`momondo.com/discover/carry-on-checker`**, so "they're app-only" is wrong as stated. Whether
+Momondo is *fare-aware* is unverified — nobody has been able to open it from here. Until
+someone does, keep the exclusivity claim out of scripts and say "fare-aware" rather than
+"the only fare-aware". The wedge survives either way; the superlative is what's at risk.
+What is clear is the incentive: both are built around That tells you what they optimise for:
 measurement accuracy as a feature demo, inside a product whose business is flight booking.
 Fare-level allowance data is a maintenance treadmill — 51 airlines changing policy
 independently — with no booking revenue attached. It's a cost centre for them and the core

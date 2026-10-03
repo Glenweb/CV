@@ -11,7 +11,6 @@
     "easyjet",
     "wizz-air",
     "frontier-airlines",
-    "spirit-airlines",
     "british-airways"
   ],
   "airlines": [
@@ -45,7 +44,7 @@
         },
         {
           "code": "priority_cabin__personal_item",
-          "label": "Priority / paid overhead cabin bag — included personal item",
+          "label": "Priority / paid overhead cabin bag \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -85,7 +84,7 @@
         },
         {
           "code": "large_cabin__personal_item",
-          "label": "Large cabin bag (eligible fares / upgrade) — included personal item",
+          "label": "Large cabin bag (eligible fares / upgrade) \u2014 included personal item",
           "cm": [
             45,
             36,
@@ -125,7 +124,7 @@
         },
         {
           "code": "priority_trolley__personal_item",
-          "label": "WIZZ Priority trolley bag — included personal item",
+          "label": "WIZZ Priority trolley bag \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -155,7 +154,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Cabin bag + hand bag (all fares) — included personal item",
+          "label": "Cabin bag + hand bag (all fares) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -195,7 +194,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Economy Classic and above) — included personal item",
+          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -235,7 +234,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Classic and above) — included personal item",
+          "label": "Cabin bag (Classic and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -275,7 +274,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Standard and above) — included personal item",
+          "label": "Cabin bag (Standard and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -305,7 +304,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Cabin bag included — included personal item",
+          "label": "Cabin bag included \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -345,7 +344,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (LowFare+ and above) — included personal item",
+          "label": "Cabin bag (LowFare+ and above) \u2014 included personal item",
           "cm": [
             25,
             33,
@@ -365,7 +364,7 @@
       "allowances": [
         {
           "code": "small_bag",
-          "label": "Small under-seat bag (Básico fare)",
+          "label": "Small under-seat bag (B\u00e1sico fare)",
           "cm": [
             40,
             30,
@@ -385,7 +384,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Optima / TimeFlex) — included personal item",
+          "label": "Cabin bag (Optima / TimeFlex) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -405,7 +404,7 @@
       "allowances": [
         {
           "code": "personal_item",
-          "label": "Personal item only (Básico fare)",
+          "label": "Personal item only (B\u00e1sico fare)",
           "cm": [
             35,
             20,
@@ -415,7 +414,7 @@
         },
         {
           "code": "cabin_bag",
-          "label": "Cabin bag (Clásico and above)",
+          "label": "Cabin bag (Cl\u00e1sico and above)",
           "cm": [
             56,
             40,
@@ -425,7 +424,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Clásico and above) — included personal item",
+          "label": "Cabin bag (Cl\u00e1sico and above) \u2014 included personal item",
           "cm": [
             35,
             20,
@@ -465,7 +464,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (SAS Go and above) — included personal item",
+          "label": "Cabin bag (SAS Go and above) \u2014 included personal item",
           "cm": [
             37,
             28,
@@ -505,7 +504,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Classic and above) — included personal item",
+          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -545,7 +544,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Classic and above) — included personal item",
+          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -585,7 +584,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Basic and above) — included personal item",
+          "label": "Cabin bag (Basic and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -625,7 +624,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Light and above) — included personal item",
+          "label": "Cabin bag (Light and above) \u2014 included personal item",
           "cm": [
             40,
             30,
@@ -665,7 +664,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Plus fare / Priority boarding) — included personal item",
+          "label": "Cabin bag (Plus fare / Priority boarding) \u2014 included personal item",
           "cm": [
             25,
             33,
@@ -735,7 +734,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             46,
             36,
@@ -775,7 +774,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             46,
             36,
@@ -815,7 +814,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             43,
             25,
@@ -845,7 +844,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             47,
             22,
@@ -885,7 +884,7 @@
         },
         {
           "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag — included personal item",
+          "label": "Paid carry-on bag \u2014 included personal item",
           "cm": [
             45,
             35,
@@ -925,7 +924,7 @@
         },
         {
           "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag — included personal item",
+          "label": "Paid carry-on bag \u2014 included personal item",
           "cm": [
             46,
             36,
@@ -965,7 +964,7 @@
         },
         {
           "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag — included personal item",
+          "label": "Paid carry-on bag \u2014 included personal item",
           "cm": [
             41,
             38,
@@ -1005,7 +1004,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included (Blue and above) — included personal item",
+          "label": "Carry-on included (Blue and above) \u2014 included personal item",
           "cm": [
             43,
             33,
@@ -1035,7 +1034,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             43,
             33,
@@ -1075,7 +1074,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Carry-on included (Econo and above) — included personal item",
+          "label": "Carry-on included (Econo and above) \u2014 included personal item",
           "cm": [
             41,
             15,
@@ -1115,7 +1114,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Carry-on included (Standard and above) — included personal item",
+          "label": "Carry-on included (Standard and above) \u2014 included personal item",
           "cm": [
             43,
             33,
@@ -1155,7 +1154,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (AM Choice and above) — included personal item",
+          "label": "Cabin bag (AM Choice and above) \u2014 included personal item",
           "cm": [
             45,
             36,
@@ -1195,7 +1194,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Light and above) — included personal item",
+          "label": "Cabin bag (Economy Light and above) \u2014 included personal item",
           "cm": [
             45,
             35,
@@ -1225,7 +1224,7 @@
         },
         {
           "code": "cabin_bag",
-          "label": "Cabin bag (Básico and above)",
+          "label": "Cabin bag (B\u00e1sico and above)",
           "cm": [
             55,
             35,
@@ -1235,7 +1234,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Básico and above) — included personal item",
+          "label": "Cabin bag (B\u00e1sico and above) \u2014 included personal item",
           "cm": [
             45,
             35,
@@ -1265,7 +1264,7 @@
         },
         {
           "code": "standard_cabin__personal_item",
-          "label": "Carry-on included — included personal item",
+          "label": "Carry-on included \u2014 included personal item",
           "cm": [
             45,
             35,
@@ -1575,7 +1574,7 @@
         },
         {
           "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (FlyBag / FlyBagEat) — included personal item",
+          "label": "Cabin bag (FlyBag / FlyBagEat) \u2014 included personal item",
           "cm": [
             35,
             25,
@@ -1645,5 +1644,9 @@
         }
       ]
     }
+  ],
+  "notes": [
+    "Spirit Airlines ceased operations 2 May 2026. It is still present in the checker's data and so in this file. Removing it is a product decision, not a watcher decision - but it should not be on the tier-1 watch list.",
+    "No source URLs are populated yet. The watcher only checks airlines that have one, so this is the gating task."
   ]
 }
