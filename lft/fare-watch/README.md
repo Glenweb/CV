@@ -75,6 +75,20 @@ they change independently of the fare they're attached to). Re-importing preserv
 only checks airlines that have one, so this is the gating task — about an hour to paste in
 51 official baggage-page URLs, and nothing automated runs until it's done.
 
+## Dead carriers are a trust problem too
+
+The watcher checks whether a published dimension still matches the airline's page. It does
+not check whether the airline still exists.
+
+**Spirit Airlines ceased operations on 2 May 2026** (verified 3 Oct 2026 against NPR, CNN,
+CNBC and Flightradar24) and is **still live in the checker**, returning carry-on verdicts
+for an airline that does not fly. It is flagged `status: ceased_operations` in
+`airlines.json`; removing or relabelling it in the tool is a product decision.
+
+Add a liveness check to the quarterly audit: for each carrier, is it still operating? It is
+a slower-moving question than dimensions, but getting it wrong is worse — a wrong dimension
+costs someone £75, a dead airline makes the whole tool look unmaintained.
+
 ## What this does not cover
 
 - **JS-rendered pages.** If an airline renders its limits client-side, the fetch sees

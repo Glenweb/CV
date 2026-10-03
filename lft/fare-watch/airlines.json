@@ -892,7 +892,10 @@
           ],
           "kg": null
         }
-      ]
+      ],
+      "status": "ceased_operations",
+      "ceasedOn": "2026-05-02",
+      "statusNote": "Ceased operations 2 May 2026 after two Chapter 11 filings. Verified 3 Oct 2026 against NPR, CNN, CNBC and Flightradar24. Still present in the live checker, which therefore publishes current allowances for an airline that does not fly."
     },
     {
       "key": "frontier-airlines",
@@ -1646,7 +1649,7 @@
     }
   ],
   "notes": [
-    "Spirit Airlines ceased operations 2 May 2026. It is still present in the checker's data and so in this file. Removing it is a product decision, not a watcher decision - but it should not be on the tier-1 watch list.",
+    "Spirit Airlines ceased operations 2 May 2026 (verified). It is flagged status=ceased_operations here but is STILL LIVE in the checker - a product fix, not a watcher fix.",
     "No source URLs are populated yet. The watcher only checks airlines that have one, so this is the gating task."
   ]
 }
