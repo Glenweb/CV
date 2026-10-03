@@ -1,0 +1,67 @@
+/* LFT checker opt-in block.
+   Neutral by design — override the custom properties to match the site.
+   No fixed/sticky positioning, no overlay: this is never an interstitial. */
+#lft-optin {
+  --lft-accent: #0F766E;
+  --lft-accent-ink: #FFFFFF;
+  --lft-ink: #10221C;
+  --lft-muted: #5A7169;
+  --lft-surface: #F2FAF7;
+  --lft-line: #CDE6DD;
+  --lft-error: #B42318;
+
+  margin: 24px 0;
+  padding: 24px;
+  background: var(--lft-surface);
+  border: 1px solid var(--lft-line);
+  border-radius: 12px;
+  color: var(--lft-ink);
+  font-size: 16px;
+  line-height: 1.55;
+}
+#lft-optin h3 { margin: 0 0 8px; font-size: 1.25rem; line-height: 1.25; }
+#lft-optin .lft-optin-body { margin: 0 0 16px; color: var(--lft-muted); }
+#lft-optin label[for="lft-optin-email"] {
+  display: block; font-weight: 600; font-size: .9rem; margin-bottom: 6px;
+}
+#lft-optin .lft-optin-row { display: flex; flex-wrap: wrap; gap: 10px; }
+#lft-optin input[type="email"] {
+  flex: 1 1 220px; min-width: 0; min-height: 48px;
+  padding: 12px 14px; font: inherit; color: inherit;
+  background: #fff; border: 1px solid var(--lft-line); border-radius: 8px;
+}
+#lft-optin input[type="email"]:focus-visible,
+#lft-optin button:focus-visible,
+#lft-optin input[type="checkbox"]:focus-visible {
+  outline: 3px solid var(--lft-accent); outline-offset: 2px;
+}
+#lft-optin button {
+  min-height: 48px; padding: 12px 22px;
+  font: inherit; font-weight: 700; cursor: pointer;
+  color: var(--lft-accent-ink); background: var(--lft-accent);
+  border: 0; border-radius: 8px;
+}
+#lft-optin button[disabled] { opacity: .6; cursor: default; }
+#lft-optin .lft-optin-consent {
+  display: flex; gap: 10px; align-items: flex-start;
+  margin: 14px 0 0; font-size: .9rem;
+}
+#lft-optin .lft-optin-consent input {
+  width: 20px; height: 20px; margin: 2px 0 0; flex: none;
+}
+#lft-optin .lft-optin-legal { margin: 12px 0 0; font-size: .8rem; color: var(--lft-muted); }
+#lft-optin .lft-optin-legal a { color: inherit; }
+#lft-optin .lft-optin-msg:empty { display: none; }
+#lft-optin .lft-optin-msg { margin: 12px 0 0; font-size: .9rem; }
+#lft-optin .lft-optin-msg.is-error { color: var(--lft-error); font-weight: 600; }
+#lft-optin .lft-optin-done { margin: 0; font-weight: 600; }
+
+@media (prefers-color-scheme: dark) {
+  #lft-optin:not([data-theme="light"]) {
+    --lft-ink: #E9F6F1; --lft-muted: #93B3A9;
+    --lft-surface: #0E1E1A; --lft-line: #1F3E36;
+    --lft-accent: #2DD4BF; --lft-accent-ink: #06201B;
+    --lft-error: #FF8A80;
+  }
+  #lft-optin:not([data-theme="light"]) input[type="email"] { background: #0A1714; color: inherit; }
+}

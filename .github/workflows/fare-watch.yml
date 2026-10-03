@@ -1,0 +1,62 @@
+name: Fare watch
+
+# Daily at 06:12 UTC. Off the hour on purpose — scheduled runners queue badly at :00.
+on:
+  schedule:
+    - cron: '12 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Check published limits against each airline's own page
+        id: watch
+        run: |
+          set +e
+          node lft/fare-watch/watch.mjs --json report.json > report.md
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+          cat report.md
+
+      - name: Publish the report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fare-watch-report
+          path: |
+            report.md
+            report.json
+
+      # Only opens an issue when something needs a human. A clean run is silent.
+      - name: Raise a review issue
+        if: steps.watch.outputs.status == '1'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const body = fs.readFileSync('report.md', 'utf8');
+            const title = `Fare watch — review needed (${new Date().toISOString().slice(0,10)})`;
+            const { data: open } = await github.rest.issues.listForRepo({
+              owner: context.repo.owner, repo: context.repo.repo,
+              state: 'open', labels: 'fare-watch'
+            });
+            if (open.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner, repo: context.repo.repo,
+                issue_number: open[0].number, body
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner, repo: context.repo.repo,
+                title, body, labels: ['fare-watch']
+              });
+            }
