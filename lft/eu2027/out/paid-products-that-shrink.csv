@@ -1,0 +1,8 @@
+Airline,Region,In scope,Fare / product,Code,Free or paid (derived),Max cm,Linear cm,Weight kg,Meets the free 40x30x15 floor,cm vs the free 100cm entitlement,What changes on 23 Oct 2027,Under-seat / personal item,Bundled into a paid fare,Current add-on price (GBP),Price source URL,Enforcement
+Ryanair,Europe,EU/EEA carrier,Priority / paid overhead cabin bag,priority_cabin,Paid / fare-gated,55 x 40 x 20,115,10,Yes,+15,Survives only for bags above the free entitlement,,,,,extreme
+easyJet,Europe,EU/EEA carrier,Large cabin bag (eligible fares / upgrade),large_cabin,Paid / fare-gated,56 x 45 x 25,126,15,Yes,+26,Survives only for bags above the free entitlement,,,,,strict
+Wizz Air,Europe,EU/EEA carrier,WIZZ Priority trolley bag,priority_trolley,Paid / fare-gated,55 x 40 x 23,118,10,Yes,+18,Survives only for bags above the free entitlement,,,,,very
+Aer Lingus,Europe,EU/EEA carrier,Cabin bag (Plus fare / Priority boarding),cabin_bag,Paid / fare-gated,55 x 40 x 24,119,10,Yes,+19,Survives only for bags above the free entitlement,,,,,strict
+Spirit Airlines,North America,Non-EU carrier — EU departures only,Paid carry-on bag,paid_carry_on,Paid / fare-gated,56 x 46 x 25,127,,Yes,+27,Survives only for bags above the free entitlement,,,,,extreme
+Frontier Airlines,North America,Non-EU carrier — EU departures only,Paid carry-on bag,paid_carry_on,Paid / fare-gated,61 x 41 x 25,127,15.9,Yes,+27,Survives only for bags above the free entitlement,,,,,extreme
+Allegiant Air,North America,Non-EU carrier — EU departures only,Paid carry-on bag,paid_carry_on,Paid / fare-gated,56 x 36 x 23,115,,Yes,+15,Survives only for bags above the free entitlement,,,,,very
