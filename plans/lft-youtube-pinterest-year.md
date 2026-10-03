@@ -166,7 +166,8 @@ Week 1, in order:
    within ~24 hours.
 5. Roll featured images to all 122 over months 1–3, ten a week, as background work.
 
-This is a content edit, not a publish, so the 28 Aug publishing freeze doesn't block it.
+Nothing blocks this: it is a content edit rather than a publish, and the 28 Aug publishing
+freeze was lifted on 3 Oct 2026.
 
 ### Eight boards
 
@@ -245,7 +246,7 @@ ahead: evergreen pillars 90+ days out, variants 60–30, peak push in the last 2
 4. Fix the `og:description` bug: `/best-carry-on-luggage-american-airlines/` currently emits
    *"Last updated: April 2026 | Verified against…"* as its description. Audit all 15.
 5. Kit landing pages live before the Printable Travel Sheets board activates. These sit on
-   Kit's domain, outside the publishing freeze — which is why months 1–3 can run at speed.
+   Kit's domain, so they were never gated by the freeze in any case.
 6. Checker instrumentation, in preview mode first.
 
 ## 4. Production — 3.5 hours a week
@@ -304,9 +305,12 @@ question is product, not distribution.
 
 ## Decisions needed before month 1
 
-1. **Is the 28 Aug publishing freeze still on?** The plan survives it except for
-   `/eu-hand-luggage-rules-2027/`, which L2 needs in month 1. Lift it for that one page or
-   L2 ships with no embed target.
+1. ~~**Is the 28 Aug publishing freeze still on?**~~ **Resolved 3 Oct 2026 — lifted.**
+   The 12-month GSC pull showed the collapse happened on 25 March, three weeks before the
+   28 Aug analysis window opens, so the mass-publication hypothesis the freeze rested on
+   does not hold. `/eu-hand-luggage-rules-2027/` is cleared to publish and is the first
+   page out. See `LFT — publishing freeze LIFTED (3 Oct 2026)` in Drive, and publish on a
+   metered schedule rather than releasing all 29 staged posts at once.
 2. **Rebrand World Travel Breaks, or start fresh?** Decision rule above; needs the sub count.
 3. **Sign-off to deploy the checker instrumentation.** Preview mode de-risks it.
 4. **The hotel content** — 28% of impressions, 0 clicks, positions 76–93. It dilutes the

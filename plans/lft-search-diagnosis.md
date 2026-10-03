@@ -117,6 +117,19 @@ The 25 March cliff needs a cause. In order:
    crawl while GSC shows it ranking, and several post-result recommendation links point at 301
    sources. That's not the cause of a March cliff, but it is bleeding whatever is left.
 
+## Consequence for the August publishing freeze
+
+The 28 Aug consolidation doc froze publishing on the hypothesis that 60 posts in July and
+August caused the decline. **That window opens on 15 April — three weeks after the cliff.**
+Its monthly impression totals match this pull to the unit (Apr 209, May 414, Jun 477, Jul
+450), so it read the data correctly and attributed it to the wrong cause, because the event
+it was explaining had already happened. **The freeze was lifted on 3 Oct 2026.**
+
+What survives from that document unchanged: zero external backlinks as the authority
+ceiling, the 34 `/uncategorized/` duplicates still worth removing, "crawled — currently not
+indexed" on all 19 triage rows, and the hotel-content decision. Lifting the freeze stops
+withholding; it does not unlock traffic.
+
 ## What this means for the strategy — and it's not a small change
 
 The plan I gave you treated SEO as the base and YouTube, Pinterest and email as
