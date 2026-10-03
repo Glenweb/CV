@@ -198,8 +198,8 @@ always LFT or Kit URLs; Amazon links live on-page only.
 
 UTM on every pin: `?utm_source=pinterest&utm_medium=social&utm_campaign=<board>&utm_content=<pin>`.
 Pinterest's click count and GA4 will never agree; GA4 is the number that counts.
-**Pinterest links are `nofollow`** — no authority movement. The site has zero external
-backlinks and Pinterest will not change that.
+**Pinterest links are `nofollow`** — no authority movement. The site has 3 genuine
+editorial backlinks (see `lft-backlink-audit.md`) and Pinterest will not change that.
 
 ### Volume
 
@@ -295,9 +295,10 @@ talking-head long-form and Idea Pins.
 **Month 12 (30 Sep 27) — "is this the business?"** **Non-Google sessions as a share of
 total** is the number that decides whether the year worked; target majority. Also: list size
 and opt-in split, monetised action rate trended, branded search month 1 vs 12, and
-**referring domains — currently zero**. If the checker has earned even a handful through its
-embed generator, that is the authority ceiling moving for the first time and the most
-valuable outcome of the year.
+**editorial referring domains — currently 3**. Count editorial domains, not raw referring
+domains: the profile carries 254, of which 185 are SEO-checker spam that arrived in
+September. If the checker has earned even a handful through its embed generator, that is the
+authority ceiling moving for the first time and the most valuable outcome of the year.
 
 *Kill at month 12:* if neither channel shows sustained month-on-month growth in sessions and
 opt-ins across months 6–12, the problem is the offer, not the channels — and the next

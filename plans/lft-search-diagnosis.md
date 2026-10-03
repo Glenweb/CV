@@ -125,8 +125,8 @@ Its monthly impression totals match this pull to the unit (Apr 209, May 414, Jun
 450), so it read the data correctly and attributed it to the wrong cause, because the event
 it was explaining had already happened. **The freeze was lifted on 3 Oct 2026.**
 
-What survives from that document unchanged: zero external backlinks as the authority
-ceiling, the 34 `/uncategorized/` duplicates still worth removing, "crawled — currently not
+What survives from that document unchanged: an authority ceiling (3 genuine editorial
+backlinks - see `lft-backlink-audit.md`; the earlier "zero" was wrong), the 34 `/uncategorized/` duplicates still worth removing, "crawled — currently not
 indexed" on all 19 triage rows, and the hotel-content decision. Lifting the freeze stops
 withholding; it does not unlock traffic.
 
