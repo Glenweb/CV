@@ -19,8 +19,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "https://example.invalid/ryanair",
-   "last_verified": "2026-10-01"
+   "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Ryanair",
@@ -35,8 +35,8 @@
    "width_cm": 40,
    "height_cm": 20,
    "weight_kg": 10,
-   "source": "https://example.invalid/ryanair",
-   "last_verified": "2026-10-01"
+   "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Ryanair",
@@ -51,8 +51,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "https://example.invalid/ryanair",
-   "last_verified": "2026-10-01"
+   "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "easyJet",
@@ -67,8 +67,8 @@
    "width_cm": 36,
    "height_cm": 20,
    "weight_kg": 15,
-   "source": "https://example.invalid/easyjet",
-   "last_verified": "2026-10-01"
+   "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "easyJet",
@@ -83,8 +83,8 @@
    "width_cm": 45,
    "height_cm": 25,
    "weight_kg": 15,
-   "source": "https://example.invalid/easyjet",
-   "last_verified": "2026-10-01"
+   "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "easyJet",
@@ -99,8 +99,8 @@
    "width_cm": 36,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "https://example.invalid/easyjet",
-   "last_verified": "2026-10-01"
+   "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Wizz Air",
@@ -115,8 +115,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Wizz Air",
@@ -131,8 +131,8 @@
    "width_cm": 40,
    "height_cm": 23,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Wizz Air",
@@ -147,8 +147,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "British Airways",
@@ -419,8 +419,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Vueling",
@@ -435,8 +435,8 @@
    "width_cm": 40,
    "height_cm": 20,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Vueling",
@@ -451,8 +451,8 @@
    "width_cm": 30,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Iberia",
@@ -755,8 +755,8 @@
    "width_cm": 33,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Aer Lingus",
@@ -771,8 +771,8 @@
    "width_cm": 40,
    "height_cm": 24,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Aer Lingus",
@@ -787,8 +787,8 @@
    "width_cm": 33,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Jet2",
@@ -1043,8 +1043,8 @@
    "width_cm": 36,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Frontier Airlines",
@@ -1059,8 +1059,8 @@
    "width_cm": 41,
    "height_cm": 25,
    "weight_kg": 15.9,
-   "source": "",
-   "last_verified": ""
+   "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Frontier Airlines",
@@ -1075,8 +1075,8 @@
    "width_cm": 36,
    "height_cm": 20,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Allegiant Air",
@@ -1091,8 +1091,8 @@
    "width_cm": 38,
    "height_cm": 18,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.allegiantair.com/baggage-1",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Allegiant Air",
@@ -1107,8 +1107,8 @@
    "width_cm": 36,
    "height_cm": 23,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.allegiantair.com/baggage-1",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Allegiant Air",
@@ -1123,8 +1123,8 @@
    "width_cm": 38,
    "height_cm": 18,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.allegiantair.com/baggage-1",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "JetBlue",
@@ -1539,8 +1539,8 @@
    "width_cm": 38,
    "height_cm": 20,
    "weight_kg": 7,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "flydubai",
@@ -1555,8 +1555,8 @@
    "width_cm": 38,
    "height_cm": 20,
    "weight_kg": 7,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Singapore Airlines",
@@ -1683,8 +1683,8 @@
    "width_cm": 36,
    "height_cm": 23,
    "weight_kg": 7,
-   "source": "",
-   "last_verified": ""
+   "source": "https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "IndiGo",
@@ -1699,8 +1699,8 @@
    "width_cm": 35,
    "height_cm": 25,
    "weight_kg": 7,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.goindigo.in/baggage/cabin-baggage.html",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Scoot",
@@ -1715,8 +1715,8 @@
    "width_cm": 25,
    "height_cm": 15,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Scoot",
@@ -1731,8 +1731,8 @@
    "width_cm": 38,
    "height_cm": 23,
    "weight_kg": 10,
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Scoot",
@@ -1747,8 +1747,8 @@
    "width_cm": 25,
    "height_cm": 15,
    "weight_kg": "",
-   "source": "",
-   "last_verified": ""
+   "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+   "last_verified": "2026-10-04"
   },
   {
    "airline": "Air India",

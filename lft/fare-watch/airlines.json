@@ -1,1655 +1,1674 @@
 {
-  "generatedAt": "2026-10-03",
-  "note": "Generated from the checker source. Add a `source` URL per airline by hand; re-imports preserve it.",
-  "slaDays": {
-    "tier1": 7,
-    "tier2": 30,
-    "tier3": 90
-  },
-  "tier1Keys": [
-    "ryanair",
-    "easyjet",
-    "wizz-air",
-    "frontier-airlines",
-    "british-airways"
-  ],
-  "airlines": [
+ "generatedAt": "2026-10-03",
+ "note": "Generated from the checker source. Add a `source` URL per airline by hand; re-imports preserve it.",
+ "slaDays": {
+  "tier1": 7,
+  "tier2": 30,
+  "tier3": 90
+ },
+ "tier1Keys": [
+  "ryanair",
+  "easyjet",
+  "wizz-air",
+  "frontier-airlines",
+  "british-airways"
+ ],
+ "airlines": [
+  {
+   "key": "ryanair",
+   "name": "Ryanair",
+   "region": "Europe",
+   "enforcement": "extreme",
+   "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+   "lastVerified": "2026-10-04",
+   "allowances": [
     {
-      "key": "ryanair",
-      "name": "Ryanair",
-      "region": "Europe",
-      "enforcement": "extreme",
-      "source": "https://example.invalid/ryanair",
-      "lastVerified": "2026-10-01",
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Free under-seat bag (all fares)",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "priority_cabin",
-          "label": "Priority / paid overhead cabin bag",
-          "cm": [
-            55,
-            40,
-            20
-          ],
-          "kg": 10
-        },
-        {
-          "code": "priority_cabin__personal_item",
-          "label": "Priority / paid overhead cabin bag \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": null
-        }
-      ]
+     "code": "personal_item",
+     "label": "Free under-seat bag (all fares)",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null
     },
     {
-      "key": "easyjet",
-      "name": "easyJet",
-      "region": "Europe",
-      "enforcement": "strict",
-      "source": "https://example.invalid/easyjet",
-      "lastVerified": "2026-10-01",
-      "allowances": [
-        {
-          "code": "small_cabin",
-          "label": "Free under-seat bag (all fares)",
-          "cm": [
-            45,
-            36,
-            20
-          ],
-          "kg": 15
-        },
-        {
-          "code": "large_cabin",
-          "label": "Large cabin bag (eligible fares / upgrade)",
-          "cm": [
-            56,
-            45,
-            25
-          ],
-          "kg": 15
-        },
-        {
-          "code": "large_cabin__personal_item",
-          "label": "Large cabin bag (eligible fares / upgrade) \u2014 included personal item",
-          "cm": [
-            45,
-            36,
-            20
-          ],
-          "kg": null
-        }
-      ]
+     "code": "priority_cabin",
+     "label": "Priority / paid overhead cabin bag",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 10
     },
     {
-      "key": "wizz-air",
-      "name": "Wizz Air",
-      "region": "Europe",
-      "enforcement": "very",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Free under-seat bag (all fares)",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": 10
-        },
-        {
-          "code": "priority_trolley",
-          "label": "WIZZ Priority trolley bag",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 10
-        },
-        {
-          "code": "priority_trolley__personal_item",
-          "label": "WIZZ Priority trolley bag \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "british-airways",
-      "name": "British Airways",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag + hand bag (all fares)",
-          "cm": [
-            56,
-            45,
-            25
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Cabin bag + hand bag (all fares) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "lufthansa",
-      "name": "Lufthansa",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "handbag_only",
-          "label": "Hand bag only (Economy Light fare)",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": 8
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag (Economy Classic and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 8
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "air-france",
-      "name": "Air France",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Small cabin bag only (Light fare)",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": 12
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag (Classic and above)",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 12
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Classic and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "klm",
-      "name": "KLM",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Small cabin bag only (Light fare)",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": 12
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag (Standard and above)",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 12
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Cabin bag (Standard and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "turkish-airlines",
-      "name": "Turkish Airlines",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 8
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Cabin bag included \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "norwegian-air",
-      "name": "Norwegian Air",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "small_bag",
-          "label": "Small under-seat bag (LowFare)",
-          "cm": [
-            25,
-            33,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (LowFare+ and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (LowFare+ and above) \u2014 included personal item",
-          "cm": [
-            25,
-            33,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "vueling",
-      "name": "Vueling",
-      "region": "Europe",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "small_bag",
-          "label": "Small under-seat bag (B\u00e1sico fare)",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Optima / TimeFlex)",
-          "cm": [
-            55,
-            40,
-            20
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Optima / TimeFlex) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "iberia",
-      "name": "Iberia",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (B\u00e1sico fare)",
-          "cm": [
-            35,
-            20,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Cl\u00e1sico and above)",
-          "cm": [
-            56,
-            40,
-            25
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Cl\u00e1sico and above) \u2014 included personal item",
-          "cm": [
-            35,
-            20,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "sas",
-      "name": "SAS",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (SAS Go Light)",
-          "cm": [
-            37,
-            28,
-            15
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (SAS Go and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (SAS Go and above) \u2014 included personal item",
-          "cm": [
-            37,
-            28,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "swiss-international-air-lines",
-      "name": "Swiss International Air Lines",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "handbag",
-          "label": "Hand bag only (Economy Light)",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Economy Classic and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "austrian-airlines",
-      "name": "Austrian Airlines",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "handbag",
-          "label": "Hand bag only (Economy Light)",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Economy Classic and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Classic and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            10
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "tap-air-portugal",
-      "name": "TAP Air Portugal",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Discount fare)",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Basic and above)",
-          "cm": [
-            55,
-            40,
-            20
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Basic and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "finnair",
-      "name": "Finnair",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Superlight fare)",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Light and above)",
-          "cm": [
-            56,
-            45,
-            25
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Light and above) \u2014 included personal item",
-          "cm": [
-            40,
-            30,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "aer-lingus",
-      "name": "Aer Lingus",
-      "region": "Europe",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "small_bag",
-          "label": "Small under-seat bag (Saver fare)",
-          "cm": [
-            25,
-            33,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Plus fare / Priority boarding)",
-          "cm": [
-            55,
-            40,
-            24
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Plus fare / Priority boarding) \u2014 included personal item",
-          "cm": [
-            25,
-            33,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "jet2",
-      "name": "Jet2",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            45,
-            25
-          ],
-          "kg": 10
-        }
-      ]
-    },
-    {
-      "key": "tui-airways",
-      "name": "TUI Airways",
-      "region": "Europe",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            40,
-            20
-          ],
-          "kg": 10
-        }
-      ]
-    },
-    {
-      "key": "delta-air-lines",
-      "name": "Delta Air Lines",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            46,
-            36,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "american-airlines",
-      "name": "American Airlines",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Basic Economy domestic)",
-          "cm": [
-            46,
-            36,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            46,
-            36,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "united-airlines",
-      "name": "United Airlines",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Basic Economy)",
-          "cm": [
-            43,
-            25,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            56,
-            35,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            43,
-            25,
-            23
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "southwest-airlines",
-      "name": "Southwest Airlines",
-      "region": "North America",
-      "enforcement": "relaxed",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            61,
-            41,
-            25
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            47,
-            22,
-            34
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "spirit-airlines",
-      "name": "Spirit Airlines",
-      "region": "North America",
-      "enforcement": "extreme",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item included (base fare)",
-          "cm": [
-            45,
-            35,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "paid_carry_on",
-          "label": "Paid carry-on bag",
-          "cm": [
-            56,
-            46,
-            25
-          ],
-          "kg": null
-        },
-        {
-          "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag \u2014 included personal item",
-          "cm": [
-            45,
-            35,
-            20
-          ],
-          "kg": null
-        }
-      ],
-      "status": "ceased_operations",
-      "ceasedOn": "2026-05-02",
-      "statusNote": "Ceased operations 2 May 2026 after two Chapter 11 filings. Verified 3 Oct 2026 against NPR, CNN, CNBC and Flightradar24. Still present in the live checker, which therefore publishes current allowances for an airline that does not fly."
-    },
-    {
-      "key": "frontier-airlines",
-      "name": "Frontier Airlines",
-      "region": "North America",
-      "enforcement": "extreme",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item included (base fare)",
-          "cm": [
-            46,
-            36,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "paid_carry_on",
-          "label": "Paid carry-on bag",
-          "cm": [
-            61,
-            41,
-            25
-          ],
-          "kg": 15.9
-        },
-        {
-          "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag \u2014 included personal item",
-          "cm": [
-            46,
-            36,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "allegiant-air",
-      "name": "Allegiant Air",
-      "region": "North America",
-      "enforcement": "very",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item included (base fare)",
-          "cm": [
-            41,
-            38,
-            18
-          ],
-          "kg": null
-        },
-        {
-          "code": "paid_carry_on",
-          "label": "Paid carry-on bag",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "paid_carry_on__personal_item",
-          "label": "Paid carry-on bag \u2014 included personal item",
-          "cm": [
-            41,
-            38,
-            18
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "jetblue",
-      "name": "JetBlue",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Blue Basic)",
-          "cm": [
-            43,
-            33,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included (Blue and above)",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included (Blue and above) \u2014 included personal item",
-          "cm": [
-            43,
-            33,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "alaska-airlines",
-      "name": "Alaska Airlines",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            43,
-            33,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "westjet",
-      "name": "WestJet",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (EconoBasic)",
-          "cm": [
-            41,
-            15,
-            33
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Carry-on included (Econo and above)",
-          "cm": [
-            55,
-            39,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Carry-on included (Econo and above) \u2014 included personal item",
-          "cm": [
-            41,
-            15,
-            33
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "air-canada",
-      "name": "Air Canada",
-      "region": "North America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Basic fare)",
-          "cm": [
-            43,
-            33,
-            16
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Carry-on included (Standard and above)",
-          "cm": [
-            55,
-            40,
-            23
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Carry-on included (Standard and above) \u2014 included personal item",
-          "cm": [
-            43,
-            33,
-            16
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "aeromexico",
-      "name": "Aeromexico",
-      "region": "Latin America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (AM Basic)",
-          "cm": [
-            45,
-            36,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (AM Choice and above)",
-          "cm": [
-            55,
-            40,
-            25
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (AM Choice and above) \u2014 included personal item",
-          "cm": [
-            45,
-            36,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "latam-airlines",
-      "name": "LATAM Airlines",
-      "region": "Latin America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Economy Lite)",
-          "cm": [
-            45,
-            35,
-            25
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Economy Light and above)",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 8
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (Economy Light and above) \u2014 included personal item",
-          "cm": [
-            45,
-            35,
-            25
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "avianca",
-      "name": "Avianca",
-      "region": "Latin America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "personal_item",
-          "label": "Personal item only (Go Lite)",
-          "cm": [
-            45,
-            35,
-            20
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (B\u00e1sico and above)",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (B\u00e1sico and above) \u2014 included personal item",
-          "cm": [
-            45,
-            35,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "copa-airlines",
-      "name": "Copa Airlines",
-      "region": "Latin America",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Carry-on included",
-          "cm": [
-            56,
-            35,
-            23
-          ],
-          "kg": 10
-        },
-        {
-          "code": "standard_cabin__personal_item",
-          "label": "Carry-on included \u2014 included personal item",
-          "cm": [
-            45,
-            35,
-            20
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "emirates",
-      "name": "Emirates",
-      "region": "Middle East",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "economy_cabin",
-          "label": "Economy cabin bag",
-          "cm": [
-            55,
-            38,
-            22
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "qatar-airways",
-      "name": "Qatar Airways",
-      "region": "Middle East",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            50,
-            37,
-            25
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "etihad-airways",
-      "name": "Etihad Airways",
-      "region": "Middle East",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "flydubai",
-      "name": "flydubai",
-      "region": "Middle East",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "lite_bag",
-          "label": "Under-seat bag only (Economy Lite)",
-          "cm": [
-            55,
-            38,
-            20
-          ],
-          "kg": 7
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (Economy Value and above)",
-          "cm": [
-            55,
-            38,
-            20
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "singapore-airlines",
-      "name": "Singapore Airlines",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            40,
-            20
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "cathay-pacific",
-      "name": "Cathay Pacific",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "qantas",
-      "name": "Qantas",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "air-new-zealand",
-      "name": "Air New Zealand",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "japan-airlines-jal",
-      "name": "Japan Airlines (JAL)",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            40,
-            25
-          ],
-          "kg": 10
-        }
-      ]
-    },
-    {
-      "key": "ana-all-nippon-airways",
-      "name": "ANA (All Nippon Airways)",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            40,
-            25
-          ],
-          "kg": 10
-        }
-      ]
-    },
-    {
-      "key": "korean-air",
-      "name": "Korean Air",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            40,
-            20
-          ],
-          "kg": 10
-        }
-      ]
-    },
-    {
-      "key": "airasia",
-      "name": "AirAsia",
-      "region": "Asia Pacific",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag allowance (all items combined)",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "indigo",
-      "name": "IndiGo",
-      "region": "Asia Pacific",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "scoot",
-      "name": "Scoot",
-      "region": "Asia Pacific",
-      "enforcement": "strict",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "no_carry_on",
-          "label": "Personal items only (Fly fare)",
-          "cm": [
-            35,
-            25,
-            15
-          ],
-          "kg": null
-        },
-        {
-          "code": "cabin_bag",
-          "label": "Cabin bag (FlyBag / FlyBagEat)",
-          "cm": [
-            54,
-            38,
-            23
-          ],
-          "kg": 10
-        },
-        {
-          "code": "cabin_bag__personal_item",
-          "label": "Cabin bag (FlyBag / FlyBagEat) \u2014 included personal item",
-          "cm": [
-            35,
-            25,
-            15
-          ],
-          "kg": null
-        }
-      ]
-    },
-    {
-      "key": "air-india",
-      "name": "Air India",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            55,
-            35,
-            25
-          ],
-          "kg": 8
-        }
-      ]
-    },
-    {
-      "key": "thai-airways",
-      "name": "Thai Airways",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            45,
-            25
-          ],
-          "kg": 7
-        }
-      ]
-    },
-    {
-      "key": "malaysia-airlines",
-      "name": "Malaysia Airlines",
-      "region": "Asia Pacific",
-      "enforcement": "moderate",
-      "source": null,
-      "lastVerified": null,
-      "allowances": [
-        {
-          "code": "standard_cabin",
-          "label": "Cabin bag included",
-          "cm": [
-            56,
-            36,
-            23
-          ],
-          "kg": 7
-        }
-      ]
+     "code": "priority_cabin__personal_item",
+     "label": "Priority / paid overhead cabin bag — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null
     }
-  ],
-  "notes": [
-    "Spirit Airlines ceased operations 2 May 2026 (verified). It is flagged status=ceased_operations here but is STILL LIVE in the checker - a product fix, not a watcher fix.",
-    "No source URLs are populated yet. The watcher only checks airlines that have one, so this is the gating task."
-  ]
+   ],
+   "verificationMethod": "official_domain_search"
+  },
+  {
+   "key": "easyjet",
+   "name": "easyJet",
+   "region": "Europe",
+   "enforcement": "strict",
+   "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "small_cabin",
+     "label": "Free under-seat bag (all fares)",
+     "cm": [
+      45,
+      36,
+      20
+     ],
+     "kg": 15
+    },
+    {
+     "code": "large_cabin",
+     "label": "Large cabin bag (eligible fares / upgrade)",
+     "cm": [
+      56,
+      45,
+      25
+     ],
+     "kg": 15
+    },
+    {
+     "code": "large_cabin__personal_item",
+     "label": "Large cabin bag (eligible fares / upgrade) — included personal item",
+     "cm": [
+      45,
+      36,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search"
+  },
+  {
+   "key": "wizz-air",
+   "name": "Wizz Air",
+   "region": "Europe",
+   "enforcement": "very",
+   "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Free under-seat bag (all fares)",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": 10
+    },
+    {
+     "code": "priority_trolley",
+     "label": "WIZZ Priority trolley bag",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 10
+    },
+    {
+     "code": "priority_trolley__personal_item",
+     "label": "WIZZ Priority trolley bag — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search"
+  },
+  {
+   "key": "british-airways",
+   "name": "British Airways",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag + hand bag (all fares)",
+     "cm": [
+      56,
+      45,
+      25
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag + hand bag (all fares) — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "lufthansa",
+   "name": "Lufthansa",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "handbag_only",
+     "label": "Hand bag only (Economy Light fare)",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": 8
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag (Economy Classic and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 8
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag (Economy Classic and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "air-france",
+   "name": "Air France",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Small cabin bag only (Light fare)",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": 12
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag (Classic and above)",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 12
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag (Classic and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "klm",
+   "name": "KLM",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Small cabin bag only (Light fare)",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": 12
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag (Standard and above)",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 12
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag (Standard and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "turkish-airlines",
+   "name": "Turkish Airlines",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 8
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag included — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "norwegian-air",
+   "name": "Norwegian Air",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "small_bag",
+     "label": "Small under-seat bag (LowFare)",
+     "cm": [
+      25,
+      33,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (LowFare+ and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (LowFare+ and above) — included personal item",
+     "cm": [
+      25,
+      33,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "vueling",
+   "name": "Vueling",
+   "region": "Europe",
+   "enforcement": "strict",
+   "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "small_bag",
+     "label": "Small under-seat bag (Básico fare)",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Optima / TimeFlex)",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Optima / TimeFlex) — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dataset puts a 10 kg limit on the under-seat small_bag. Vueling states 10 kg for the overhead bag; no weight is published for the under-seat bag. Over-strict by one field."
+  },
+  {
+   "key": "iberia",
+   "name": "Iberia",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Básico fare)",
+     "cm": [
+      35,
+      20,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Clásico and above)",
+     "cm": [
+      56,
+      40,
+      25
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Clásico and above) — included personal item",
+     "cm": [
+      35,
+      20,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "sas",
+   "name": "SAS",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (SAS Go Light)",
+     "cm": [
+      37,
+      28,
+      15
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (SAS Go and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (SAS Go and above) — included personal item",
+     "cm": [
+      37,
+      28,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "swiss-international-air-lines",
+   "name": "Swiss International Air Lines",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "handbag",
+     "label": "Hand bag only (Economy Light)",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Economy Classic and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Economy Classic and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "austrian-airlines",
+   "name": "Austrian Airlines",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "handbag",
+     "label": "Hand bag only (Economy Light)",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Economy Classic and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Economy Classic and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "tap-air-portugal",
+   "name": "TAP Air Portugal",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Discount fare)",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Basic and above)",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Basic and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "finnair",
+   "name": "Finnair",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Superlight fare)",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Light and above)",
+     "cm": [
+      56,
+      45,
+      25
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Light and above) — included personal item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "aer-lingus",
+   "name": "Aer Lingus",
+   "region": "Europe",
+   "enforcement": "strict",
+   "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "small_bag",
+     "label": "Small under-seat bag (Saver fare)",
+     "cm": [
+      25,
+      33,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Plus fare / Priority boarding)",
+     "cm": [
+      55,
+      40,
+      24
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Plus fare / Priority boarding) — included personal item",
+     "cm": [
+      25,
+      33,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
+  },
+  {
+   "key": "jet2",
+   "name": "Jet2",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      45,
+      25
+     ],
+     "kg": 10
+    }
+   ]
+  },
+  {
+   "key": "tui-airways",
+   "name": "TUI Airways",
+   "region": "Europe",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 10
+    }
+   ]
+  },
+  {
+   "key": "delta-air-lines",
+   "name": "Delta Air Lines",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      46,
+      36,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "american-airlines",
+   "name": "American Airlines",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Basic Economy domestic)",
+     "cm": [
+      46,
+      36,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      46,
+      36,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "united-airlines",
+   "name": "United Airlines",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Basic Economy)",
+     "cm": [
+      43,
+      25,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      56,
+      35,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      43,
+      25,
+      23
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "southwest-airlines",
+   "name": "Southwest Airlines",
+   "region": "North America",
+   "enforcement": "relaxed",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      61,
+      41,
+      25
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      47,
+      22,
+      34
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "spirit-airlines",
+   "name": "Spirit Airlines",
+   "region": "North America",
+   "enforcement": "extreme",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item included (base fare)",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "paid_carry_on",
+     "label": "Paid carry-on bag",
+     "cm": [
+      56,
+      46,
+      25
+     ],
+     "kg": null
+    },
+    {
+     "code": "paid_carry_on__personal_item",
+     "label": "Paid carry-on bag — included personal item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "status": "ceased_operations",
+   "ceasedOn": "2026-05-02",
+   "statusNote": "Ceased operations 2 May 2026 after two Chapter 11 filings. Verified 3 Oct 2026 against NPR, CNN, CNBC and Flightradar24. Still present in the live checker, which therefore publishes current allowances for an airline that does not fly."
+  },
+  {
+   "key": "frontier-airlines",
+   "name": "Frontier Airlines",
+   "region": "North America",
+   "enforcement": "extreme",
+   "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item included (base fare)",
+     "cm": [
+      46,
+      36,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "paid_carry_on",
+     "label": "Paid carry-on bag",
+     "cm": [
+      61,
+      41,
+      25
+     ],
+     "kg": 15.9
+    },
+    {
+     "code": "paid_carry_on__personal_item",
+     "label": "Paid carry-on bag — included personal item",
+     "cm": [
+      46,
+      36,
+      20
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search"
+  },
+  {
+   "key": "allegiant-air",
+   "name": "Allegiant Air",
+   "region": "North America",
+   "enforcement": "very",
+   "source": "https://www.allegiantair.com/baggage-1",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item included (base fare)",
+     "cm": [
+      41,
+      38,
+      18
+     ],
+     "kg": null
+    },
+    {
+     "code": "paid_carry_on",
+     "label": "Paid carry-on bag",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "paid_carry_on__personal_item",
+     "label": "Paid carry-on bag — included personal item",
+     "cm": [
+      41,
+      38,
+      18
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
+  },
+  {
+   "key": "jetblue",
+   "name": "JetBlue",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Blue Basic)",
+     "cm": [
+      43,
+      33,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included (Blue and above)",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included (Blue and above) — included personal item",
+     "cm": [
+      43,
+      33,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "alaska-airlines",
+   "name": "Alaska Airlines",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      43,
+      33,
+      15
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "westjet",
+   "name": "WestJet",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (EconoBasic)",
+     "cm": [
+      41,
+      15,
+      33
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Carry-on included (Econo and above)",
+     "cm": [
+      55,
+      39,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Carry-on included (Econo and above) — included personal item",
+     "cm": [
+      41,
+      15,
+      33
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "air-canada",
+   "name": "Air Canada",
+   "region": "North America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Basic fare)",
+     "cm": [
+      43,
+      33,
+      16
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Carry-on included (Standard and above)",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Carry-on included (Standard and above) — included personal item",
+     "cm": [
+      43,
+      33,
+      16
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "aeromexico",
+   "name": "Aeromexico",
+   "region": "Latin America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (AM Basic)",
+     "cm": [
+      45,
+      36,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (AM Choice and above)",
+     "cm": [
+      55,
+      40,
+      25
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (AM Choice and above) — included personal item",
+     "cm": [
+      45,
+      36,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "latam-airlines",
+   "name": "LATAM Airlines",
+   "region": "Latin America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Economy Lite)",
+     "cm": [
+      45,
+      35,
+      25
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Economy Light and above)",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 8
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Economy Light and above) — included personal item",
+     "cm": [
+      45,
+      35,
+      25
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "avianca",
+   "name": "Avianca",
+   "region": "Latin America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "personal_item",
+     "label": "Personal item only (Go Lite)",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Básico and above)",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (Básico and above) — included personal item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "copa-airlines",
+   "name": "Copa Airlines",
+   "region": "Latin America",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Carry-on included",
+     "cm": [
+      56,
+      35,
+      23
+     ],
+     "kg": 10
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Carry-on included — included personal item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null
+    }
+   ]
+  },
+  {
+   "key": "emirates",
+   "name": "Emirates",
+   "region": "Middle East",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "economy_cabin",
+     "label": "Economy cabin bag",
+     "cm": [
+      55,
+      38,
+      22
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "qatar-airways",
+   "name": "Qatar Airways",
+   "region": "Middle East",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      50,
+      37,
+      25
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "etihad-airways",
+   "name": "Etihad Airways",
+   "region": "Middle East",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "flydubai",
+   "name": "flydubai",
+   "region": "Middle East",
+   "enforcement": "strict",
+   "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "lite_bag",
+     "label": "Under-seat bag only (Economy Lite)",
+     "cm": [
+      55,
+      38,
+      20
+     ],
+     "kg": 7
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (Economy Value and above)",
+     "cm": [
+      55,
+      38,
+      20
+     ],
+     "kg": 7
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dataset holds two flydubai rows, 'lite_bag' and 'cabin_bag', with identical 55 x 38 x 20 / 7 kg values. A Lite fare that allows the same bag as a standard fare is improbable; flydubai's published personal item is 25 x 33 x 20. Needs a human check against the fare table."
+  },
+  {
+   "key": "singapore-airlines",
+   "name": "Singapore Airlines",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      40,
+      20
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "cathay-pacific",
+   "name": "Cathay Pacific",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "qantas",
+   "name": "Qantas",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "air-new-zealand",
+   "name": "Air New Zealand",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "japan-airlines-jal",
+   "name": "Japan Airlines (JAL)",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      40,
+      25
+     ],
+     "kg": 10
+    }
+   ]
+  },
+  {
+   "key": "ana-all-nippon-airways",
+   "name": "ANA (All Nippon Airways)",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      40,
+      25
+     ],
+     "kg": 10
+    }
+   ]
+  },
+  {
+   "key": "korean-air",
+   "name": "Korean Air",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 10
+    }
+   ]
+  },
+  {
+   "key": "airasia",
+   "name": "AirAsia",
+   "region": "Asia Pacific",
+   "enforcement": "strict",
+   "source": "https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag allowance (all items combined)",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dataset has no personal-item allowance for AirAsia. AirAsia publishes one at 40 x 30 x 10 cm. Missing row, not a wrong row."
+  },
+  {
+   "key": "indigo",
+   "name": "IndiGo",
+   "region": "Asia Pacific",
+   "enforcement": "strict",
+   "source": "https://www.goindigo.in/baggage/cabin-baggage.html",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 7
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "IndiGo also imposes a 115 cm linear-sum limit the dataset has no field for. 55+35+25 = 115, so a bag at the stated maximum on every axis is exactly at the linear limit."
+  },
+  {
+   "key": "scoot",
+   "name": "Scoot",
+   "region": "Asia Pacific",
+   "enforcement": "strict",
+   "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+   "lastVerified": "2026-10-04",
+   "allowances": [
+    {
+     "code": "no_carry_on",
+     "label": "Personal items only (Fly fare)",
+     "cm": [
+      35,
+      25,
+      15
+     ],
+     "kg": null
+    },
+    {
+     "code": "cabin_bag",
+     "label": "Cabin bag (FlyBag / FlyBagEat)",
+     "cm": [
+      54,
+      38,
+      23
+     ],
+     "kg": 10
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag (FlyBag / FlyBagEat) — included personal item",
+     "cm": [
+      35,
+      25,
+      15
+     ],
+     "kg": null
+    }
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dataset's second Scoot row is coded 'no_carry_on' at 35 x 25 x 15. Scoot publishes a personal item at 40 x 30 x 10. Both the code name and the figures look wrong."
+  },
+  {
+   "key": "air-india",
+   "name": "Air India",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      55,
+      35,
+      25
+     ],
+     "kg": 8
+    }
+   ]
+  },
+  {
+   "key": "thai-airways",
+   "name": "Thai Airways",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      45,
+      25
+     ],
+     "kg": 7
+    }
+   ]
+  },
+  {
+   "key": "malaysia-airlines",
+   "name": "Malaysia Airlines",
+   "region": "Asia Pacific",
+   "enforcement": "moderate",
+   "source": null,
+   "lastVerified": null,
+   "allowances": [
+    {
+     "code": "standard_cabin",
+     "label": "Cabin bag included",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "kg": 7
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "Spirit Airlines ceased operations 2 May 2026 (verified). It is flagged status=ceased_operations here but is STILL LIVE in the checker - a product fix, not a watcher fix.",
+  "No source URLs are populated yet. The watcher only checks airlines that have one, so this is the gating task."
+ ],
+ "provenanceUpdated": "2026-10-04"
 }

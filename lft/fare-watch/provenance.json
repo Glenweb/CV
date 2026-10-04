@@ -1,0 +1,83 @@
+{
+  "note": "Per-airline source URLs and verification records for airlines.json. Entries are added only when the official domain has been consulted. 'method' states HOW it was established, because that is what a journalist will ask.",
+  "methods": {
+    "official_page_read": "The airline's own page was fetched and read in full.",
+    "official_domain_search": "Established from a web search restricted to the airline's own domain, which returned the official URL and quoted its figures. The page itself could NOT be fetched from the build environment (network egress policy blocks airline domains). Weaker than official_page_read — re-verify by opening the URL before relying on it in a press pitch."
+  },
+  "verifiedOn": "2026-10-04",
+  "airlines": {
+    "ryanair": {
+      "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+      "method": "official_domain_search",
+      "published": { "personal_item": [40, 30, 20], "priority_cabin": [55, 40, 20], "priority_cabin_kg": 10 },
+      "match": "exact"
+    },
+    "wizz-air": {
+      "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+      "method": "official_domain_search",
+      "published": { "personal_item": [40, 30, 20], "personal_item_kg": 10, "priority_trolley": [55, 40, 23], "priority_trolley_kg": 10 },
+      "match": "exact"
+    },
+    "easyjet": {
+      "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+      "method": "official_domain_search",
+      "published": { "small_cabin": [45, 36, 20], "small_cabin_kg": 15, "large_cabin": [56, 45, 25], "large_cabin_kg": 15 },
+      "match": "exact"
+    },
+    "vueling": {
+      "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+      "method": "official_domain_search",
+      "published": { "small_bag": [40, 30, 20], "cabin_bag": [55, 40, 20], "cabin_bag_kg": 10 },
+      "match": "dimensions_exact",
+      "issue": "Dataset puts a 10 kg limit on the under-seat small_bag. Vueling states 10 kg for the overhead bag; no weight is published for the under-seat bag. Over-strict by one field."
+    },
+    "frontier-airlines": {
+      "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+      "method": "official_domain_search",
+      "published": { "personal_item_in": [18, 14, 8], "paid_carry_on_in": [24, 16, 10], "paid_carry_on_lb": 35 },
+      "match": "exact"
+    },
+    "airasia": {
+      "source": "https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB",
+      "method": "official_domain_search",
+      "published": { "cabin_bag": [56, 36, 23], "combined_kg": 7, "personal_item": [40, 30, 10] },
+      "match": "dimensions_exact",
+      "issue": "Dataset has no personal-item allowance for AirAsia. AirAsia publishes one at 40 x 30 x 10 cm. Missing row, not a wrong row."
+    },
+    "indigo": {
+      "source": "https://www.goindigo.in/baggage/cabin-baggage.html",
+      "method": "official_domain_search",
+      "published": { "standard_cabin": [55, 35, 25], "standard_cabin_kg": 7, "linear_sum_cm": 115, "extra_personal_kg": 3 },
+      "match": "exact",
+      "issue": "IndiGo also imposes a 115 cm linear-sum limit the dataset has no field for. 55+35+25 = 115, so a bag at the stated maximum on every axis is exactly at the linear limit."
+    },
+    "scoot": {
+      "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+      "method": "official_domain_search",
+      "published": { "cabin_bag": [54, 38, 23], "cabin_kg": 10, "personal_item": [40, 30, 10], "linear_sum_cm": 115 },
+      "match": "cabin_exact",
+      "issue": "Dataset's second Scoot row is coded 'no_carry_on' at 35 x 25 x 15. Scoot publishes a personal item at 40 x 30 x 10. Both the code name and the figures look wrong."
+    },
+    "flydubai": {
+      "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
+      "method": "official_domain_search",
+      "published": { "cabin_bag": [55, 38, 20], "cabin_kg": 7, "personal_item": [25, 33, 20] },
+      "match": "cabin_exact",
+      "issue": "Dataset holds two flydubai rows, 'lite_bag' and 'cabin_bag', with identical 55 x 38 x 20 / 7 kg values. A Lite fare that allows the same bag as a standard fare is improbable; flydubai's published personal item is 25 x 33 x 20. Needs a human check against the fare table."
+    },
+    "aer-lingus": {
+      "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+      "method": "official_domain_search",
+      "published": { "cabin_bag": [55, 40, 24], "cabin_kg": 10, "personal_item": [40, 30, 20] },
+      "match": "cabin_exact",
+      "issue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
+    },
+    "allegiant-air": {
+      "source": "https://www.allegiantair.com/baggage-1",
+      "method": "official_domain_search",
+      "published": { "personal_item": [45, 35, 20], "paid_carry_on": [55, 40, 25] },
+      "match": "none",
+      "issue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
+    }
+  }
+}

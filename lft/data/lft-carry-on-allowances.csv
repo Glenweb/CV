@@ -1,13 +1,13 @@
 airline,key,region,enforcement,status,ceased_on,allowance_code,allowance_label,length_cm,width_cm,height_cm,weight_kg,source,last_verified
-Ryanair,ryanair,Europe,extreme,operating,,personal_item,Free under-seat bag (all fares),40,30,20,,https://example.invalid/ryanair,2026-10-01
-Ryanair,ryanair,Europe,extreme,operating,,priority_cabin,Priority / paid overhead cabin bag,55,40,20,10,https://example.invalid/ryanair,2026-10-01
-Ryanair,ryanair,Europe,extreme,operating,,priority_cabin__personal_item,Priority / paid overhead cabin bag — included personal item,40,30,20,,https://example.invalid/ryanair,2026-10-01
-easyJet,easyjet,Europe,strict,operating,,small_cabin,Free under-seat bag (all fares),45,36,20,15,https://example.invalid/easyjet,2026-10-01
-easyJet,easyjet,Europe,strict,operating,,large_cabin,Large cabin bag (eligible fares / upgrade),56,45,25,15,https://example.invalid/easyjet,2026-10-01
-easyJet,easyjet,Europe,strict,operating,,large_cabin__personal_item,Large cabin bag (eligible fares / upgrade) — included personal item,45,36,20,,https://example.invalid/easyjet,2026-10-01
-Wizz Air,wizz-air,Europe,very,operating,,personal_item,Free under-seat bag (all fares),40,30,20,10,,
-Wizz Air,wizz-air,Europe,very,operating,,priority_trolley,WIZZ Priority trolley bag,55,40,23,10,,
-Wizz Air,wizz-air,Europe,very,operating,,priority_trolley__personal_item,WIZZ Priority trolley bag — included personal item,40,30,20,,,
+Ryanair,ryanair,Europe,extreme,operating,,personal_item,Free under-seat bag (all fares),40,30,20,,https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules,2026-10-04
+Ryanair,ryanair,Europe,extreme,operating,,priority_cabin,Priority / paid overhead cabin bag,55,40,20,10,https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules,2026-10-04
+Ryanair,ryanair,Europe,extreme,operating,,priority_cabin__personal_item,Priority / paid overhead cabin bag — included personal item,40,30,20,,https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules,2026-10-04
+easyJet,easyjet,Europe,strict,operating,,small_cabin,Free under-seat bag (all fares),45,36,20,15,https://www.easyjet.com/en/help/baggage/cabin-bags,2026-10-04
+easyJet,easyjet,Europe,strict,operating,,large_cabin,Large cabin bag (eligible fares / upgrade),56,45,25,15,https://www.easyjet.com/en/help/baggage/cabin-bags,2026-10-04
+easyJet,easyjet,Europe,strict,operating,,large_cabin__personal_item,Large cabin bag (eligible fares / upgrade) — included personal item,45,36,20,,https://www.easyjet.com/en/help/baggage/cabin-bags,2026-10-04
+Wizz Air,wizz-air,Europe,very,operating,,personal_item,Free under-seat bag (all fares),40,30,20,10,https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage,2026-10-04
+Wizz Air,wizz-air,Europe,very,operating,,priority_trolley,WIZZ Priority trolley bag,55,40,23,10,https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage,2026-10-04
+Wizz Air,wizz-air,Europe,very,operating,,priority_trolley__personal_item,WIZZ Priority trolley bag — included personal item,40,30,20,,https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage,2026-10-04
 British Airways,british-airways,Europe,moderate,operating,,standard_cabin,Cabin bag + hand bag (all fares),56,45,25,,,
 British Airways,british-airways,Europe,moderate,operating,,standard_cabin__personal_item,Cabin bag + hand bag (all fares) — included personal item,40,30,15,,,
 Lufthansa,lufthansa,Europe,moderate,operating,,handbag_only,Hand bag only (Economy Light fare),40,30,10,8,,
@@ -24,9 +24,9 @@ Turkish Airlines,turkish-airlines,Europe,moderate,operating,,standard_cabin__per
 Norwegian Air,norwegian-air,Europe,moderate,operating,,small_bag,Small under-seat bag (LowFare),25,33,20,,,
 Norwegian Air,norwegian-air,Europe,moderate,operating,,cabin_bag,Cabin bag (LowFare+ and above),55,40,23,10,,
 Norwegian Air,norwegian-air,Europe,moderate,operating,,cabin_bag__personal_item,Cabin bag (LowFare+ and above) — included personal item,25,33,20,,,
-Vueling,vueling,Europe,strict,operating,,small_bag,Small under-seat bag (Básico fare),40,30,20,10,,
-Vueling,vueling,Europe,strict,operating,,cabin_bag,Cabin bag (Optima / TimeFlex),55,40,20,10,,
-Vueling,vueling,Europe,strict,operating,,cabin_bag__personal_item,Cabin bag (Optima / TimeFlex) — included personal item,40,30,20,,,
+Vueling,vueling,Europe,strict,operating,,small_bag,Small under-seat bag (Básico fare),40,30,20,10,https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/,2026-10-04
+Vueling,vueling,Europe,strict,operating,,cabin_bag,Cabin bag (Optima / TimeFlex),55,40,20,10,https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/,2026-10-04
+Vueling,vueling,Europe,strict,operating,,cabin_bag__personal_item,Cabin bag (Optima / TimeFlex) — included personal item,40,30,20,,https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/,2026-10-04
 Iberia,iberia,Europe,moderate,operating,,personal_item,Personal item only (Básico fare),35,20,20,,,
 Iberia,iberia,Europe,moderate,operating,,cabin_bag,Cabin bag (Clásico and above),56,40,25,,,
 Iberia,iberia,Europe,moderate,operating,,cabin_bag__personal_item,Cabin bag (Clásico and above) — included personal item,35,20,20,,,
@@ -45,9 +45,9 @@ TAP Air Portugal,tap-air-portugal,Europe,moderate,operating,,cabin_bag__personal
 Finnair,finnair,Europe,moderate,operating,,personal_item,Personal item only (Superlight fare),40,30,15,,,
 Finnair,finnair,Europe,moderate,operating,,cabin_bag,Cabin bag (Light and above),56,45,25,8,,
 Finnair,finnair,Europe,moderate,operating,,cabin_bag__personal_item,Cabin bag (Light and above) — included personal item,40,30,15,,,
-Aer Lingus,aer-lingus,Europe,strict,operating,,small_bag,Small under-seat bag (Saver fare),25,33,20,,,
-Aer Lingus,aer-lingus,Europe,strict,operating,,cabin_bag,Cabin bag (Plus fare / Priority boarding),55,40,24,10,,
-Aer Lingus,aer-lingus,Europe,strict,operating,,cabin_bag__personal_item,Cabin bag (Plus fare / Priority boarding) — included personal item,25,33,20,,,
+Aer Lingus,aer-lingus,Europe,strict,operating,,small_bag,Small under-seat bag (Saver fare),25,33,20,,https://www.aerlingus.com/prepare/bags/carry-on-baggage/,2026-10-04
+Aer Lingus,aer-lingus,Europe,strict,operating,,cabin_bag,Cabin bag (Plus fare / Priority boarding),55,40,24,10,https://www.aerlingus.com/prepare/bags/carry-on-baggage/,2026-10-04
+Aer Lingus,aer-lingus,Europe,strict,operating,,cabin_bag__personal_item,Cabin bag (Plus fare / Priority boarding) — included personal item,25,33,20,,https://www.aerlingus.com/prepare/bags/carry-on-baggage/,2026-10-04
 Jet2,jet2,Europe,moderate,operating,,standard_cabin,Cabin bag included,56,45,25,10,,
 TUI Airways,tui-airways,Europe,moderate,operating,,standard_cabin,Cabin bag included,55,40,20,10,,
 Delta Air Lines,delta-air-lines,North America,moderate,operating,,standard_cabin,Carry-on included,56,36,23,,,
@@ -63,12 +63,12 @@ Southwest Airlines,southwest-airlines,North America,relaxed,operating,,standard_
 Spirit Airlines,spirit-airlines,North America,extreme,ceased_operations,2026-05-02,personal_item,Personal item included (base fare),45,35,20,,,
 Spirit Airlines,spirit-airlines,North America,extreme,ceased_operations,2026-05-02,paid_carry_on,Paid carry-on bag,56,46,25,,,
 Spirit Airlines,spirit-airlines,North America,extreme,ceased_operations,2026-05-02,paid_carry_on__personal_item,Paid carry-on bag — included personal item,45,35,20,,,
-Frontier Airlines,frontier-airlines,North America,extreme,operating,,personal_item,Personal item included (base fare),46,36,20,,,
-Frontier Airlines,frontier-airlines,North America,extreme,operating,,paid_carry_on,Paid carry-on bag,61,41,25,15.9,,
-Frontier Airlines,frontier-airlines,North America,extreme,operating,,paid_carry_on__personal_item,Paid carry-on bag — included personal item,46,36,20,,,
-Allegiant Air,allegiant-air,North America,very,operating,,personal_item,Personal item included (base fare),41,38,18,,,
-Allegiant Air,allegiant-air,North America,very,operating,,paid_carry_on,Paid carry-on bag,56,36,23,,,
-Allegiant Air,allegiant-air,North America,very,operating,,paid_carry_on__personal_item,Paid carry-on bag — included personal item,41,38,18,,,
+Frontier Airlines,frontier-airlines,North America,extreme,operating,,personal_item,Personal item included (base fare),46,36,20,,https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags,2026-10-04
+Frontier Airlines,frontier-airlines,North America,extreme,operating,,paid_carry_on,Paid carry-on bag,61,41,25,15.9,https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags,2026-10-04
+Frontier Airlines,frontier-airlines,North America,extreme,operating,,paid_carry_on__personal_item,Paid carry-on bag — included personal item,46,36,20,,https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags,2026-10-04
+Allegiant Air,allegiant-air,North America,very,operating,,personal_item,Personal item included (base fare),41,38,18,,https://www.allegiantair.com/baggage-1,2026-10-04
+Allegiant Air,allegiant-air,North America,very,operating,,paid_carry_on,Paid carry-on bag,56,36,23,,https://www.allegiantair.com/baggage-1,2026-10-04
+Allegiant Air,allegiant-air,North America,very,operating,,paid_carry_on__personal_item,Paid carry-on bag — included personal item,41,38,18,,https://www.allegiantair.com/baggage-1,2026-10-04
 JetBlue,jetblue,North America,moderate,operating,,personal_item,Personal item only (Blue Basic),43,33,20,,,
 JetBlue,jetblue,North America,moderate,operating,,standard_cabin,Carry-on included (Blue and above),56,36,23,,,
 JetBlue,jetblue,North America,moderate,operating,,standard_cabin__personal_item,Carry-on included (Blue and above) — included personal item,43,33,20,,,
@@ -94,8 +94,8 @@ Copa Airlines,copa-airlines,Latin America,moderate,operating,,standard_cabin__pe
 Emirates,emirates,Middle East,moderate,operating,,economy_cabin,Economy cabin bag,55,38,22,7,,
 Qatar Airways,qatar-airways,Middle East,moderate,operating,,standard_cabin,Cabin bag included,50,37,25,7,,
 Etihad Airways,etihad-airways,Middle East,moderate,operating,,standard_cabin,Cabin bag included,56,36,23,7,,
-flydubai,flydubai,Middle East,strict,operating,,lite_bag,Under-seat bag only (Economy Lite),55,38,20,7,,
-flydubai,flydubai,Middle East,strict,operating,,cabin_bag,Cabin bag (Economy Value and above),55,38,20,7,,
+flydubai,flydubai,Middle East,strict,operating,,lite_bag,Under-seat bag only (Economy Lite),55,38,20,7,https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/,2026-10-04
+flydubai,flydubai,Middle East,strict,operating,,cabin_bag,Cabin bag (Economy Value and above),55,38,20,7,https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/,2026-10-04
 Singapore Airlines,singapore-airlines,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,56,40,20,7,,
 Cathay Pacific,cathay-pacific,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,56,36,23,7,,
 Qantas,qantas,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,56,36,23,7,,
@@ -103,11 +103,11 @@ Air New Zealand,air-new-zealand,Asia Pacific,moderate,operating,,standard_cabin,
 Japan Airlines (JAL),japan-airlines-jal,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,55,40,25,10,,
 ANA (All Nippon Airways),ana-all-nippon-airways,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,55,40,25,10,,
 Korean Air,korean-air,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,55,40,20,10,,
-AirAsia,airasia,Asia Pacific,strict,operating,,cabin_bag,Cabin bag allowance (all items combined),56,36,23,7,,
-IndiGo,indigo,Asia Pacific,strict,operating,,standard_cabin,Cabin bag included,55,35,25,7,,
-Scoot,scoot,Asia Pacific,strict,operating,,no_carry_on,Personal items only (Fly fare),35,25,15,,,
-Scoot,scoot,Asia Pacific,strict,operating,,cabin_bag,Cabin bag (FlyBag / FlyBagEat),54,38,23,10,,
-Scoot,scoot,Asia Pacific,strict,operating,,cabin_bag__personal_item,Cabin bag (FlyBag / FlyBagEat) — included personal item,35,25,15,,,
+AirAsia,airasia,Asia Pacific,strict,operating,,cabin_bag,Cabin bag allowance (all items combined),56,36,23,7,https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB,2026-10-04
+IndiGo,indigo,Asia Pacific,strict,operating,,standard_cabin,Cabin bag included,55,35,25,7,https://www.goindigo.in/baggage/cabin-baggage.html,2026-10-04
+Scoot,scoot,Asia Pacific,strict,operating,,no_carry_on,Personal items only (Fly fare),35,25,15,,https://www.flyscoot.com/en/plan/booking-your-flight/baggage,2026-10-04
+Scoot,scoot,Asia Pacific,strict,operating,,cabin_bag,Cabin bag (FlyBag / FlyBagEat),54,38,23,10,https://www.flyscoot.com/en/plan/booking-your-flight/baggage,2026-10-04
+Scoot,scoot,Asia Pacific,strict,operating,,cabin_bag__personal_item,Cabin bag (FlyBag / FlyBagEat) — included personal item,35,25,15,,https://www.flyscoot.com/en/plan/booking-your-flight/baggage,2026-10-04
 Air India,air-india,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,55,35,25,8,,
 Thai Airways,thai-airways,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,56,45,25,7,,
 Malaysia Airlines,malaysia-airlines,Asia Pacific,moderate,operating,,standard_cabin,Cabin bag included,56,36,23,7,,
