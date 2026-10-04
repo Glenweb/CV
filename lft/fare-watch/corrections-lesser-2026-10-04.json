@@ -1,0 +1,527 @@
+{
+ "note": "The 17 lesser issues from AUDIT-2026-10-04.md. Four operation types: 'set' changes fields on an existing row, 'add' appends a new allowance row, 'recode' renames a row's code and resets its fields, 'drop_field' removes a field. Reversible via apply-lesser.py --revert. Two of the original 17 findings were my error: British Airways and Turkish Airlines already held the correct published personal item in their bundled rows. The audit's compact dump filtered '__' rows, so I read them as missing. BA is no issue at all; Turkish needed only its 4 kg limit recorded. Scoot's 'no_carry_on' and flydubai's 'lite_bag' turned out to be genuine fare rows holding wrong boxes rather than spurious duplicates, so both became 'set' ops. flydubai's is a wrong measurement in its own right: the Economy Lite row held the standard cabin bag's dimensions, telling Lite passengers they could bring a full cabin bag.",
+ "appliedOn": "2026-10-04",
+ "ops": [
+  {
+   "key": "ana-all-nippon-airways",
+   "op": "add",
+   "after": "standard_cabin",
+   "row": {
+    "code": "standard_cabin__personal_item",
+    "label": "Cabin bag included — included personal item",
+    "cm": [
+     40,
+     30,
+     20
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "combined",
+     "kg": 10,
+     "lb": 22,
+     "note": "Carry-on and personal item combined must not exceed 10 kg"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Must fit under the seat in front. Counts towards the 10 kg combined cabin limit."
+   },
+   "why": "ANA publishes a 40 x 30 x 20 cm personal item; the dataset had no row for it."
+  },
+  {
+   "key": "airasia",
+   "op": "add",
+   "after": "cabin_bag",
+   "row": {
+    "code": "cabin_bag__personal_item",
+    "label": "Cabin bag — included personal item",
+    "cm": [
+     40,
+     30,
+     10
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "combined",
+     "kg": 7,
+     "lb": 15,
+     "note": "Cabin bag and personal item combined must not exceed 7 kg"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Only 10 cm deep — far shallower than most. Counts towards the 7 kg combined limit."
+   },
+   "why": "AirAsia publishes a 40 x 30 x 10 cm personal item; the dataset had no row for it."
+  },
+  {
+   "key": "jet2",
+   "op": "add",
+   "after": "standard_cabin",
+   "row": {
+    "code": "standard_cabin__personal_item",
+    "label": "Cabin bag included — included personal item",
+    "cm": [
+     40,
+     30,
+     20
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "none",
+     "kg": null,
+     "lb": null,
+     "note": "No published personal item weight limit"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Must fit under the seat in front."
+   },
+   "why": "Jet2 publishes a 40 x 30 x 20 cm under-seat bag; the dataset had no row for it."
+  },
+  {
+   "key": "qantas",
+   "op": "add",
+   "after": "standard_cabin",
+   "row": {
+    "code": "standard_cabin__personal_item",
+    "label": "Cabin bag included — included personal item",
+    "cm": [
+     48,
+     34,
+     23
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "combined",
+     "kg": 7,
+     "lb": 15,
+     "note": "Counts towards the 7 kg cabin total"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Qantas allows an unusually large under-seat bag at 48 x 34 x 23 cm, but it counts towards the 7 kg cabin total."
+   },
+   "why": "Qantas publishes a 48 x 34 x 23 cm under-seat bag; the dataset had no row for it."
+  },
+  {
+   "key": "tui-airways",
+   "op": "add",
+   "after": "standard_cabin",
+   "row": {
+    "code": "standard_cabin__personal_item",
+    "label": "Cabin bag included — included personal item",
+    "cm": [
+     40,
+     30,
+     20
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "none",
+     "kg": null,
+     "lb": null,
+     "note": "No published personal item weight limit"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Must be stored under the seat in front."
+   },
+   "why": "TUI publishes a 40 x 30 x 20 cm under-seat bag; the dataset had no row for it."
+  },
+  {
+   "key": "turkish-airlines",
+   "op": "set",
+   "code": "standard_cabin__personal_item",
+   "fields": {
+    "kg": 4,
+    "weight": {
+     "policy": "per_item",
+     "kg": 4,
+     "lb": 9,
+     "note": "4 kg personal item limit"
+    },
+    "advisoryNote": "Turkish publishes a separate 4 kg limit for the personal item."
+   },
+   "why": "The 40 x 30 x 15 dimensions were already correct. Only the 4 kg personal-item limit was unrecorded.",
+   "replaced": {
+    "kg": null,
+    "weight": "__absent__",
+    "advisoryNote": "__absent__"
+   }
+  },
+  {
+   "key": "delta-air-lines",
+   "op": "set",
+   "code": "standard_cabin__personal_item",
+   "fields": {
+    "cmIsDerived": true,
+    "label": "Carry-on included — personal item (no published size)",
+    "derivedNote": "Delta publishes no personal-item dimensions. 46 x 36 x 20 cm is our guidance for what reliably fits under a Delta seat, not a Delta rule."
+   },
+   "why": "The row was presenting our inference as Delta's published rule.",
+   "replaced": {
+    "cmIsDerived": "__absent__",
+    "label": "Carry-on included — included personal item",
+    "derivedNote": "__absent__"
+   }
+  },
+  {
+   "key": "alaska-airlines",
+   "op": "set",
+   "code": "standard_cabin__personal_item",
+   "fields": {
+    "cmIsDerived": true,
+    "label": "Carry-on included — personal item (no published size)",
+    "derivedNote": "Alaska publishes no personal-item dimensions. 43 x 33 x 15 cm is our guidance for what reliably fits under an Alaska seat, not an Alaska rule."
+   },
+   "why": "Same as Delta — our inference was presented as the airline's rule.",
+   "replaced": {
+    "cmIsDerived": "__absent__",
+    "label": "Carry-on included — included personal item",
+    "derivedNote": "__absent__"
+   }
+  },
+  {
+   "key": "united-airlines",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "cm": [
+     56,
+     35,
+     22
+    ]
+   },
+   "why": "United publishes 22 cm, not 23. Ours was 9 in rounded up and so more permissive than the airline.",
+   "replaced": {
+    "cm": [
+     56,
+     35,
+     23
+    ]
+   }
+  },
+  {
+   "key": "united-airlines",
+   "op": "set",
+   "code": "personal_item",
+   "fields": {
+    "cm": [
+     43,
+     25,
+     22
+    ]
+   },
+   "why": "Same rounding.",
+   "replaced": {
+    "cm": [
+     43,
+     25,
+     23
+    ]
+   }
+  },
+  {
+   "key": "united-airlines",
+   "op": "set",
+   "code": "standard_cabin__personal_item",
+   "fields": {
+    "cm": [
+     43,
+     25,
+     22
+    ]
+   },
+   "why": "Bundled row follows its parent.",
+   "replaced": {
+    "cm": [
+     43,
+     25,
+     23
+    ]
+   }
+  },
+  {
+   "key": "american-airlines",
+   "op": "set",
+   "code": "personal_item",
+   "fields": {
+    "cm": [
+     45,
+     35,
+     20
+    ]
+   },
+   "why": "American publishes 45 x 35 x 20 cm alongside 18x14x8 in. Ours was rounded up from inches.",
+   "replaced": {
+    "cm": [
+     46,
+     36,
+     20
+    ]
+   }
+  },
+  {
+   "key": "american-airlines",
+   "op": "set",
+   "code": "standard_cabin__personal_item",
+   "fields": {
+    "cm": [
+     45,
+     35,
+     20
+    ]
+   },
+   "why": "Bundled row follows its parent.",
+   "replaced": {
+    "cm": [
+     46,
+     36,
+     20
+    ]
+   }
+  },
+  {
+   "key": "vueling",
+   "op": "drop_field",
+   "code": "small_bag",
+   "fields": [
+    "kg"
+   ],
+   "why": "Vueling publishes 10 kg for the overhead bag only. Applying it to the under-seat bag was over-strict.",
+   "replaced": {
+    "kg": 10
+   }
+  },
+  {
+   "key": "air-canada",
+   "op": "set",
+   "code": "personal_item",
+   "fields": {
+    "label": "Personal item only (Economy Basic, selected routes)",
+    "advisoryNote": "Economy Basic tickets bought on or after 3 January 2025 no longer include a carry-on on selected routes — personal item only."
+   },
+   "why": "Air Canada already had a personal_item row; it just did not say which fare it applies to. Relabelled rather than duplicated.",
+   "replaced": {
+    "label": "Personal item only (Basic fare)",
+    "advisoryNote": "__absent__"
+   }
+  },
+  {
+   "key": "avianca",
+   "op": "add",
+   "before": "cabin_bag",
+   "row": {
+    "code": "personal_item_only",
+    "label": "Personal item only (Basic fare)",
+    "cm": [
+     45,
+     35,
+     20
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "none",
+     "kg": null,
+     "lb": null,
+     "note": "No published weight limit"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Avianca's carry-on is included in every fare except Basic, which allows the personal item only."
+   },
+   "why": "Avianca Basic excludes the carry-on; the dataset had no row for that fare."
+  },
+  {
+   "key": "indigo",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "IndiGo enforces a 115 cm linear sum. 55+35+25 = 115, so a bag at every stated maximum is exactly at the limit.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "scoot",
+   "op": "set",
+   "code": "cabin_bag",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "Scoot enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "japan-airlines-jal",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "JAL enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "ana-all-nippon-airways",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "ANA enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "korean-air",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "Korean Air enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "air-india",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "Air India enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "malaysia-airlines",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 115
+   },
+   "why": "Malaysia Airlines enforces a 115 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "air-new-zealand",
+   "op": "set",
+   "code": "standard_cabin",
+   "fields": {
+    "linearSumCm": 118
+   },
+   "why": "Air New Zealand enforces a 118 cm linear sum.",
+   "replaced": {
+    "linearSumCm": "__absent__"
+   }
+  },
+  {
+   "key": "scoot",
+   "op": "set",
+   "code": "no_carry_on",
+   "fields": {
+    "cm": [
+     40,
+     30,
+     10
+    ],
+    "label": "Personal item only (Fly fare)",
+    "advisoryNote": "Only 10 cm deep. Scoot also enforces a 115 cm linear sum on the cabin bag."
+   },
+   "why": "The Fly fare row is real, but held 35 x 25 x 15 — a figure Scoot does not publish. Scoot's personal item is 40 x 30 x 10.",
+   "replaced": {
+    "cm": [
+     35,
+     25,
+     15
+    ],
+    "label": "Personal items only (Fly fare)",
+    "advisoryNote": "__absent__"
+   }
+  },
+  {
+   "key": "scoot",
+   "op": "set",
+   "code": "cabin_bag__personal_item",
+   "fields": {
+    "cm": [
+     40,
+     30,
+     10
+    ],
+    "advisoryNote": "Only 10 cm deep. Counts towards the 10 kg cabin total."
+   },
+   "why": "Same wrong figure repeated on the bundled row.",
+   "replaced": {
+    "cm": [
+     35,
+     25,
+     15
+    ],
+    "advisoryNote": "__absent__"
+   }
+  },
+  {
+   "key": "flydubai",
+   "op": "set",
+   "code": "lite_bag",
+   "fields": {
+    "cm": [
+     25,
+     33,
+     20
+    ],
+    "label": "Under-seat personal item only (Economy Lite)",
+    "advisoryNote": "flydubai's under-seat bag is unusually narrow at 25 cm. The 7 kg hand baggage allowance still applies."
+   },
+   "why": "DEFECT. The Economy Lite row held 55 x 38 x 20 — the standard cabin bag's box — so the fare dropdown offered the same bag twice and told Lite passengers they could bring a full cabin bag. flydubai's published under-seat item is 25 x 33 x 20.",
+   "replaced": {
+    "cm": [
+     55,
+     38,
+     20
+    ],
+    "label": "Under-seat bag only (Economy Lite)",
+    "advisoryNote": "__absent__"
+   }
+  },
+  {
+   "key": "flydubai",
+   "op": "add",
+   "after": "cabin_bag",
+   "row": {
+    "code": "cabin_bag__personal_item",
+    "label": "Cabin bag — included personal item",
+    "cm": [
+     25,
+     33,
+     20
+    ],
+    "kg": null,
+    "weight": {
+     "policy": "combined",
+     "kg": 7,
+     "lb": 15,
+     "note": "Counts towards the 7 kg hand baggage allowance"
+    },
+    "personalItemIncluded": false,
+    "personalItem": null,
+    "advisoryNote": "Unusually narrow at 25 cm. Counts towards the 7 kg hand baggage allowance."
+   },
+   "why": "flydubai allows a personal item alongside the cabin bag; the dataset had no bundled row."
+  }
+ ],
+ "applied": true
+}

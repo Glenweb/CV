@@ -75,5 +75,54 @@ m = re.search(r'<span class="lft-n">(\d+)</span>allowances', page)
 check('data page: allowance count matches dataset',
       int(m.group(1)) if m else None, sum(len(a['allowances']) for a in ds))
 
+# ── the tool carries its own copy of the data; it must match the dataset exactly ────────
+# This is why the audit's corrections appeared to land and did not: airlines.json was
+# fixed on 42 rows while the live tool kept the old figures, and nothing compared them.
+sys.path.insert(0, str(ROOT/'checker/tool'))
+try:
+    from importlib import import_module
+    tooldata = import_module('parse-tool-data'.replace('-', '_')) if False else None
+except Exception:
+    tooldata = None
+
+import re as _re
+def parse_tool_rows(text):
+    blk = text[text.index('const AIRLINES=['):text.index('const FIXED_GUIDES=[')]
+    out = {}
+    for b in _re.split(r'(?=\{name:")', blk):
+        m = _re.match(r'\{name:"([^"]+)"', b)
+        if not m: continue
+        rows = {}
+        for ch in _re.split(r'(?=\{code:")', b):
+            cm_ = _re.match(r'\{code:"([^"]+)"', ch)
+            if not cm_: continue
+            code = cm_.group(1)
+            pi_at = ch.find('personalItem:{')
+            own = ch[:pi_at] if pi_at != -1 else ch
+            mm = _re.search(r'maxCm:(?:\[([\d.,\s]+)\]|null)', own)
+            if mm and mm.group(1): rows[code] = [int(float(x)) for x in mm.group(1).split(',')]
+            lm = _re.search(r'linearSumCm:(\d+)', own)
+            if lm: rows[code + '#linear'] = int(lm.group(1))
+            if pi_at != -1:
+                pm = _re.search(r'maxCm:(?:\[([\d.,\s]+)\]|null)', ch[pi_at:])
+                if pm and pm.group(1):
+                    rows[code + '__personal_item'] = [int(float(x)) for x in pm.group(1).split(',')]
+        out[m.group(1)] = rows
+    return out
+
+trows = parse_tool_rows(tool)
+dim_mismatch, dim_missing, lin_mismatch = [], [], []
+for a in ds:
+    t = trows.get(a['name'], {})
+    for al in a['allowances']:
+        tv = t.get(al['code'])
+        if tv is None: dim_missing.append(f"{a['name']}/{al['code']}")
+        elif tv != al['cm']: dim_mismatch.append(f"{a['name']}/{al['code']} tool={tv} data={al['cm']}")
+        if al.get('linearSumCm') and t.get(al['code'] + '#linear') != al['linearSumCm']:
+            lin_mismatch.append(f"{a['name']}/{al['code']} linear tool={t.get(al['code']+'#linear')} data={al['linearSumCm']}")
+check('every dataset allowance exists in the tool', dim_missing, [])
+check('every dimension matches between tool and dataset', dim_mismatch, [])
+check('every linear-sum limit matches between tool and dataset', lin_mismatch, [])
+
 print(f"\n{'FAILED: ' + ', '.join(fails) if fails else 'All consistency checks passed.'}")
 sys.exit(1 if fails else 0)

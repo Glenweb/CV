@@ -321,7 +321,14 @@
       30,
       15
      ],
-     "kg": null
+     "kg": 4,
+     "weight": {
+      "policy": "per_item",
+      "kg": 4,
+      "lb": 9,
+      "note": "4 kg personal item limit"
+     },
+     "advisoryNote": "Turkish publishes a separate 4 kg limit for the personal item."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -386,8 +393,7 @@
       40,
       30,
       20
-     ],
-     "kg": 10
+     ]
     },
     {
      "code": "cabin_bag",
@@ -738,6 +744,25 @@
       25
      ],
      "kg": 10
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag included — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "none",
+      "kg": null,
+      "lb": null,
+      "note": "No published personal item weight limit"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Must fit under the seat in front."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -760,6 +785,25 @@
       20
      ],
      "kg": 10
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag included — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "none",
+      "kg": null,
+      "lb": null,
+      "note": "No published personal item weight limit"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Must be stored under the seat in front."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -785,13 +829,15 @@
     },
     {
      "code": "standard_cabin__personal_item",
-     "label": "Carry-on included — included personal item",
+     "label": "Carry-on included — personal item (no published size)",
      "cm": [
       46,
       36,
       20
      ],
-     "kg": null
+     "kg": null,
+     "cmIsDerived": true,
+     "derivedNote": "Delta publishes no personal-item dimensions. 46 x 36 x 20 cm is our guidance for what reliably fits under a Delta seat, not a Delta rule."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -809,8 +855,8 @@
      "code": "personal_item",
      "label": "Personal item only (Basic Economy domestic)",
      "cm": [
-      46,
-      36,
+      45,
+      35,
       20
      ],
      "kg": null
@@ -829,8 +875,8 @@
      "code": "standard_cabin__personal_item",
      "label": "Carry-on included — included personal item",
      "cm": [
-      46,
-      36,
+      45,
+      35,
       20
      ],
      "kg": null
@@ -853,7 +899,7 @@
      "cm": [
       43,
       25,
-      23
+      22
      ],
      "kg": null
     },
@@ -863,7 +909,7 @@
      "cm": [
       56,
       35,
-      23
+      22
      ],
      "kg": null
     },
@@ -873,7 +919,7 @@
      "cm": [
       43,
       25,
-      23
+      22
      ],
      "kg": null
     }
@@ -1105,13 +1151,15 @@
     },
     {
      "code": "standard_cabin__personal_item",
-     "label": "Carry-on included — included personal item",
+     "label": "Carry-on included — personal item (no published size)",
      "cm": [
       43,
       33,
       15
      ],
-     "kg": null
+     "kg": null,
+     "cmIsDerived": true,
+     "derivedNote": "Alaska publishes no personal-item dimensions. 43 x 33 x 15 cm is our guidance for what reliably fits under an Alaska seat, not an Alaska rule."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1171,13 +1219,14 @@
    "allowances": [
     {
      "code": "personal_item",
-     "label": "Personal item only (Basic fare)",
+     "label": "Personal item only (Economy Basic, selected routes)",
      "cm": [
       43,
       33,
       16
      ],
-     "kg": null
+     "kg": null,
+     "advisoryNote": "Economy Basic tickets bought on or after 3 January 2025 no longer include a carry-on on selected routes — personal item only."
     },
     {
      "code": "cabin_bag",
@@ -1307,6 +1356,25 @@
      "kg": null
     },
     {
+     "code": "personal_item_only",
+     "label": "Personal item only (Basic fare)",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "none",
+      "kg": null,
+      "lb": null,
+      "note": "No published weight limit"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Avianca's carry-on is included in every fare except Basic, which allows the personal item only."
+    },
+    {
      "code": "cabin_bag",
      "label": "Cabin bag (Básico and above)",
      "cm": [
@@ -1434,13 +1502,14 @@
    "allowances": [
     {
      "code": "lite_bag",
-     "label": "Under-seat bag only (Economy Lite)",
+     "label": "Under-seat personal item only (Economy Lite)",
      "cm": [
-      55,
-      38,
+      25,
+      33,
       20
      ],
-     "kg": 7
+     "kg": 7,
+     "advisoryNote": "flydubai's under-seat bag is unusually narrow at 25 cm. The 7 kg hand baggage allowance still applies."
     },
     {
      "code": "cabin_bag",
@@ -1451,6 +1520,25 @@
       20
      ],
      "kg": 7
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag — included personal item",
+     "cm": [
+      25,
+      33,
+      20
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "combined",
+      "kg": 7,
+      "lb": 15,
+      "note": "Counts towards the 7 kg hand baggage allowance"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Unusually narrow at 25 cm. Counts towards the 7 kg hand baggage allowance."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1521,6 +1609,25 @@
       23
      ],
      "kg": 7
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag included — included personal item",
+     "cm": [
+      48,
+      34,
+      23
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "combined",
+      "kg": 7,
+      "lb": 15,
+      "note": "Counts towards the 7 kg cabin total"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Qantas allows an unusually large under-seat bag at 48 x 34 x 23 cm, but it counts towards the 7 kg cabin total."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1542,7 +1649,8 @@
       40,
       23
      ],
-     "kg": 7
+     "kg": 7,
+     "linearSumCm": 118
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1566,7 +1674,8 @@
       40,
       25
      ],
-     "kg": 10
+     "kg": 10,
+     "linearSumCm": 115
     }
    ],
    "verificationMethod": "official_domain_search"
@@ -1587,7 +1696,27 @@
       40,
       25
      ],
-     "kg": 10
+     "kg": 10,
+     "linearSumCm": 115
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "label": "Cabin bag included — included personal item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "combined",
+      "kg": 10,
+      "lb": 22,
+      "note": "Carry-on and personal item combined must not exceed 10 kg"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Must fit under the seat in front. Counts towards the 10 kg combined cabin limit."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1609,7 +1738,8 @@
       40,
       20
      ],
-     "kg": 10
+     "kg": 10,
+     "linearSumCm": 115
     }
    ],
    "verificationMethod": "official_domain_search"
@@ -1631,6 +1761,25 @@
       23
      ],
      "kg": 7
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "label": "Cabin bag — included personal item",
+     "cm": [
+      40,
+      30,
+      10
+     ],
+     "kg": null,
+     "weight": {
+      "policy": "combined",
+      "kg": 7,
+      "lb": 15,
+      "note": "Cabin bag and personal item combined must not exceed 7 kg"
+     },
+     "personalItemIncluded": false,
+     "personalItem": null,
+     "advisoryNote": "Only 10 cm deep — far shallower than most. Counts towards the 7 kg combined limit."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1652,7 +1801,8 @@
       35,
       25
      ],
-     "kg": 7
+     "kg": 7,
+     "linearSumCm": 115
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1668,13 +1818,14 @@
    "allowances": [
     {
      "code": "no_carry_on",
-     "label": "Personal items only (Fly fare)",
+     "label": "Personal item only (Fly fare)",
      "cm": [
-      35,
-      25,
-      15
+      40,
+      30,
+      10
      ],
-     "kg": null
+     "kg": null,
+     "advisoryNote": "Only 10 cm deep. Scoot also enforces a 115 cm linear sum on the cabin bag."
     },
     {
      "code": "cabin_bag",
@@ -1684,17 +1835,19 @@
       38,
       23
      ],
-     "kg": 10
+     "kg": 10,
+     "linearSumCm": 115
     },
     {
      "code": "cabin_bag__personal_item",
      "label": "Cabin bag (FlyBag / FlyBagEat) — included personal item",
      "cm": [
-      35,
-      25,
-      15
+      40,
+      30,
+      10
      ],
-     "kg": null
+     "kg": null,
+     "advisoryNote": "Only 10 cm deep. Counts towards the 10 kg cabin total."
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1716,7 +1869,8 @@
       40,
       20
      ],
-     "kg": 7
+     "kg": 7,
+     "linearSumCm": 115
     }
    ],
    "verificationMethod": "official_domain_search",
@@ -1761,7 +1915,8 @@
       36,
       23
      ],
-     "kg": 7
+     "kg": 7,
+     "linearSumCm": 115
     }
    ],
    "verificationMethod": "official_domain_search"
