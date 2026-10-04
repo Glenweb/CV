@@ -91,24 +91,26 @@ pitching: the first question a travel desk asks is "where did you get this and w
 Fill those fields before any PR push. It is 51 airline pages and a date — a day of agent
 work, and it converts the page from "a blog's table" into something citable.
 
-**2. The tool's prose contradicts the dataset.** `/carry-on-size-checker/` has a
-hand-written Tier 1 list reading *"Ryanair, Wizz Air, easyJet (small cabin bag), Frontier,
-Allegiant, AirAsia, Scoot, Jetstar, IndiGo"* — nine airlines. The dataset's three strictest
-bands hold eleven, and they are not the same eleven:
+**2. ~~The tool's prose contradicts the dataset.~~ FIXED 4 Oct 2026.**
 
-| | |
-|---|---|
-| Named in the prose, **not in the dataset at all** | **Jetstar** |
-| In the dataset's strict bands, missing from the prose | Aer Lingus, Vueling, flydubai |
+The tool's Tier 1 list was hand-written and read *"Ryanair, Wizz Air, easyJet (small cabin
+bag), Frontier, Allegiant, AirAsia, Scoot, Jetstar, IndiGo"*. **Jetstar is not in the
+dataset at all**, and Aer Lingus, Vueling and flydubai — which are in the strict bands —
+were missing.
 
-This is the same class of defect as Spirit: the copy was written by hand and the data moved
-underneath it. **Do not publish the data page while the tool contradicts it** — a
-journalist checking one against the other finds the discrepancy, and that is the end of the
-pitch.
+The whole section is now generated from the tool's own `AIRLINES` array by
+`lft/checker/tool/build-tiers.py`. It states five tiers with counts, flags Spirit inline as
+ceased, and reports **11 of 50 operating airlines in the three strictest bands** — the same
+figure this data page states, because both derive from the same source. It also now links
+to `/carry-on-enforcement-index/`, giving the data page an internal link from an indexed
+page.
 
-Fix direction: delete the hand-written tier list from the tool and generate it from
-`airlines.json`, the way this page does. Then there is one source of truth and it cannot
-drift again. Say the word and I'll do it.
+**`lft/test-consistency.py` is the real fix.** Three defects this week came from one cause:
+copy written by hand while the data moved underneath it — Spirit live in the checker,
+Jetstar invented in the prose, and a ceased flag my own first generator read off the wrong
+airline. A count stated in prose is a claim, and claims need a test. It asserts the tool's
+AIRLINES array, the tool's prose, `airlines.json` and this data page all agree — 12
+assertions, and it was validated by injecting a fake "Jetstar" and confirming it failed.
 
 ---
 
@@ -119,6 +121,8 @@ python3 lft/checker/tool/build-embed.py    # after any change to the tool
 python3 lft/data/build.py                  # after any change to airlines.json
 node    lft/checker/tool/test-embed.mjs    # 14 assertions
 node    lft/checker/tool/test-ceased.mjs   # 13 assertions
+python3 lft/checker/tool/build-tiers.py    # after any change to AIRLINES
+python3 lft/test-consistency.py            # 12 assertions across all four files
 ```
 
 Both generators assert on their inputs and fail loudly if the source HTML shifts under
