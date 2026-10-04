@@ -326,11 +326,31 @@
 
     <section class="section" aria-labelledby="embed-heading">
       <h2 id="embed-heading">Embed this tool on your website</h2>
-      <p class="small-text">Travel bloggers and websites are welcome to embed this free tool. A link back to luggagefortravel.com is included automatically.</p>
-      <label for="embedCode">Embed code</label>
-      <textarea id="embedCode" readonly aria-label="Embed iframe code">&lt;iframe src="https://luggagefortravel.com/carry-on-size-checker/" width="100%" height="700" frameborder="0" style="border-radius:8px;border:1px solid #e2e8f0;"&gt;&lt;/iframe&gt;&lt;p style="font-size:12px;"&gt;Carry-on size checker by &lt;a href="https://luggagefortravel.com"&gt;luggagefortravel.com&lt;/a&gt;&lt;/p&gt;</textarea>
+      <p class="small-text">Travel bloggers and websites are welcome to embed this free tool for all 51 airlines. Attribution is built into the widget, so the credit line cannot be lost by accident.</p>
+
+      <label for="embedCode">Embed code — resizes itself to fit</label>
+      <textarea id="embedCode" readonly rows="9" aria-label="Embed code with automatic height">&lt;iframe id="lft-checker"
+        src="https://luggagefortravel.com/carry-on-size-checker/embed/"
+        width="100%" height="900" loading="lazy" title="Carry-on size checker"
+        style="border:1px solid #e2e8f0;border-radius:8px"&gt;&lt;/iframe&gt;
+&lt;script&gt;
+addEventListener("message", function (e) {
+  if (e.origin !== "https://luggagefortravel.com") return;
+  if (e.data &amp;&amp; e.data.type === "lft-checker-height")
+    document.getElementById("lft-checker").style.height = e.data.height + "px";
+});
+&lt;/script&gt;</textarea>
       <button type="button" id="copyEmbed" class="copy-btn">Copy embed code</button>
-      <p class="footnote">Embedding only works if your hosting and security settings allow the page to be framed on third-party websites.</p>
+
+      <h3 style="margin-top:22px">No-script version</h3>
+      <p class="small-text">If your CMS strips &lt;script&gt; tags, use this instead. The widget still works; it just stays a fixed height.</p>
+      <label for="embedCodeSimple">Embed code — fixed height</label>
+      <textarea id="embedCodeSimple" readonly rows="4" aria-label="Embed code, fixed height">&lt;iframe src="https://luggagefortravel.com/carry-on-size-checker/embed/"
+        width="100%" height="900" loading="lazy" title="Carry-on size checker"
+        style="border:1px solid #e2e8f0;border-radius:8px"&gt;&lt;/iframe&gt;</textarea>
+      <button type="button" id="copyEmbedSimple" class="copy-btn">Copy fixed-height code</button>
+
+      <p class="footnote">The embed URL serves the tool on its own, without this page's header, footer or navigation. Embedding requires your host to allow the page to be framed by third-party sites.</p>
     </section>
 
     <section class="section" aria-labelledby="enforcement-heading">
@@ -1333,6 +1353,16 @@ weightLb.addEventListener("input",()=>{
 [lengthInput,widthInput,heightInput].forEach(i=>i.addEventListener("input",clearV));
 
 /* ── EMBED COPY ── */
+const copyEmbedSimple=document.getElementById("copyEmbedSimple");
+const embedCodeSimple=document.getElementById("embedCodeSimple");
+if(copyEmbedSimple&&embedCodeSimple){
+  copyEmbedSimple.addEventListener("click",async()=>{
+    try{await navigator.clipboard.writeText(embedCodeSimple.value);}
+    catch{embedCodeSimple.focus();embedCodeSimple.select();document.execCommand("copy");}
+    const o=copyEmbedSimple.textContent;copyEmbedSimple.textContent="Copied ✓";
+    setTimeout(()=>{copyEmbedSimple.textContent=o;},1800);
+  });
+}
 copyEmbed.addEventListener("click",async()=>{
   try{await navigator.clipboard.writeText(embedCode.value);}
   catch{embedCode.focus();embedCode.select();document.execCommand("copy");}

@@ -1167,6 +1167,16 @@ weightLb.addEventListener("input",()=>{
 [lengthInput,widthInput,heightInput].forEach(i=>i.addEventListener("input",clearV));
 
 /* ── EMBED COPY ── */
+const copyEmbedSimple=document.getElementById("copyEmbedSimple");
+const embedCodeSimple=document.getElementById("embedCodeSimple");
+if(copyEmbedSimple&&embedCodeSimple){
+  copyEmbedSimple.addEventListener("click",async()=>{
+    try{await navigator.clipboard.writeText(embedCodeSimple.value);}
+    catch{embedCodeSimple.focus();embedCodeSimple.select();document.execCommand("copy");}
+    const o=copyEmbedSimple.textContent;copyEmbedSimple.textContent="Copied ✓";
+    setTimeout(()=>{copyEmbedSimple.textContent=o;},1800);
+  });
+}
 if(copyEmbed&&embedCode){
 copyEmbed.addEventListener("click",async()=>{
   try{await navigator.clipboard.writeText(embedCode.value);}
