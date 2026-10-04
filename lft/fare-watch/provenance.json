@@ -1,83 +1,900 @@
 {
-  "note": "Per-airline source URLs and verification records for airlines.json. Entries are added only when the official domain has been consulted. 'method' states HOW it was established, because that is what a journalist will ask.",
-  "methods": {
-    "official_page_read": "The airline's own page was fetched and read in full.",
-    "official_domain_search": "Established from a web search restricted to the airline's own domain, which returned the official URL and quoted its figures. The page itself could NOT be fetched from the build environment (network egress policy blocks airline domains). Weaker than official_page_read — re-verify by opening the URL before relying on it in a press pitch."
+ "note": "Per-airline source URLs and verification records for airlines.json. Entries are added only when the official domain has been consulted. 'method' states HOW it was established, because that is what a journalist will ask.",
+ "methods": {
+  "official_page_read": "The airline's own page was fetched and read in full.",
+  "official_domain_search": "Established from a web search restricted to the airline's own domain, which returned the official URL and quoted its figures. The page itself could NOT be fetched from the build environment (network egress policy blocks airline domains). Weaker than official_page_read — re-verify by opening the URL before relying on it in a press pitch."
+ },
+ "verifiedOn": "2026-10-04",
+ "airlines": {
+  "ryanair": {
+   "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
+   "method": "official_domain_search",
+   "published": {
+    "personal_item": [
+     40,
+     30,
+     20
+    ],
+    "priority_cabin": [
+     55,
+     40,
+     20
+    ],
+    "priority_cabin_kg": 10
+   },
+   "match": "exact"
   },
-  "verifiedOn": "2026-10-04",
-  "airlines": {
-    "ryanair": {
-      "source": "https://help.ryanair.com/hc/en-gb/categories/12489112419089-Bag-Rules",
-      "method": "official_domain_search",
-      "published": { "personal_item": [40, 30, 20], "priority_cabin": [55, 40, 20], "priority_cabin_kg": 10 },
-      "match": "exact"
-    },
-    "wizz-air": {
-      "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
-      "method": "official_domain_search",
-      "published": { "personal_item": [40, 30, 20], "personal_item_kg": 10, "priority_trolley": [55, 40, 23], "priority_trolley_kg": 10 },
-      "match": "exact"
-    },
-    "easyjet": {
-      "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
-      "method": "official_domain_search",
-      "published": { "small_cabin": [45, 36, 20], "small_cabin_kg": 15, "large_cabin": [56, 45, 25], "large_cabin_kg": 15 },
-      "match": "exact"
-    },
-    "vueling": {
-      "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
-      "method": "official_domain_search",
-      "published": { "small_bag": [40, 30, 20], "cabin_bag": [55, 40, 20], "cabin_bag_kg": 10 },
-      "match": "dimensions_exact",
-      "issue": "Dataset puts a 10 kg limit on the under-seat small_bag. Vueling states 10 kg for the overhead bag; no weight is published for the under-seat bag. Over-strict by one field."
-    },
-    "frontier-airlines": {
-      "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
-      "method": "official_domain_search",
-      "published": { "personal_item_in": [18, 14, 8], "paid_carry_on_in": [24, 16, 10], "paid_carry_on_lb": 35 },
-      "match": "exact"
-    },
-    "airasia": {
-      "source": "https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB",
-      "method": "official_domain_search",
-      "published": { "cabin_bag": [56, 36, 23], "combined_kg": 7, "personal_item": [40, 30, 10] },
-      "match": "dimensions_exact",
-      "issue": "Dataset has no personal-item allowance for AirAsia. AirAsia publishes one at 40 x 30 x 10 cm. Missing row, not a wrong row."
-    },
-    "indigo": {
-      "source": "https://www.goindigo.in/baggage/cabin-baggage.html",
-      "method": "official_domain_search",
-      "published": { "standard_cabin": [55, 35, 25], "standard_cabin_kg": 7, "linear_sum_cm": 115, "extra_personal_kg": 3 },
-      "match": "exact",
-      "issue": "IndiGo also imposes a 115 cm linear-sum limit the dataset has no field for. 55+35+25 = 115, so a bag at the stated maximum on every axis is exactly at the linear limit."
-    },
-    "scoot": {
-      "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
-      "method": "official_domain_search",
-      "published": { "cabin_bag": [54, 38, 23], "cabin_kg": 10, "personal_item": [40, 30, 10], "linear_sum_cm": 115 },
-      "match": "cabin_exact",
-      "issue": "Dataset's second Scoot row is coded 'no_carry_on' at 35 x 25 x 15. Scoot publishes a personal item at 40 x 30 x 10. Both the code name and the figures look wrong."
-    },
-    "flydubai": {
-      "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
-      "method": "official_domain_search",
-      "published": { "cabin_bag": [55, 38, 20], "cabin_kg": 7, "personal_item": [25, 33, 20] },
-      "match": "cabin_exact",
-      "issue": "Dataset holds two flydubai rows, 'lite_bag' and 'cabin_bag', with identical 55 x 38 x 20 / 7 kg values. A Lite fare that allows the same bag as a standard fare is improbable; flydubai's published personal item is 25 x 33 x 20. Needs a human check against the fare table."
-    },
-    "aer-lingus": {
-      "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
-      "method": "official_domain_search",
-      "published": { "cabin_bag": [55, 40, 24], "cabin_kg": 10, "personal_item": [40, 30, 20] },
-      "match": "cabin_exact",
-      "issue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
-    },
-    "allegiant-air": {
-      "source": "https://www.allegiantair.com/baggage-1",
-      "method": "official_domain_search",
-      "published": { "personal_item": [45, 35, 20], "paid_carry_on": [55, 40, 25] },
-      "match": "none",
-      "issue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
-    }
+  "wizz-air": {
+   "source": "https://www.wizzair.com/en-gb/help-centre/booking-information-and-services/baggage/baggage-allowance/cabin-baggage",
+   "method": "official_domain_search",
+   "published": {
+    "personal_item": [
+     40,
+     30,
+     20
+    ],
+    "personal_item_kg": 10,
+    "priority_trolley": [
+     55,
+     40,
+     23
+    ],
+    "priority_trolley_kg": 10
+   },
+   "match": "exact"
+  },
+  "easyjet": {
+   "source": "https://www.easyjet.com/en/help/baggage/cabin-bags",
+   "method": "official_domain_search",
+   "published": {
+    "small_cabin": [
+     45,
+     36,
+     20
+    ],
+    "small_cabin_kg": 15,
+    "large_cabin": [
+     56,
+     45,
+     25
+    ],
+    "large_cabin_kg": 15
+   },
+   "match": "exact"
+  },
+  "vueling": {
+   "source": "https://www.vueling.com/en/prepare-your-trip/luggage/cabin-luggage/",
+   "method": "official_domain_search",
+   "published": {
+    "small_bag": [
+     40,
+     30,
+     20
+    ],
+    "cabin_bag": [
+     55,
+     40,
+     20
+    ],
+    "cabin_bag_kg": 10
+   },
+   "match": "dimensions_exact",
+   "issue": "Dataset puts a 10 kg limit on the under-seat small_bag. Vueling states 10 kg for the overhead bag; no weight is published for the under-seat bag. Over-strict by one field."
+  },
+  "frontier-airlines": {
+   "source": "https://faq.flyfrontier.com/help/bags-seats-general-info-what-are-the-sizes-and-weight-limits-for-bags",
+   "method": "official_domain_search",
+   "published": {
+    "personal_item_in": [
+     18,
+     14,
+     8
+    ],
+    "paid_carry_on_in": [
+     24,
+     16,
+     10
+    ],
+    "paid_carry_on_lb": 35
+   },
+   "match": "exact"
+  },
+  "airasia": {
+   "source": "https://support.airasia.com/s/article/What-are-the-rules-for-cabin-baggage-on-board?language=en_GB",
+   "method": "official_domain_search",
+   "published": {
+    "cabin_bag": [
+     56,
+     36,
+     23
+    ],
+    "combined_kg": 7,
+    "personal_item": [
+     40,
+     30,
+     10
+    ]
+   },
+   "match": "dimensions_exact",
+   "issue": "Dataset has no personal-item allowance for AirAsia. AirAsia publishes one at 40 x 30 x 10 cm. Missing row, not a wrong row."
+  },
+  "indigo": {
+   "source": "https://www.goindigo.in/baggage/cabin-baggage.html",
+   "method": "official_domain_search",
+   "published": {
+    "standard_cabin": [
+     55,
+     35,
+     25
+    ],
+    "standard_cabin_kg": 7,
+    "linear_sum_cm": 115,
+    "extra_personal_kg": 3
+   },
+   "match": "exact",
+   "issue": "IndiGo also imposes a 115 cm linear-sum limit the dataset has no field for. 55+35+25 = 115, so a bag at the stated maximum on every axis is exactly at the linear limit."
+  },
+  "scoot": {
+   "source": "https://www.flyscoot.com/en/plan/booking-your-flight/baggage",
+   "method": "official_domain_search",
+   "published": {
+    "cabin_bag": [
+     54,
+     38,
+     23
+    ],
+    "cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     10
+    ],
+    "linear_sum_cm": 115
+   },
+   "match": "cabin_exact",
+   "issue": "Dataset's second Scoot row is coded 'no_carry_on' at 35 x 25 x 15. Scoot publishes a personal item at 40 x 30 x 10. Both the code name and the figures look wrong."
+  },
+  "flydubai": {
+   "source": "https://www.flydubai.com/en/flying-with-us/baggage/hand-baggage/",
+   "method": "official_domain_search",
+   "published": {
+    "cabin_bag": [
+     55,
+     38,
+     20
+    ],
+    "cabin_kg": 7,
+    "personal_item": [
+     25,
+     33,
+     20
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "Dataset holds two flydubai rows, 'lite_bag' and 'cabin_bag', with identical 55 x 38 x 20 / 7 kg values. A Lite fare that allows the same bag as a standard fare is improbable; flydubai's published personal item is 25 x 33 x 20. Needs a human check against the fare table."
+  },
+  "aer-lingus": {
+   "source": "https://www.aerlingus.com/prepare/bags/carry-on-baggage/",
+   "method": "official_domain_search",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     24
+    ],
+    "cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     20
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
+  },
+  "allegiant-air": {
+   "source": "https://www.allegiantair.com/baggage-1",
+   "method": "official_domain_search",
+   "published": {
+    "personal_item": [
+     45,
+     35,
+     20
+    ],
+    "paid_carry_on": [
+     55,
+     40,
+     25
+    ]
+   },
+   "match": "none",
+   "issue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
+  },
+  "delta-air-lines": {
+   "source": "https://www.delta.com/us/en/baggage/carry-on-baggage",
+   "published": {
+    "standard_cabin_in": [
+     22,
+     14,
+     9
+    ],
+    "linear_in": 45,
+    "personal_item": "no dimensions published"
+   },
+   "match": "exact",
+   "issue": "Delta publishes no personal-item dimensions. The dataset's bundled personal-item row (46 x 36 x 20) is therefore unsourced — it is our inference, not Delta's rule.",
+   "method": "official_domain_search"
+  },
+  "american-airlines": {
+   "source": "https://www.aa.com/web/i18n/travel-info/baggage/carry-on-baggage.html",
+   "published": {
+    "personal_item": [
+     45,
+     35,
+     20
+    ],
+    "personal_item_in": [
+     18,
+     14,
+     8
+    ],
+    "standard_cabin": [
+     56,
+     36,
+     23
+    ],
+    "standard_cabin_in": [
+     22,
+     14,
+     9
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "Dataset personal_item is 46 x 36 x 20; American publishes 45 x 35 x 20 cm alongside 18x14x8 in. Ours is rounded up from inches, so it is 1 cm more permissive than American's own centimetre figure on two axes.",
+   "method": "official_domain_search"
+  },
+  "united-airlines": {
+   "source": "https://united.com/CMS/en-US/travel/Pages/BaggageCarry-On.aspx",
+   "published": {
+    "standard_cabin": [
+     56,
+     35,
+     22
+    ],
+    "personal_item": [
+     43,
+     25,
+     22
+    ]
+   },
+   "match": "none_minor",
+   "issue": "Both rows are 1 cm deeper than United publishes: dataset 56x35x23 and 43x25x23 against United's 56x35x22 and 43x25x22. Rounded up from 9 in (22.86 cm). More permissive than the airline, which is the direction that gets a reader stopped at the gate.",
+   "method": "official_domain_search"
+  },
+  "southwest-airlines": {
+   "source": "https://support.southwest.com/helpcenter/article/carryon-baggage-policy",
+   "published": {
+    "standard_cabin_in": [
+     24,
+     16,
+     10
+    ],
+    "personal_item_in": [
+     18.5,
+     13.5,
+     8.5
+    ]
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "alaska-airlines": {
+   "source": "https://www.alaskaair.com/content/travel-info/baggage/carry-on-luggage",
+   "published": {
+    "standard_cabin_in": [
+     22,
+     14,
+     9
+    ],
+    "personal_item": "no dimensions published"
+   },
+   "match": "exact",
+   "issue": "Alaska publishes no personal-item dimensions. The dataset's bundled personal-item row (43 x 33 x 15) is unsourced.",
+   "method": "official_domain_search"
+  },
+  "british-airways": {
+   "source": "https://www.britishairways.com/content/information/baggage-essentials",
+   "published": {
+    "standard_cabin": [
+     56,
+     45,
+     25
+    ],
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "British Airways publishes a 40 x 30 x 15 cm personal item. The dataset has no sourced personal-item row for BA.",
+   "method": "official_domain_search"
+  },
+  "lufthansa": {
+   "source": "https://www.lufthansa.com/us/en/carry-on-baggage",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     23
+    ],
+    "standard_cabin_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT. Dataset 'handbag_only' is 40 x 30 x 10; Lufthansa publishes 40 x 30 x 15 — 5 cm shallower than the real limit. The same 40 x 30 x 10 value appears on Swiss and Austrian, both Lufthansa Group, so the error has very likely propagated to all three. Also: the row name conflates the Economy Light fare with the personal-item size.",
+   "method": "official_domain_search"
+  },
+  "air-france": {
+   "source": "https://www.airfrance.com/IR/en/common/guidevoyageur/pratique/bagages-cabine-airfrance.htm",
+   "published": {
+    "standard_cabin": [
+     55,
+     35,
+     25
+    ],
+    "personal_item": [
+     40,
+     30,
+     15
+    ],
+    "combined_kg": 12
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "klm": {
+   "source": "https://www.klm.com/information/baggage/hand-baggage-allowance",
+   "published": {
+    "standard_cabin": [
+     55,
+     35,
+     25
+    ],
+    "personal_item": [
+     40,
+     30,
+     15
+    ],
+    "combined_kg": 12
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "turkish-airlines": {
+   "source": "https://www.turkishairlines.com/en-pl/any-questions/carry-on-baggage/",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     23
+    ],
+    "standard_cabin_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ],
+    "personal_item_kg": 4
+   },
+   "match": "cabin_exact",
+   "issue": "Turkish publishes a 40 x 30 x 15 cm / 4 kg personal item. The dataset has no personal-item row for Turkish.",
+   "method": "official_domain_search"
+  },
+  "iberia": {
+   "source": "https://www.iberia.com/us/luggage/hand-luggage/",
+   "published": {
+    "cabin_bag": [
+     56,
+     40,
+     25
+    ],
+    "cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_dims_exact",
+   "issue": "DEFECT. Dataset personal_item is 35 x 20 x 20; Iberia publishes 40 x 30 x 15. Also missing the 10 kg cabin-bag weight limit Iberia enforces.",
+   "method": "official_domain_search"
+  },
+  "sas": {
+   "source": "https://www.flysas.com/us-en/travel-info/baggage/carry-on",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "cabin_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT. Dataset personal_item is 37 x 28 x 15; SAS publishes 40 x 30 x 15. Note SAS Go Light includes the under-seat bag only.",
+   "method": "official_domain_search"
+  },
+  "swiss-international-air-lines": {
+   "source": "https://www.swiss.com/us/en/prepare/baggage/hand-baggage",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "cabin_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; SWISS publishes 40 x 30 x 15. Economy Basic short/medium-haul is personal item only.",
+   "method": "official_domain_search"
+  },
+  "austrian-airlines": {
+   "source": "https://www.austrian.com/xx/en/handgepaeck",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "cabin_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; Austrian publishes 40 x 30 x 15. Economy Basic is personal item only.",
+   "method": "official_domain_search"
+  },
+  "tap-air-portugal": {
+   "source": "https://www.flytap.com/en-us/information/baggage/hand-baggage",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     25
+    ],
+    "cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     15
+    ],
+    "personal_item_kg": 2
+   },
+   "match": "personal_dims_exact",
+   "issue": "DEFECT. Dataset cabin_bag is 55 x 40 x 20 / 8 kg; TAP publishes 55 x 40 x 25 / 10 kg. Wrong on depth and weight, and under-strict on neither — it rejects compliant bags.",
+   "method": "official_domain_search"
+  },
+  "norwegian-air": {
+   "source": "https://www.norwegian.com/en/travel-info/baggage/hand-baggage/",
+   "published": {
+    "small_bag": [
+     40,
+     30,
+     20
+    ],
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "lowfare_kg": 10
+   },
+   "match": "cabin_exact",
+   "issue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — the fourth appearance of flydubai's personal-item triple in this dataset. Norwegian publishes 40 x 30 x 20.",
+   "method": "official_domain_search"
+  },
+  "finnair": {
+   "source": "https://www.finnair.com/us-en/baggage-on-finnair-flights/carry-on-baggage",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "economy_kg": 8,
+    "personal_item": [
+     40,
+     30,
+     15
+    ]
+   },
+   "match": "personal_exact",
+   "issue": "DEFECT. Dataset cabin_bag is 56 x 45 x 25; Finnair publishes 55 x 40 x 23. Ours is 5 cm wider and 2 cm deeper than the real limit, so it passes bags Finnair will charge 60 EUR to put in the hold.",
+   "method": "official_domain_search"
+  },
+  "jet2": {
+   "source": "https://www.jet2.com/en/baggage",
+   "published": {
+    "standard_cabin": [
+     56,
+     45,
+     25
+    ],
+    "standard_cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     20
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "Jet2 publishes a 40 x 30 x 20 under-seat bag. The dataset has no personal-item row for Jet2.",
+   "method": "official_domain_search"
+  },
+  "tui-airways": {
+   "source": "https://www.tui.co.uk/destinations/info/luggage-allowance",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     20
+    ],
+    "standard_cabin_kg": 10,
+    "personal_item": [
+     40,
+     30,
+     20
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "TUI publishes a 40 x 30 x 20 under-seat bag. The dataset has no personal-item row for TUI.",
+   "method": "official_domain_search"
+  },
+  "jetblue": {
+   "source": "https://www.jetblue.com/help/carry-on-bags",
+   "published": {
+    "standard_cabin": [
+     56,
+     36,
+     23
+    ],
+    "standard_cabin_in": [
+     22,
+     14,
+     9
+    ],
+    "personal_item": [
+     43,
+     33,
+     20
+    ],
+    "personal_item_in": [
+     17,
+     13,
+     8
+    ]
+   },
+   "match": "exact",
+   "issue": "FARE-RULE DEFECT, not a dimension one. The dataset labels JetBlue's personal-item row 'Personal item only (Blue Basic)'. JetBlue added a free carry-on bag to Blue Basic in September 2024, so Blue Basic is no longer personal-item only. This also makes the JetBlue line in lft/content/spirit-airlines-*.html wrong — those pages say Blue Basic is personal item only.",
+   "method": "official_domain_search"
+  },
+  "westjet": {
+   "source": "https://www.westjet.com/en-ca/baggage/carry-on",
+   "published": {
+    "carry_on": [
+     56,
+     36,
+     23
+    ],
+    "carry_on_in": [
+     22,
+     14,
+     9
+    ],
+    "personal_item": [
+     41,
+     33,
+     15
+    ],
+    "personal_item_in": [
+     16,
+     13,
+     6
+    ]
+   },
+   "match": "none",
+   "issue": "DEFECT. Dataset cabin_bag is 55 x 39 x 23; WestJet publishes 56 x 36 x 23 (22x14x9 in), having aligned to the North American standard in May 2025 — ours looks pre-change. Separately, the dataset's personal_item is stored as 41 x 15 x 33, i.e. WestJet's own height x depth x width printing copied without normalising, so it renders as '41 x 15 x 33 cm' on the data page. Should be 41 x 33 x 15.",
+   "method": "official_domain_search"
+  },
+  "air-canada": {
+   "source": "https://www.aircanada.com/us/en/aco/home/plan/baggage/carry-on.html",
+   "published": {
+    "cabin_bag": [
+     55,
+     40,
+     23
+    ],
+    "personal_item": [
+     43,
+     33,
+     16
+    ],
+    "no_weight_limit": true
+   },
+   "match": "exact",
+   "issue": "Dimensions exact. Fare nuance not captured: Air Canada Economy Basic tickets bought on or after 3 Jan 2025 no longer include a carry-on for selected destinations — personal item only.",
+   "method": "official_domain_search"
+  },
+  "emirates": {
+   "source": "https://www.emirates.com/us/english/before-you-fly/baggage/cabin-baggage-rules/",
+   "published": {
+    "economy_cabin": [
+     55,
+     38,
+     22
+    ],
+    "economy_kg": 7
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "qatar-airways": {
+   "source": "https://www.qatarairways.com/en/baggage/allowance.html",
+   "published": {
+    "standard_cabin": [
+     50,
+     37,
+     25
+    ],
+    "economy_kg": 7
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "etihad-airways": {
+   "source": "https://www.etihad.com/content/eag/etihadairways/etihadcom/global/en/fly-etihad/baggage/cabin-bags.html",
+   "published": {
+    "standard_cabin": [
+     56,
+     36,
+     23
+    ],
+    "economy_kg": 7
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "singapore-airlines": {
+   "source": "https://www.singaporeair.com/en_UK/us/travel-info/baggage/cabin-baggage/",
+   "published": {
+    "economy_kg": 7,
+    "rule": "linear sum of length+width+height must not exceed 115 cm",
+    "additional_items": [
+     40,
+     30,
+     10
+    ]
+   },
+   "match": "none",
+   "issue": "DEFECT. Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and a 7 kg weight. The dataset's 56 x 40 x 20 is unsourced, and worse, it sums to 116 cm, which breaches SQ's own stated limit. A bag passing our checker at those exact maxima would fail SQ's rule.",
+   "method": "official_domain_search"
+  },
+  "cathay-pacific": {
+   "source": "https://www.cathaypacific.com/cx/en_US/faqs/baggage/cabin-baggage-allowance/what-is-my-carry-on-baggage-allowance.html",
+   "published": null,
+   "match": "unverified",
+   "method": "not_established",
+   "issue": "NOT VERIFIED. Cathay publishes its cabin allowance behind a baggage calculator and per-ticket lookup rather than a static table; the search did not return dimensions, and cathaypacific.com cannot be fetched from this environment. The dataset's 56 x 36 x 23 / 7 kg is plausible for the region but remains unsourced. Needs a human with the page open."
+  },
+  "qantas": {
+   "source": "https://www.qantas.com/en-us/baggage/carry-on",
+   "published": {
+    "standard_cabin": [
+     56,
+     36,
+     23
+    ],
+    "economy_kg": 7,
+    "underseat": [
+     48,
+     34,
+     23
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "Qantas publishes an under-seat bag at 48 x 34 x 23 cm. The dataset has no personal-item row for Qantas.",
+   "method": "official_domain_search"
+  },
+  "air-new-zealand": {
+   "source": "https://www.airnewzealand.com/carry-on-baggage",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     23
+    ],
+    "economy_kg": 7,
+    "linear_sum_cm": 118,
+    "q300_depth_max": 22
+   },
+   "match": "none",
+   "issue": "DEFECT. Dataset is 56 x 36 x 23; Air New Zealand publishes 55 x 40 x 23. Ours is 1 cm too long and 4 cm too narrow — it rejects compliant bags on width.",
+   "method": "official_domain_search"
+  },
+  "japan-airlines-jal": {
+   "source": "https://www.jal.co.jp/jp/en/inter/baggage/inflight/",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     25
+    ],
+    "combined_kg": 10,
+    "linear_sum_cm": 115
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "ana-all-nippon-airways": {
+   "source": "https://www.ana.co.jp/en/us/travel-information/baggage-information/carry-on/",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     25
+    ],
+    "combined_kg": 10,
+    "linear_sum_cm": 115,
+    "personal_item": [
+     40,
+     30,
+     20
+    ]
+   },
+   "match": "cabin_exact",
+   "issue": "ANA publishes a 40 x 30 x 20 cm personal item. The dataset has no personal-item row for ANA.",
+   "method": "official_domain_search"
+  },
+  "korean-air": {
+   "source": "https://www.koreanair.com/cz/en/airport/baggage/carry-on",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     20
+    ],
+    "combined_kg": 10,
+    "linear_sum_cm": 115
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "air-india": {
+   "source": "https://www.airindia.com/in/en/travel-information/baggage-guidelines/cabin-baggage.html",
+   "published": {
+    "standard_cabin": [
+     55,
+     40,
+     20
+    ],
+    "economy_kg": 7,
+    "linear_sum_cm": 115,
+    "personal_item": [
+     40,
+     30,
+     20
+    ],
+    "personal_item_kg": 3
+   },
+   "match": "none",
+   "issue": "DEFECT. Dataset is 55 x 35 x 25 / 8 kg; Air India publishes 55 x 40 x 20 / 7 kg. Wrong on width, depth and weight — three of four fields. Ours is 5 cm too deep and allows 1 kg more than Air India, which weighs hand baggage at the gate.",
+   "method": "official_domain_search"
+  },
+  "thai-airways": {
+   "source": "https://www.thaiairways.com/en-th/content/baggage/carry-on-baggage/",
+   "published": {
+    "standard_cabin": [
+     56,
+     45,
+     25
+    ],
+    "economy_kg": 7
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "malaysia-airlines": {
+   "source": "https://www.malaysiaairlines.com/us/en/travel-info/baggage/cabin-baggage.html",
+   "published": {
+    "standard_cabin": [
+     56,
+     36,
+     23
+    ],
+    "economy_kg": 7,
+    "linear_sum_cm": 115
+   },
+   "match": "exact",
+   "method": "official_domain_search"
+  },
+  "latam-airlines": {
+   "source": "https://www.latamairlines.com/us/en/help-center/faq/baggage/included/dimensions-weight",
+   "published": {
+    "personal_item": [
+     45,
+     35,
+     20
+    ],
+    "personal_item_kg": 10,
+    "cabin_bag": [
+     55,
+     35,
+     25
+    ],
+    "economy_kg": 12
+   },
+   "match": "cabin_dims_exact",
+   "issue": "DEFECT, two fields. Dataset personal_item is 45 x 35 x 25; LATAM publishes 45 x 35 x 20 — ours is 5 cm too deep. And the dataset caps the cabin bag at 8 kg; LATAM allows 12 kg in Economy, so ours rejects bags LATAM accepts.",
+   "method": "official_domain_search"
+  },
+  "avianca": {
+   "source": "https://www.avianca.com/en/my-booking/prepare-your-trip/baggage",
+   "published": {
+    "personal_item": [
+     45,
+     35,
+     20
+    ],
+    "cabin_bag": [
+     55,
+     35,
+     25
+    ],
+    "cabin_kg": 10
+   },
+   "match": "exact",
+   "issue": "Dimensions exact. Fare nuance not captured: Avianca's carry-on is included in all fares except Basic.",
+   "method": "official_domain_search"
+  },
+  "aeromexico": {
+   "source": "https://beta.aeromexico.com/en-us/travel-information/baggage/carry-on-baggage",
+   "published": null,
+   "match": "unverified",
+   "method": "not_established",
+   "issue": "NOT VERIFIED. The search returned Aeromexico's carry-on page and a 10-15 kg weight range by fare, but no dimensions, and aeromexico.com cannot be fetched here. Dataset values (45 x 36 x 20 personal item, 55 x 40 x 25 / 10 kg cabin) remain unsourced."
+  },
+  "copa-airlines": {
+   "source": "https://www.copaair.com/en-gs/travel-information/baggage-information/carry-on/",
+   "published": {
+    "cabin_kg": 10
+   },
+   "match": "unverified",
+   "method": "not_established",
+   "issue": "NOT VERIFIED. Only the 10 kg weight was retrievable, which matches the dataset. Copa's carry-on dimensions did not surface in search and copaair.com cannot be fetched here. The dataset's 56 x 35 x 23 remains unsourced."
+  },
+  "spirit-airlines": {
+   "source": null,
+   "published": null,
+   "match": "unverifiable",
+   "method": "not_established",
+   "issue": "UNVERIFIABLE BY DESIGN. Spirit ceased operations on 2 May 2026 and its baggage pages are gone. The recorded 45 x 35 x 20 and 56 x 46 x 25 are historical values retained deliberately for the archive section of the enforcement index and the /spirit-airlines-shutdown/ page. They describe no bookable flight and must never be presented as current."
   }
+ }
 }

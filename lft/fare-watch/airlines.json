@@ -142,8 +142,8 @@
    "name": "British Airways",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.britishairways.com/content/information/baggage-essentials",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -165,15 +165,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "British Airways publishes a 40 x 30 x 15 cm personal item. The dataset has no sourced personal-item row for BA."
   },
   {
    "key": "lufthansa",
    "name": "Lufthansa",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.lufthansa.com/us/en/carry-on-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "handbag_only",
@@ -205,15 +207,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset 'handbag_only' is 40 x 30 x 10; Lufthansa publishes 40 x 30 x 15 — 5 cm shallower than the real limit. The same 40 x 30 x 10 value appears on Swiss and Austrian, both Lufthansa Group, so the error has very likely propagated to all three. Also: the row name conflates the Economy Light fare with the personal-item size."
   },
   {
    "key": "air-france",
    "name": "Air France",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.airfrance.com/IR/en/common/guidevoyageur/pratique/bagages-cabine-airfrance.htm",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -245,15 +249,16 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "klm",
    "name": "KLM",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.klm.com/information/baggage/hand-baggage-allowance",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -285,15 +290,16 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "turkish-airlines",
    "name": "Turkish Airlines",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.turkishairlines.com/en-pl/any-questions/carry-on-baggage/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -315,15 +321,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Turkish publishes a 40 x 30 x 15 cm / 4 kg personal item. The dataset has no personal-item row for Turkish."
   },
   {
    "key": "norwegian-air",
    "name": "Norwegian Air",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.norwegian.com/en/travel-info/baggage/hand-baggage/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "small_bag",
@@ -355,7 +363,9 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — the fourth appearance of flydubai's personal-item triple in this dataset. Norwegian publishes 40 x 30 x 20."
   },
   {
    "key": "vueling",
@@ -404,8 +414,8 @@
    "name": "Iberia",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.iberia.com/us/luggage/hand-luggage/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -437,15 +447,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset personal_item is 35 x 20 x 20; Iberia publishes 40 x 30 x 15. Also missing the 10 kg cabin-bag weight limit Iberia enforces."
   },
   {
    "key": "sas",
    "name": "SAS",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.flysas.com/us-en/travel-info/baggage/carry-on",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -477,15 +489,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset personal_item is 37 x 28 x 15; SAS publishes 40 x 30 x 15. Note SAS Go Light includes the under-seat bag only."
   },
   {
    "key": "swiss-international-air-lines",
    "name": "Swiss International Air Lines",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.swiss.com/us/en/prepare/baggage/hand-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "handbag",
@@ -517,15 +531,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; SWISS publishes 40 x 30 x 15. Economy Basic short/medium-haul is personal item only."
   },
   {
    "key": "austrian-airlines",
    "name": "Austrian Airlines",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.austrian.com/xx/en/handgepaeck",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "handbag",
@@ -557,15 +573,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; Austrian publishes 40 x 30 x 15. Economy Basic is personal item only."
   },
   {
    "key": "tap-air-portugal",
    "name": "TAP Air Portugal",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.flytap.com/en-us/information/baggage/hand-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -597,15 +615,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset cabin_bag is 55 x 40 x 20 / 8 kg; TAP publishes 55 x 40 x 25 / 10 kg. Wrong on depth and weight, and under-strict on neither — it rejects compliant bags."
   },
   {
    "key": "finnair",
    "name": "Finnair",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.finnair.com/us-en/baggage-on-finnair-flights/carry-on-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -637,7 +657,9 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset cabin_bag is 56 x 45 x 25; Finnair publishes 55 x 40 x 23. Ours is 5 cm wider and 2 cm deeper than the real limit, so it passes bags Finnair will charge 60 EUR to put in the hold."
   },
   {
    "key": "aer-lingus",
@@ -686,8 +708,8 @@
    "name": "Jet2",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.jet2.com/en/baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -699,15 +721,17 @@
      ],
      "kg": 10
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Jet2 publishes a 40 x 30 x 20 under-seat bag. The dataset has no personal-item row for Jet2."
   },
   {
    "key": "tui-airways",
    "name": "TUI Airways",
    "region": "Europe",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.tui.co.uk/destinations/info/luggage-allowance",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -719,15 +743,17 @@
      ],
      "kg": 10
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "TUI publishes a 40 x 30 x 20 under-seat bag. The dataset has no personal-item row for TUI."
   },
   {
    "key": "delta-air-lines",
    "name": "Delta Air Lines",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.delta.com/us/en/baggage/carry-on-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -749,15 +775,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Delta publishes no personal-item dimensions. The dataset's bundled personal-item row (46 x 36 x 20) is therefore unsourced — it is our inference, not Delta's rule."
   },
   {
    "key": "american-airlines",
    "name": "American Airlines",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.aa.com/web/i18n/travel-info/baggage/carry-on-baggage.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -789,15 +817,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dataset personal_item is 46 x 36 x 20; American publishes 45 x 35 x 20 cm alongside 18x14x8 in. Ours is rounded up from inches, so it is 1 cm more permissive than American's own centimetre figure on two axes."
   },
   {
    "key": "united-airlines",
    "name": "United Airlines",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://united.com/CMS/en-US/travel/Pages/BaggageCarry-On.aspx",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -829,15 +859,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Both rows are 1 cm deeper than United publishes: dataset 56x35x23 and 43x25x23 against United's 56x35x22 and 43x25x22. Rounded up from 9 in (22.86 cm). More permissive than the airline, which is the direction that gets a reader stopped at the gate."
   },
   {
    "key": "southwest-airlines",
    "name": "Southwest Airlines",
    "region": "North America",
    "enforcement": "relaxed",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://support.southwest.com/helpcenter/article/carryon-baggage-policy",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -859,7 +891,8 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "spirit-airlines",
@@ -867,7 +900,6 @@
    "region": "North America",
    "enforcement": "extreme",
    "source": null,
-   "lastVerified": null,
    "allowances": [
     {
      "code": "personal_item",
@@ -902,7 +934,9 @@
    ],
    "status": "ceased_operations",
    "ceasedOn": "2026-05-02",
-   "statusNote": "Ceased operations 2 May 2026 after two Chapter 11 filings. Verified 3 Oct 2026 against NPR, CNN, CNBC and Flightradar24. Still present in the live checker, which therefore publishes current allowances for an airline that does not fly."
+   "statusNote": "Ceased operations 2 May 2026 after two Chapter 11 filings. Verified 3 Oct 2026 against NPR, CNN, CNBC and Flightradar24. Still present in the live checker, which therefore publishes current allowances for an airline that does not fly.",
+   "verificationMethod": "not_established",
+   "dataIssue": "UNVERIFIABLE BY DESIGN. Spirit ceased operations on 2 May 2026 and its baggage pages are gone. The recorded 45 x 35 x 20 and 56 x 46 x 25 are historical values retained deliberately for the archive section of the enforcement index and the /spirit-airlines-shutdown/ page. They describe no bookable flight and must never be presented as current."
   },
   {
    "key": "frontier-airlines",
@@ -992,8 +1026,8 @@
    "name": "JetBlue",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.jetblue.com/help/carry-on-bags",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -1025,15 +1059,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "FARE-RULE DEFECT, not a dimension one. The dataset labels JetBlue's personal-item row 'Personal item only (Blue Basic)'. JetBlue added a free carry-on bag to Blue Basic in September 2024, so Blue Basic is no longer personal-item only. This also makes the JetBlue line in lft/content/spirit-airlines-*.html wrong — those pages say Blue Basic is personal item only."
   },
   {
    "key": "alaska-airlines",
    "name": "Alaska Airlines",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.alaskaair.com/content/travel-info/baggage/carry-on-luggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1055,15 +1091,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Alaska publishes no personal-item dimensions. The dataset's bundled personal-item row (43 x 33 x 15) is unsourced."
   },
   {
    "key": "westjet",
    "name": "WestJet",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.westjet.com/en-ca/baggage/carry-on",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -1095,15 +1133,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset cabin_bag is 55 x 39 x 23; WestJet publishes 56 x 36 x 23 (22x14x9 in), having aligned to the North American standard in May 2025 — ours looks pre-change. Separately, the dataset's personal_item is stored as 41 x 15 x 33, i.e. WestJet's own height x depth x width printing copied without normalising, so it renders as '41 x 15 x 33 cm' on the data page. Should be 41 x 33 x 15."
   },
   {
    "key": "air-canada",
    "name": "Air Canada",
    "region": "North America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.aircanada.com/us/en/aco/home/plan/baggage/carry-on.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -1135,15 +1175,16 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dimensions exact. Fare nuance not captured: Air Canada Economy Basic tickets bought on or after 3 Jan 2025 no longer include a carry-on for selected destinations — personal item only."
   },
   {
    "key": "aeromexico",
    "name": "Aeromexico",
    "region": "Latin America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://beta.aeromexico.com/en-us/travel-information/baggage/carry-on-baggage",
    "allowances": [
     {
      "code": "personal_item",
@@ -1175,15 +1216,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "not_established",
+   "dataIssue": "NOT VERIFIED. The search returned Aeromexico's carry-on page and a 10-15 kg weight range by fare, but no dimensions, and aeromexico.com cannot be fetched here. Dataset values (45 x 36 x 20 personal item, 55 x 40 x 25 / 10 kg cabin) remain unsourced."
   },
   {
    "key": "latam-airlines",
    "name": "LATAM Airlines",
    "region": "Latin America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.latamairlines.com/us/en/help-center/faq/baggage/included/dimensions-weight",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -1215,15 +1258,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT, two fields. Dataset personal_item is 45 x 35 x 25; LATAM publishes 45 x 35 x 20 — ours is 5 cm too deep. And the dataset caps the cabin bag at 8 kg; LATAM allows 12 kg in Economy, so ours rejects bags LATAM accepts."
   },
   {
    "key": "avianca",
    "name": "Avianca",
    "region": "Latin America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.avianca.com/en/my-booking/prepare-your-trip/baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "personal_item",
@@ -1255,15 +1300,16 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Dimensions exact. Fare nuance not captured: Avianca's carry-on is included in all fares except Basic."
   },
   {
    "key": "copa-airlines",
    "name": "Copa Airlines",
    "region": "Latin America",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.copaair.com/en-gs/travel-information/baggage-information/carry-on/",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1285,15 +1331,17 @@
      ],
      "kg": null
     }
-   ]
+   ],
+   "verificationMethod": "not_established",
+   "dataIssue": "NOT VERIFIED. Only the 10 kg weight was retrievable, which matches the dataset. Copa's carry-on dimensions did not surface in search and copaair.com cannot be fetched here. The dataset's 56 x 35 x 23 remains unsourced."
   },
   {
    "key": "emirates",
    "name": "Emirates",
    "region": "Middle East",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.emirates.com/us/english/before-you-fly/baggage/cabin-baggage-rules/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "economy_cabin",
@@ -1305,15 +1353,16 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "qatar-airways",
    "name": "Qatar Airways",
    "region": "Middle East",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.qatarairways.com/en/baggage/allowance.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1325,15 +1374,16 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "etihad-airways",
    "name": "Etihad Airways",
    "region": "Middle East",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.etihad.com/content/eag/etihadairways/etihadcom/global/en/fly-etihad/baggage/cabin-bags.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1345,7 +1395,8 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "flydubai",
@@ -1384,8 +1435,8 @@
    "name": "Singapore Airlines",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.singaporeair.com/en_UK/us/travel-info/baggage/cabin-baggage/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1397,15 +1448,16 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and a 7 kg weight. The dataset's 56 x 40 x 20 is unsourced, and worse, it sums to 116 cm, which breaches SQ's own stated limit. A bag passing our checker at those exact maxima would fail SQ's rule."
   },
   {
    "key": "cathay-pacific",
    "name": "Cathay Pacific",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.cathaypacific.com/cx/en_US/faqs/baggage/cabin-baggage-allowance/what-is-my-carry-on-baggage-allowance.html",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1417,15 +1469,17 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "not_established",
+   "dataIssue": "NOT VERIFIED. Cathay publishes its cabin allowance behind a baggage calculator and per-ticket lookup rather than a static table; the search did not return dimensions, and cathaypacific.com cannot be fetched from this environment. The dataset's 56 x 36 x 23 / 7 kg is plausible for the region but remains unsourced. Needs a human with the page open."
   },
   {
    "key": "qantas",
    "name": "Qantas",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.qantas.com/en-us/baggage/carry-on",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1437,15 +1491,17 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "Qantas publishes an under-seat bag at 48 x 34 x 23 cm. The dataset has no personal-item row for Qantas."
   },
   {
    "key": "air-new-zealand",
    "name": "Air New Zealand",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.airnewzealand.com/carry-on-baggage",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1457,15 +1513,17 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset is 56 x 36 x 23; Air New Zealand publishes 55 x 40 x 23. Ours is 1 cm too long and 4 cm too narrow — it rejects compliant bags on width."
   },
   {
    "key": "japan-airlines-jal",
    "name": "Japan Airlines (JAL)",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.jal.co.jp/jp/en/inter/baggage/inflight/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1477,15 +1535,16 @@
      ],
      "kg": 10
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "ana-all-nippon-airways",
    "name": "ANA (All Nippon Airways)",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.ana.co.jp/en/us/travel-information/baggage-information/carry-on/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1497,15 +1556,17 @@
      ],
      "kg": 10
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "ANA publishes a 40 x 30 x 20 cm personal item. The dataset has no personal-item row for ANA."
   },
   {
    "key": "korean-air",
    "name": "Korean Air",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.koreanair.com/cz/en/airport/baggage/carry-on",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1517,7 +1578,8 @@
      ],
      "kg": 10
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "airasia",
@@ -1610,8 +1672,8 @@
    "name": "Air India",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.airindia.com/in/en/travel-information/baggage-guidelines/cabin-baggage.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1623,15 +1685,17 @@
      ],
      "kg": 8
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search",
+   "dataIssue": "DEFECT. Dataset is 55 x 35 x 25 / 8 kg; Air India publishes 55 x 40 x 20 / 7 kg. Wrong on width, depth and weight — three of four fields. Ours is 5 cm too deep and allows 1 kg more than Air India, which weighs hand baggage at the gate."
   },
   {
    "key": "thai-airways",
    "name": "Thai Airways",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.thaiairways.com/en-th/content/baggage/carry-on-baggage/",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1643,15 +1707,16 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   },
   {
    "key": "malaysia-airlines",
    "name": "Malaysia Airlines",
    "region": "Asia Pacific",
    "enforcement": "moderate",
-   "source": null,
-   "lastVerified": null,
+   "source": "https://www.malaysiaairlines.com/us/en/travel-info/baggage/cabin-baggage.html",
+   "lastVerified": "2026-10-04",
    "allowances": [
     {
      "code": "standard_cabin",
@@ -1663,7 +1728,8 @@
      ],
      "kg": 7
     }
-   ]
+   ],
+   "verificationMethod": "official_domain_search"
   }
  ],
  "notes": [

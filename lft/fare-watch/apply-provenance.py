@@ -17,8 +17,14 @@ for a in air['airlines']:
     if not p:
         continue
     a['source'] = p['source']
-    a['lastVerified'] = DATE
     a['verificationMethod'] = p['method']
+    # lastVerified means "we checked the figures and they are as recorded". An airline whose
+    # page could not be reached has a source URL but was NOT verified — claiming otherwise
+    # would make the data page overstate its own provenance.
+    if p['method'] == 'not_established':
+        a.pop('lastVerified', None)
+    else:
+        a['lastVerified'] = DATE
     applied += 1
     if p.get('issue'):
         a['dataIssue'] = p['issue']
@@ -29,6 +35,9 @@ for a in air['airlines']:
 air['note'] = air.get('note', '')
 air['provenanceUpdated'] = DATE
 (here/'airlines.json').write_text(json.dumps(air, indent=1, ensure_ascii=False), encoding='utf-8')
-print(f"source populated: {before} -> {applied} of {len(air['airlines'])}")
+nonnull = sum(1 for a in air["airlines"] if a.get("source"))
+print(f"provenance records applied: {applied}; non-null source: {before} -> {nonnull} of {len(air['airlines'])}")
+ver = sum(1 for a in air["airlines"] if a.get("lastVerified"))
+print(f"lastVerified (figures actually checked): {ver} of {len(air['airlines'])}")
 print(f"airlines carrying a dataIssue note: {issues}")
 print("dimensions changed: 0 (by design)")
