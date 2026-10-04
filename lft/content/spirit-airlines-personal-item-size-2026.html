@@ -11,6 +11,9 @@
      correctly says what happened in 2026.
   3. All dimensions come from lft/fare-watch/airlines.json. Inches are converted from
      centimetres and rounded. Change the dataset, not this file.
+  3a. Allegiant and JetBlue figures corrected 4 Oct 2026 after the dataset audit: Allegiant's
+     personal item is 45 x 35 x 20 (not 41 x 38 x 18), and JetBlue's Blue Basic has included
+     a carry-on since September 2024.
   4. Update datePublished in the JSON-LD to the real publish date.
 -->
 
@@ -44,10 +47,12 @@ not "what's the cheapest fare" — it is "what can I bring without paying".</p>
     </tr>
     <tr>
       <td>2</td>
-      <td><strong>Delta / Alaska / American / JetBlue</strong> — standard fares
-          (JetBlue: Blue and above)</td>
+      <td><strong>Delta / Alaska / American</strong> — standard fares, and
+          <strong>JetBlue on every fare</strong></td>
       <td>Full carry-on included: <strong>56 × 36 × 23 cm</strong> (≈22 × 14 × 9 in)</td>
-      <td>Bigger. A Spirit-sized bag fits within this, with 11 cm of length to spare.</td>
+      <td>Bigger. A Spirit-sized bag fits within this, with 11 cm of length to spare.
+          JetBlue added a carry-on to Blue Basic in September 2024, so no JetBlue fare is
+          personal-item only any more.</td>
     </tr>
     <tr>
       <td>3</td>
@@ -70,18 +75,12 @@ not "what's the cheapest fare" — it is "what can I bring without paying".</p>
     </tr>
     <tr>
       <td>6</td>
-      <td><strong>JetBlue</strong> — Blue Basic</td>
-      <td>Personal item: <strong>43 × 33 × 20 cm</strong> (≈17 × 13 × 8 in)</td>
-      <td>Smaller. 2 cm shorter and 2 cm narrower.</td>
+      <td><strong>Allegiant Air</strong> — base fare</td>
+      <td>Personal item: <strong>45 × 35 × 20 cm</strong> (≈18 × 14 × 8 in)</td>
+      <td><strong>Identical to Spirit's.</strong> Not a centimetre different on any axis.</td>
     </tr>
     <tr>
       <td>7</td>
-      <td><strong>Allegiant Air</strong> — base fare</td>
-      <td>Personal item: <strong>41 × 38 × 18 cm</strong> (≈16 × 15 × 7 in)</td>
-      <td>Shallower and shorter, but wider. A boxy Spirit bag may not pass.</td>
-    </tr>
-    <tr>
-      <td>8</td>
       <td><strong>United Airlines</strong> — Basic Economy</td>
       <td>Personal item: <strong>43 × 25 × 23 cm</strong> (≈17 × 10 × 9 in)</td>
       <td><strong>Much smaller — 10 cm narrower.</strong> The one fare where a
@@ -100,12 +99,15 @@ airline and the exact fare you are booked on.</p>
 
 <h2>The three things worth knowing</h2>
 
-<h3>1. Frontier is the straight swap</h3>
-<p>Frontier's free personal item, at 46 × 36 × 20 cm, is a centimetre larger than Spirit's
-was in two dimensions and identical in the third. If you bought a bag specifically to pass
-a Spirit gate sizer, it passes Frontier's. Frontier enforces at least as hard as Spirit
-did, so a bag that only just squeezed in before will only just squeeze in now — expect the
-sizer, and expect it to be used.</p>
+<h3>1. Allegiant is the exact swap, Frontier the near one</h3>
+<p><strong>Allegiant's free personal item is 45 × 35 × 20 cm — precisely Spirit's number,
+on every axis.</strong> A bag built to pass a Spirit sizer passes Allegiant's, and misses
+it by the same margin if it was borderline.</p>
+
+<p>Frontier's is 46 × 36 × 20 cm — a centimetre larger than Spirit's in two dimensions and
+identical in the third, so it also passes. Both enforce at least as hard as Spirit did, so
+a bag that only just squeezed in before will only just squeeze in now — expect the sizer,
+and expect it to be used.</p>
 
 <h3>2. United Basic Economy is where Spirit refugees get caught</h3>
 <p>The free box is 43 × 25 × 23 cm. The 25 cm is the problem: Spirit's allowance was 35 cm
@@ -156,8 +158,7 @@ in two dimensions and the same depth. American Airlines Basic Economy uses the s
 <h3>Will my Spirit personal item bag fit on other airlines?</h3>
 <p>In most cases, comfortably. It fits Frontier's and American Basic Economy's free personal
 item, and fits within the included carry-on allowance on Southwest, Delta, Alaska, American, United and JetBlue standard fares (United standard is 35 cm wide, exactly matching Spirit's 35 cm, so leave the straps loose). It is too wide for United Basic Economy, whose free
-personal item is 43 × 25 × 23 cm, and may not pass on JetBlue Blue Basic
-(43 × 33 × 20 cm) or Allegiant (41 × 38 × 18 cm).</p>
+personal item is 43 × 25 × 23 cm. On Allegiant it is an exact fit, at 45 × 35 × 20 cm.</p>
 
 <h3>Which airline gives the biggest free cabin bag?</h3>
 <p>Southwest Airlines, at 61 × 41 × 25 cm (about 24 × 16 × 10 in), included in every fare
@@ -212,7 +213,7 @@ no other airline is flying under the Spirit name.</p>
           "name": "Will my Spirit personal item bag fit on other airlines?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In most cases, comfortably. It fits Frontier's and American Basic Economy's free personal item, and fits within the included carry-on allowance on Southwest, Delta, Alaska, American, United and JetBlue standard fares. It is too wide for United Basic Economy, whose free personal item is 43 x 25 x 23 cm, and may not pass on JetBlue Blue Basic (43 x 33 x 20 cm) or Allegiant (41 x 38 x 18 cm)."
+            "text": "In most cases, comfortably. Allegiant's free personal item is 45 x 35 x 20 cm, exactly Spirit's. It also fits Frontier's and American Basic Economy's free personal item, and fits within the included carry-on allowance on Southwest, Delta, Alaska, American, United and every JetBlue fare. The only exception is United Basic Economy, whose free personal item is 43 x 25 x 23 cm."
           }
         },
         {

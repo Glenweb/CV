@@ -183,7 +183,7 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": 8
     },
@@ -203,13 +203,15 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset 'handbag_only' is 40 x 30 x 10; Lufthansa publishes 40 x 30 x 15 — 5 cm shallower than the real limit. The same 40 x 30 x 10 value appears on Swiss and Austrian, both Lufthansa Group, so the error has very likely propagated to all three. Also: the row name conflates the Economy Light fare with the personal-item size."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset 'handbag_only' is 40 x 30 x 10; Lufthansa publishes 40 x 30 x 15 — 5 cm shallower than the real limit. The same 40 x 30 x 10 value appears on Swiss and Austrian, both Lufthansa Group, so the error has very likely propagated to all three. Also: the row name conflates the Economy Light fare with the personal-item size."
   },
   {
    "key": "air-france",
@@ -337,8 +339,8 @@
      "code": "small_bag",
      "label": "Small under-seat bag (LowFare)",
      "cm": [
-      25,
-      33,
+      40,
+      30,
       20
      ],
      "kg": null
@@ -357,15 +359,17 @@
      "code": "cabin_bag__personal_item",
      "label": "Cabin bag (LowFare+ and above) — included personal item",
      "cm": [
-      25,
-      33,
+      40,
+      30,
       20
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — the fourth appearance of flydubai's personal-item triple in this dataset. Norwegian publishes 40 x 30 x 20."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — the fourth appearance of flydubai's personal-item triple in this dataset. Norwegian publishes 40 x 30 x 20."
   },
   {
    "key": "vueling",
@@ -421,9 +425,9 @@
      "code": "personal_item",
      "label": "Personal item only (Básico fare)",
      "cm": [
-      35,
-      20,
-      20
+      40,
+      30,
+      15
      ],
      "kg": null
     },
@@ -435,21 +439,23 @@
       40,
       25
      ],
-     "kg": null
+     "kg": 10
     },
     {
      "code": "cabin_bag__personal_item",
      "label": "Cabin bag (Clásico and above) — included personal item",
      "cm": [
-      35,
-      20,
-      20
+      40,
+      30,
+      15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset personal_item is 35 x 20 x 20; Iberia publishes 40 x 30 x 15. Also missing the 10 kg cabin-bag weight limit Iberia enforces."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset personal_item is 35 x 20 x 20; Iberia publishes 40 x 30 x 15. Also missing the 10 kg cabin-bag weight limit Iberia enforces."
   },
   {
    "key": "sas",
@@ -463,8 +469,8 @@
      "code": "personal_item",
      "label": "Personal item only (SAS Go Light)",
      "cm": [
-      37,
-      28,
+      40,
+      30,
       15
      ],
      "kg": null
@@ -483,15 +489,17 @@
      "code": "cabin_bag__personal_item",
      "label": "Cabin bag (SAS Go and above) — included personal item",
      "cm": [
-      37,
-      28,
+      40,
+      30,
       15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset personal_item is 37 x 28 x 15; SAS publishes 40 x 30 x 15. Note SAS Go Light includes the under-seat bag only."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset personal_item is 37 x 28 x 15; SAS publishes 40 x 30 x 15. Note SAS Go Light includes the under-seat bag only."
   },
   {
    "key": "swiss-international-air-lines",
@@ -507,7 +515,7 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": 8
     },
@@ -527,13 +535,15 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; SWISS publishes 40 x 30 x 15. Economy Basic short/medium-haul is personal item only."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; SWISS publishes 40 x 30 x 15. Economy Basic short/medium-haul is personal item only."
   },
   {
    "key": "austrian-airlines",
@@ -549,7 +559,7 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": 8
     },
@@ -569,13 +579,15 @@
      "cm": [
       40,
       30,
-      10
+      15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; Austrian publishes 40 x 30 x 15. Economy Basic is personal item only."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT, as predicted from Lufthansa. Dataset handbag is 40 x 30 x 10; Austrian publishes 40 x 30 x 15. Economy Basic is personal item only."
   },
   {
    "key": "tap-air-portugal",
@@ -601,9 +613,9 @@
      "cm": [
       55,
       40,
-      20
+      25
      ],
-     "kg": 8
+     "kg": 10
     },
     {
      "code": "cabin_bag__personal_item",
@@ -617,7 +629,9 @@
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset cabin_bag is 55 x 40 x 20 / 8 kg; TAP publishes 55 x 40 x 25 / 10 kg. Wrong on depth and weight, and under-strict on neither — it rejects compliant bags."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset cabin_bag is 55 x 40 x 20 / 8 kg; TAP publishes 55 x 40 x 25 / 10 kg. Wrong on depth and weight, and under-strict on neither — it rejects compliant bags."
   },
   {
    "key": "finnair",
@@ -641,9 +655,9 @@
      "code": "cabin_bag",
      "label": "Cabin bag (Light and above)",
      "cm": [
-      56,
-      45,
-      25
+      55,
+      40,
+      23
      ],
      "kg": 8
     },
@@ -659,7 +673,9 @@
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset cabin_bag is 56 x 45 x 25; Finnair publishes 55 x 40 x 23. Ours is 5 cm wider and 2 cm deeper than the real limit, so it passes bags Finnair will charge 60 EUR to put in the hold."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset cabin_bag is 56 x 45 x 25; Finnair publishes 55 x 40 x 23. Ours is 5 cm wider and 2 cm deeper than the real limit, so it passes bags Finnair will charge 60 EUR to put in the hold."
   },
   {
    "key": "aer-lingus",
@@ -673,8 +689,8 @@
      "code": "small_bag",
      "label": "Small under-seat bag (Saver fare)",
      "cm": [
-      25,
-      33,
+      40,
+      30,
       20
      ],
      "kg": null
@@ -693,15 +709,17 @@
      "code": "cabin_bag__personal_item",
      "label": "Cabin bag (Plus fare / Priority boarding) — included personal item",
      "cm": [
-      25,
-      33,
+      40,
+      30,
       20
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset small_bag is 25 x 33 x 20 — which is flydubai's published personal item, and the only triple in the dataset not in descending order. Aer Lingus publishes 40 x 30 x 20. The checker is rejecting compliant Aer Lingus personal items. NOT corrected automatically: the figure came from a search summary, not a page read."
   },
   {
    "key": "jet2",
@@ -991,9 +1009,9 @@
      "code": "personal_item",
      "label": "Personal item included (base fare)",
      "cm": [
-      41,
-      38,
-      18
+      45,
+      35,
+      20
      ],
      "kg": null
     },
@@ -1001,9 +1019,9 @@
      "code": "paid_carry_on",
      "label": "Paid carry-on bag",
      "cm": [
-      56,
-      36,
-      23
+      55,
+      40,
+      25
      ],
      "kg": null
     },
@@ -1011,15 +1029,17 @@
      "code": "paid_carry_on__personal_item",
      "label": "Paid carry-on bag — included personal item",
      "cm": [
-      41,
-      38,
-      18
+      45,
+      35,
+      20
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT, both allowances. Dataset has personal_item 41 x 38 x 18 and paid_carry_on 56 x 36 x 23. Allegiant publishes 45 x 35 x 20 (18x14x8 in) and 55 x 40 x 25 (22x16x10 in). The paid-carry-on width is the costly one: the checker thinks the limit is 36 cm, so it fails a 40 cm bag Allegiant would accept, pushing the reader to pay for a checked bag they do not need. NOT corrected automatically — allegiantair.com could not be fetched."
   },
   {
    "key": "jetblue",
@@ -1031,7 +1051,7 @@
    "allowances": [
     {
      "code": "personal_item",
-     "label": "Personal item only (Blue Basic)",
+     "label": "Personal item (every fare)",
      "cm": [
       43,
       33,
@@ -1041,7 +1061,7 @@
     },
     {
      "code": "standard_cabin",
-     "label": "Carry-on included (Blue and above)",
+     "label": "Carry-on included (all fares, Blue Basic included)",
      "cm": [
       56,
       36,
@@ -1061,7 +1081,9 @@
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "FARE-RULE DEFECT, not a dimension one. The dataset labels JetBlue's personal-item row 'Personal item only (Blue Basic)'. JetBlue added a free carry-on bag to Blue Basic in September 2024, so Blue Basic is no longer personal-item only. This also makes the JetBlue line in lft/content/spirit-airlines-*.html wrong — those pages say Blue Basic is personal item only."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "FARE-RULE DEFECT, not a dimension one. The dataset labels JetBlue's personal-item row 'Personal item only (Blue Basic)'. JetBlue added a free carry-on bag to Blue Basic in September 2024, so Blue Basic is no longer personal-item only. This also makes the JetBlue line in lft/content/spirit-airlines-*.html wrong — those pages say Blue Basic is personal item only."
   },
   {
    "key": "alaska-airlines",
@@ -1108,8 +1130,8 @@
      "label": "Personal item only (EconoBasic)",
      "cm": [
       41,
-      15,
-      33
+      33,
+      15
      ],
      "kg": null
     },
@@ -1117,8 +1139,8 @@
      "code": "cabin_bag",
      "label": "Carry-on included (Econo and above)",
      "cm": [
-      55,
-      39,
+      56,
+      36,
       23
      ],
      "kg": null
@@ -1128,14 +1150,16 @@
      "label": "Carry-on included (Econo and above) — included personal item",
      "cm": [
       41,
-      15,
-      33
+      33,
+      15
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset cabin_bag is 55 x 39 x 23; WestJet publishes 56 x 36 x 23 (22x14x9 in), having aligned to the North American standard in May 2025 — ours looks pre-change. Separately, the dataset's personal_item is stored as 41 x 15 x 33, i.e. WestJet's own height x depth x width printing copied without normalising, so it renders as '41 x 15 x 33 cm' on the data page. Should be 41 x 33 x 15."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset cabin_bag is 55 x 39 x 23; WestJet publishes 56 x 36 x 23 (22x14x9 in), having aligned to the North American standard in May 2025 — ours looks pre-change. Separately, the dataset's personal_item is stored as 41 x 15 x 33, i.e. WestJet's own height x depth x width printing copied without normalising, so it renders as '41 x 15 x 33 cm' on the data page. Should be 41 x 33 x 15."
   },
   {
    "key": "air-canada",
@@ -1234,7 +1258,7 @@
      "cm": [
       45,
       35,
-      25
+      20
      ],
      "kg": null
     },
@@ -1246,7 +1270,7 @@
       35,
       25
      ],
-     "kg": 8
+     "kg": 12
     },
     {
      "code": "cabin_bag__personal_item",
@@ -1254,13 +1278,15 @@
      "cm": [
       45,
       35,
-      25
+      20
      ],
      "kg": null
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT, two fields. Dataset personal_item is 45 x 35 x 25; LATAM publishes 45 x 35 x 20 — ours is 5 cm too deep. And the dataset caps the cabin bag at 8 kg; LATAM allows 12 kg in Economy, so ours rejects bags LATAM accepts."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT, two fields. Dataset personal_item is 45 x 35 x 25; LATAM publishes 45 x 35 x 20 — ours is 5 cm too deep. And the dataset caps the cabin bag at 8 kg; LATAM allows 12 kg in Economy, so ours rejects bags LATAM accepts."
   },
   {
    "key": "avianca",
@@ -1442,15 +1468,20 @@
      "code": "standard_cabin",
      "label": "Cabin bag included",
      "cm": [
-      56,
+      55,
       40,
       20
      ],
-     "kg": 7
+     "kg": 7,
+     "linearSumCm": 115,
+     "cmIsDerived": true,
+     "derivedNote": "Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and 7 kg. The previous 56 x 40 x 20 summed to 116 and so breached SQ's own rule. 55 x 40 x 20 sums to exactly 115 and is compliant, but it is OUR box, not SQ's. The checker should test the linear sum for this airline rather than the triple."
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and a 7 kg weight. The dataset's 56 x 40 x 20 is unsourced, and worse, it sums to 116 cm, which breaches SQ's own stated limit. A bag passing our checker at those exact maxima would fail SQ's rule."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and a 7 kg weight. The dataset's 56 x 40 x 20 is unsourced, and worse, it sums to 116 cm, which breaches SQ's own stated limit. A bag passing our checker at those exact maxima would fail SQ's rule."
   },
   {
    "key": "cathay-pacific",
@@ -1507,15 +1538,17 @@
      "code": "standard_cabin",
      "label": "Cabin bag included",
      "cm": [
-      56,
-      36,
+      55,
+      40,
       23
      ],
      "kg": 7
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset is 56 x 36 x 23; Air New Zealand publishes 55 x 40 x 23. Ours is 1 cm too long and 4 cm too narrow — it rejects compliant bags on width."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset is 56 x 36 x 23; Air New Zealand publishes 55 x 40 x 23. Ours is 1 cm too long and 4 cm too narrow — it rejects compliant bags on width."
   },
   {
    "key": "japan-airlines-jal",
@@ -1680,14 +1713,16 @@
      "label": "Cabin bag included",
      "cm": [
       55,
-      35,
-      25
+      40,
+      20
      ],
-     "kg": 8
+     "kg": 7
     }
    ],
    "verificationMethod": "official_domain_search",
-   "dataIssue": "DEFECT. Dataset is 55 x 35 x 25 / 8 kg; Air India publishes 55 x 40 x 20 / 7 kg. Wrong on width, depth and weight — three of four fields. Ours is 5 cm too deep and allows 1 kg more than Air India, which weighs hand baggage at the gate."
+   "correctedOn": "2026-10-04",
+   "correctionBasis": "official_domain_search",
+   "resolvedIssue": "DEFECT. Dataset is 55 x 35 x 25 / 8 kg; Air India publishes 55 x 40 x 20 / 7 kg. Wrong on width, depth and weight — three of four fields. Ours is 5 cm too deep and allows 1 kg more than Air India, which weighs hand baggage at the gate."
   },
   {
    "key": "thai-airways",

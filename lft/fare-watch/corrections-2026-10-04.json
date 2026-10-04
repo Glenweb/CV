@@ -1,0 +1,527 @@
+{
+ "note": "The 15 wrong-measurement fixes from AUDIT-2026-10-04.md, applied 4 Oct 2026 on Glen's explicit instruction. Every change records the value replaced, so apply-corrections.py --revert restores the dataset exactly. Evidence is official_domain_search per airline (see provenance.json) — the airline pages themselves are unreachable from the build environment, so these are corrections to the airline's published figures as quoted by its own domain, not as read off the page.",
+ "appliedOn": "2026-10-04",
+ "corrections": [
+  {
+   "key": "allegiant-air",
+   "changes": [
+    {
+     "code": "personal_item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       41,
+       38,
+       18
+      ]
+     }
+    },
+    {
+     "code": "paid_carry_on",
+     "cm": [
+      55,
+      40,
+      25
+     ],
+     "replaced": {
+      "cm": [
+       56,
+       36,
+       23
+      ]
+     }
+    },
+    {
+     "code": "paid_carry_on__personal_item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       41,
+       38,
+       18
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "aer-lingus",
+   "changes": [
+    {
+     "code": "small_bag",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       25,
+       33,
+       20
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       25,
+       33,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "lufthansa",
+   "changes": [
+    {
+     "code": "handbag_only",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    },
+    {
+     "code": "standard_cabin__personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "swiss-international-air-lines",
+   "changes": [
+    {
+     "code": "handbag",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "austrian-airlines",
+   "changes": [
+    {
+     "code": "handbag",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       40,
+       30,
+       10
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "iberia",
+   "changes": [
+    {
+     "code": "personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       35,
+       20,
+       20
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag",
+     "kg": 10,
+     "replaced": {
+      "kg": null
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       35,
+       20,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "sas",
+   "changes": [
+    {
+     "code": "personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       37,
+       28,
+       15
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       37,
+       28,
+       15
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "tap-air-portugal",
+   "changes": [
+    {
+     "code": "cabin_bag",
+     "cm": [
+      55,
+      40,
+      25
+     ],
+     "kg": 10,
+     "replaced": {
+      "cm": [
+       55,
+       40,
+       20
+      ],
+      "kg": 8
+     }
+    }
+   ]
+  },
+  {
+   "key": "norwegian-air",
+   "changes": [
+    {
+     "code": "small_bag",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       25,
+       33,
+       20
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      40,
+      30,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       25,
+       33,
+       20
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "finnair",
+   "changes": [
+    {
+     "code": "cabin_bag",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "replaced": {
+      "cm": [
+       56,
+       45,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "westjet",
+   "changes": [
+    {
+     "code": "personal_item",
+     "cm": [
+      41,
+      33,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       41,
+       15,
+       33
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag",
+     "cm": [
+      56,
+      36,
+      23
+     ],
+     "replaced": {
+      "cm": [
+       55,
+       39,
+       23
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      41,
+      33,
+      15
+     ],
+     "replaced": {
+      "cm": [
+       41,
+       15,
+       33
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "air-new-zealand",
+   "changes": [
+    {
+     "code": "standard_cabin",
+     "cm": [
+      55,
+      40,
+      23
+     ],
+     "replaced": {
+      "cm": [
+       56,
+       36,
+       23
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "air-india",
+   "changes": [
+    {
+     "code": "standard_cabin",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "kg": 7,
+     "replaced": {
+      "cm": [
+       55,
+       35,
+       25
+      ],
+      "kg": 8
+     }
+    }
+   ]
+  },
+  {
+   "key": "latam-airlines",
+   "changes": [
+    {
+     "code": "personal_item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       45,
+       35,
+       25
+      ]
+     }
+    },
+    {
+     "code": "cabin_bag",
+     "kg": 12,
+     "replaced": {
+      "kg": 8
+     }
+    },
+    {
+     "code": "cabin_bag__personal_item",
+     "cm": [
+      45,
+      35,
+      20
+     ],
+     "replaced": {
+      "cm": [
+       45,
+       35,
+       25
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "key": "singapore-airlines",
+   "changes": [
+    {
+     "code": "standard_cabin",
+     "cm": [
+      55,
+      40,
+      20
+     ],
+     "linearSumCm": 115,
+     "cmIsDerived": true,
+     "derivedNote": "Singapore Airlines publishes no fixed box for Economy cabin baggage — only a 115 cm linear-sum limit and 7 kg. The previous 56 x 40 x 20 summed to 116 and so breached SQ's own rule. 55 x 40 x 20 sums to exactly 115 and is compliant, but it is OUR box, not SQ's. The checker should test the linear sum for this airline rather than the triple.",
+     "replaced": {
+      "cm": [
+       56,
+       40,
+       20
+      ],
+      "linearSumCm": "__absent__",
+      "cmIsDerived": "__absent__",
+      "derivedNote": "__absent__"
+     }
+    }
+   ]
+  }
+ ],
+ "labelFixes": [
+  {
+   "key": "jetblue",
+   "code": "personal_item",
+   "label": "Personal item (every fare)",
+   "why": "Blue Basic gained a free carry-on in September 2024, so the old 'Personal item only (Blue Basic)' label is wrong.",
+   "replaced": "Personal item only (Blue Basic)"
+  },
+  {
+   "key": "jetblue",
+   "code": "standard_cabin",
+   "label": "Carry-on included (all fares, Blue Basic included)",
+   "why": "Same change — Blue Basic now includes a carry-on.",
+   "replaced": "Carry-on included (Blue and above)"
+  }
+ ],
+ "applied": true
+}

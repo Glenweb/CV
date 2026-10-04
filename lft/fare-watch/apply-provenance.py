@@ -11,7 +11,15 @@ air = json.loads((here/'airlines.json').read_text(encoding='utf-8'))
 prov = json.loads((here/'provenance.json').read_text(encoding='utf-8'))
 P, DATE = prov['airlines'], prov['verifiedOn']
 
-applied, issues, before = 0, 0, sum(1 for a in air['airlines'] if a.get('source'))
+cor_path = here/'corrections-2026-10-04.json'
+CORRECTED, CORRECTED_ON = set(), None
+if cor_path.exists():
+    cor = json.loads(cor_path.read_text(encoding='utf-8'))
+    if cor.get('applied'):
+        CORRECTED = {c['key'] for c in cor['corrections']} | {l['key'] for l in cor.get('labelFixes', [])}
+        CORRECTED_ON = cor['appliedOn']
+
+applied, issues, resolved, before = 0, 0, 0, sum(1 for a in air['airlines'] if a.get('source'))
 for a in air['airlines']:
     p = P.get(a['key'])
     if not p:
@@ -26,11 +34,18 @@ for a in air['airlines']:
     else:
         a['lastVerified'] = DATE
     applied += 1
-    if p.get('issue'):
+    if p.get('issue') and a['key'] in CORRECTED:
+        # The figures were corrected on CORRECTED_ON, so the issue is history, not a live
+        # defect. Keep the record — it is why the value changed — but do not re-flag it.
+        a.pop('dataIssue', None)
+        a['resolvedIssue'] = p['issue']
+        resolved += 1
+    elif p.get('issue'):
+        a.pop('resolvedIssue', None)
         a['dataIssue'] = p['issue']
         issues += 1
-    elif 'dataIssue' in a:
-        del a['dataIssue']
+    else:
+        a.pop('dataIssue', None); a.pop('resolvedIssue', None)
 
 air['note'] = air.get('note', '')
 air['provenanceUpdated'] = DATE
@@ -39,5 +54,6 @@ nonnull = sum(1 for a in air["airlines"] if a.get("source"))
 print(f"provenance records applied: {applied}; non-null source: {before} -> {nonnull} of {len(air['airlines'])}")
 ver = sum(1 for a in air["airlines"] if a.get("lastVerified"))
 print(f"lastVerified (figures actually checked): {ver} of {len(air['airlines'])}")
-print(f"airlines carrying a dataIssue note: {issues}")
+print(f"airlines with a LIVE dataIssue: {issues}")
+print(f"airlines whose issue was corrected: {resolved}")
 print("dimensions changed: 0 (by design)")
