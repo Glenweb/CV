@@ -1,0 +1,22 @@
+action,page,impressions,position,reason
+410,/best-hotels-in-lisbon/,7,14.3,City accommodation — off topic, no Amazon fit
+410,/best-hotels-paris-budget/,7,51.7,City accommodation — off topic, no Amazon fit
+410,/where-to-stay-in-paris/,2,20.5,City accommodation — off topic, no Amazon fit
+410,/best-areas-to-stay-in-lisbon/,1,41,City accommodation — off topic, no Amazon fit
+410,/best-areas-to-stay-in-paris/,1,39,City accommodation — off topic, no Amazon fit
+410,/best-hotels-in-lisbon-by-budget/,1,42,City accommodation — off topic, no Amazon fit
+410,/where-to-stay-in-lisbon/,1,31,City accommodation — off topic, no Amazon fit
+410,/where-to-stay-in-london/,1,32,City accommodation — off topic, no Amazon fit
+410,/where-to-stay-in-prague/,1,28,City accommodation — off topic, no Amazon fit
+410,/paris-metro-guide/,17,74.1,City activity — off topic
+410,/top-things-to-do-in-prague/,2,62.5,City activity — off topic
+410,/top-things-to-do-in-lisbon/,1,34,City activity — off topic
+410,/accommodation-guide/,1,4,Hub for pruned content — no dependency
+noindex,/best-hotels-near-heathrow-airport/,84,73.5,Airport hotel — adjacent but unwinnable vs OTAs at current authority
+noindex,/best-hotels-near-luton-airport/,11,39.9,Airport hotel — adjacent but unwinnable vs OTAs at current authority
+noindex,/hotels-near-heathrow-airport/,5,63.8,Airport hotel — adjacent but unwinnable vs OTAs at current authority
+noindex,/best-hotels-near-manchester-airport/,2,32.5,Airport hotel — adjacent but unwinnable vs OTAs at current authority
+noindex,/best-hotels-near-stansted-airport/,1,24,Airport hotel — adjacent but unwinnable vs OTAs at current authority
+keep,/prague-packing-checklist/,2,1,CORE — ranks position 1. Expand. Template for more cities.
+keep,/paris-packing-checklist/,3,37.3,CORE — packing is on topic. Expand.
+decide,/travel-destinations/,1,3,Keep as slim hub for the packing checklists OR prune and switch the /destinations/ redirect to 410
