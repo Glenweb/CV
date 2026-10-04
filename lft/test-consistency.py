@@ -124,5 +124,16 @@ check('every dataset allowance exists in the tool', dim_missing, [])
 check('every dimension matches between tool and dataset', dim_mismatch, [])
 check('every linear-sum limit matches between tool and dataset', lin_mismatch, [])
 
+# The WordPress plugin ships its own copy of the widget. If the two drift, the plugin
+# publishes a stale checker and nothing else in this suite would notice.
+import hashlib as _h
+_plug = ROOT / 'checker/wordpress/lft-checker-embed'
+def _sha(p):
+    return _h.sha256(p.read_bytes()).hexdigest() if p.exists() else 'MISSING'
+check('the plugin bundles the current embed.html',
+      _sha(_plug / 'embed.html'), _sha(ROOT / 'checker/tool/embed.html'))
+check('the plugin bundles the current checker.html',
+      _sha(_plug / 'checker.html'), _sha(ROOT / 'checker/tool/carry-on-size-checker.html'))
+
 print(f"\n{'FAILED: ' + ', '.join(fails) if fails else 'All consistency checks passed.'}")
 sys.exit(1 if fails else 0)

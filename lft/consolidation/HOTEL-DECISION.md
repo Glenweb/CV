@@ -118,6 +118,9 @@ hotels-near-heathrow-airport/      ← now a noindex, not a merge target
 
 `redirects-hotel-adjusted.csv` in this folder is the same file with those six rows already
 removed: **16 redirects instead of 22.** Use that one if you accept this decision. Keep the
+
+> Since written, the Spirit decision added one row to that file, so it now carries **17**.
+> The six hotel/destination merges are still the ones removed.
 original if you decide to hold the destination content.
 
 ---

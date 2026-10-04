@@ -5,21 +5,20 @@ order loses content.
 
 ---
 
-## A. The embed — 3 steps, no dependencies
+## A. The checker and the embed — see `lft/PUBLISH.md`
 
-1. **Publish `lft/checker/tool/embed.html` at `/carry-on-size-checker/embed/`.**
-   It is `noindex, follow` with a canonical pointing back at the main checker, so it cannot
-   compete with it in the index.
+Both files are complete HTML documents, so neither can be pasted into a page body. They now
+ship as a WordPress plugin that serves them directly:
+`lft/checker/wordpress/lft-checker-embed.zip` — upload, activate, done.
 
-2. **Publish the updated `lft/checker/tool/carry-on-size-checker.html`** over
-   `/carry-on-size-checker/`. This is the version where the data, the prose and the verdict
-   logic all agree, and its embed box now ships the `/embed/` URL with an auto-resize
-   snippet plus a no-script fallback for locked-down CMSs.
+That also settles the framing problem this section used to warn about. The plugin sends
+`frame-ancestors *` on the widget and strips any `X-Frame-Options` PHP set, and its settings
+page has a **Run the test** button that reports what the live URL actually returns. A header
+set at the nginx or Apache level still survives — PHP cannot remove one — which is exactly
+what the test is there to catch.
 
-3. **Confirm your host allows framing on that path.** `X-Frame-Options: DENY` or a
-   restrictive `frame-ancestors` CSP breaks every embed silently — the iframe just renders
-   blank on the other site and nobody tells you. Test by framing it from any other domain
-   before you pitch it to anyone.
+`lft/PUBLISH.md` is the full sequence, including the warning worth reading before you let the
+plugin take over `/carry-on-size-checker/`.
 
 Then add a GA4 view filtered to `utm_source=embed` so you can see which sites actually use it.
 
@@ -27,7 +26,7 @@ Then add a GA4 view filtered to `utm_source=embed` so you can see which sites ac
 
 ## B. The redirects — order matters
 
-**Use `redirects-hotel-adjusted.csv` (16 rows), not the original 22.** The six destination
+**Use `redirects-hotel-adjusted.csv` (17 rows), not the original 22.** The six destination
 merges were dropped when the hotel decision went to prune.
 
 ### Step 1 — publish the new Frontier URL FIRST
@@ -57,7 +56,9 @@ No drafts needed.
 ### Step 3 — import the redirects
 
 RankMath → Redirections → Import, `redirects-hotel-adjusted.csv`. Same format as the Spirit
-phase-2 file already in your Drive. Verified: 16 rows, no duplicate sources, **no chains**.
+phase-2 file already in your Drive. Verified: 17 rows, no duplicate sources, **no chains**.
+(22 original, minus the 6 hotel/destination merges, plus the one Spirit personal-item row
+added by the Spirit decision.)
 
 ### Step 4 — the prune and noindex
 

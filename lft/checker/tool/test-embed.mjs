@@ -4,12 +4,40 @@ let chromium;
 for (const c of ['playwright','/opt/node-tools/node_modules/playwright','/opt/node22/lib/node_modules/playwright']) {
   try { ({ chromium } = require_(c)); break; } catch {}
 }
+// A throwaway host page, generated here so the suite has no untracked fixture to
+// go missing. It frames the embed the way the published snippet tells people to,
+// and records every height message so the auto-resize can be asserted.
+import { writeFileSync, rmSync, mkdtempSync } from 'node:fs';
+import { join, dirname } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { tmpdir } from 'node:os';
+
+const here = dirname(fileURLToPath(import.meta.url));
+const embedUrl = pathToFileURL(join(here, 'embed.html')).href;
+const tmp = mkdtempSync(join(tmpdir(), 'lft-embed-'));
+const host = join(tmp, 'host-test.html');
+writeFileSync(host, `<!DOCTYPE html><html><head><meta charset="utf-8"><title>host</title></head>
+<body style="margin:0">
+<iframe id="f" src="${embedUrl}" width="100%" height="300" style="border:0"></iframe>
+<script>
+window.__msgs = [];
+addEventListener("message", function (e) {
+  // file:// frames report a null origin, so the published origin check cannot be
+  // exercised here; the shape of the message is what this asserts.
+  if (e.data && e.data.type === "lft-checker-height") {
+    window.__msgs.push(e.data);
+    document.getElementById("f").style.height = e.data.height + "px";
+  }
+});
+<\/script>
+</body></html>`);
+
 const b = await chromium.launch();
 const p = await b.newPage();
 const errs=[]; p.on('pageerror',e=>errs.push(String(e)));
 const pass=[],fail=[]; const t=(n,c)=>(c?pass:fail).push(n);
 
-await p.goto('file:///home/user/CV/lft/checker/tool/host-test.html');
+await p.goto(pathToFileURL(host).href);
 await p.waitForTimeout(1200);
 const f = p.frameLocator('#f');
 
@@ -56,4 +84,5 @@ if(fail.length) console.log(fail.map(x=>'  FAIL  '+x).join('\n'));
 if(errs.length) console.log('page errors:\n'+errs.join('\n'));
 console.log(`\n${pass.length} passed, ${fail.length} failed, ${errs.length} page errors`);
 await b.close();
+rmSync(tmp, { recursive: true, force: true });
 process.exit(fail.length||errs.length?1:0);

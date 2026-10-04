@@ -1,0 +1,1210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carry-On Size Checker — embeddable widget | Luggage for Travel</title>
+  <meta name="description" content="Free carry-on size checker for 51 airlines. Enter your bag dimensions and instantly see if it's allowed onboard — fare-aware, allowance-specific results.">
+  <meta name="robots" content="noindex, follow">
+  <base target="_blank">
+  <link rel="canonical" href="https://luggagefortravel.com/carry-on-size-checker/">
+  <meta property="og:title" content="Free Carry-On Size Checker — 51 Airlines (2026)">
+  <meta property="og:description" content="Free carry-on size checker for 51 airlines. Fare-aware, allowance-specific results. Instant and always free.">
+  <meta property="og:url" content="https://luggagefortravel.com/carry-on-size-checker/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Free Carry-On Size Checker — 51 Airlines (2026)">
+  <meta name="twitter:description" content="Free carry-on size checker for 51 airlines. Fare-aware, allowance-specific results. Instant and always free.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+      <style>
+    /* ── LFT 2026 design tokens (new) ────────────────────────────── */
+    :root{
+      --lft-bg:#f5f7fa;
+      --lft-bg-card:#ffffff;
+      --lft-bg-deep:#0e1828;
+      --lft-bg-sky:#e6eef7;
+      --lft-ink:#0e1828;
+      --lft-ink-2:#3a4a60;
+      --lft-ink-3:#6a7890;
+      --lft-ink-4:#a8b3c4;
+      --lft-line:#d8dfe9;
+      --lft-line-2:#ebeff5;
+      --lft-accent:#1c7cd6;
+      --lft-accent-2:#1565b0;
+      --lft-accent-soft:#e6f0fb;
+      --lft-display:'Instrument Serif','Times New Roman',serif;
+      --lft-sans:'Geist',ui-sans-serif,system-ui,-apple-system,sans-serif;
+      --lft-mono:'Geist Mono',ui-monospace,'SF Mono',Menlo,monospace;
+    }
+    html{scroll-behavior:smooth}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:var(--lft-sans),sans-serif;font-size:16px;line-height:1.55;background:var(--lft-bg);color:var(--lft-ink)}
+    a{color:var(--lft-accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* ── NEW site header (replaces old .site-header chrome) ─────── */
+    .site-header{background:rgba(245,247,250,.85);backdrop-filter:blur(12px);color:var(--lft-ink);border-bottom:1px solid var(--lft-line);position:sticky;top:0;z-index:100}
+    .header-inner{max-width:1280px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap}
+    .brand-lockup{display:flex;align-items:center;gap:10px}
+    .brand-mark{width:30px;height:30px;border-radius:6px;background:var(--lft-ink);color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--lft-mono);font-size:10.5px;font-weight:600;letter-spacing:.04em}
+    .brand-text{line-height:1.05}
+    .brand-text .name{font-size:15px;font-weight:500;letter-spacing:-.01em;color:var(--lft-ink)}
+    .brand-text .est{font-family:var(--lft-mono);font-size:9.5px;color:var(--lft-ink-3);letter-spacing:.12em;text-transform:uppercase}
+    .site-nav{display:flex;flex-wrap:wrap;gap:26px;align-items:center}
+    .site-nav a{color:var(--lft-ink-2);font-size:13.5px;font-weight:500;text-decoration:none;padding:4px 0;position:relative}
+    .site-nav a:hover{color:var(--lft-ink);text-decoration:none}
+    .site-nav a.active{color:var(--lft-ink)}
+    .site-nav a.active::after{content:'';position:absolute;left:0;right:0;bottom:-2px;height:2px;background:var(--lft-accent);border-radius:2px}
+    .header-cta{display:flex;align-items:center;gap:8px}
+    .header-icon-btn{width:36px;height:36px;border-radius:50%;border:1px solid var(--lft-line);background:#fff;color:var(--lft-ink-2);display:flex;align-items:center;justify-content:center;cursor:pointer}
+
+    /* ── NEW breadcrumb ──────────────────────────────────────────── */
+    .breadcrumb{max-width:1280px;margin:0 auto;padding:20px 28px 0;font-family:var(--lft-mono);font-size:11px;letter-spacing:.1em;color:var(--lft-ink-3);display:flex;gap:10px;flex-wrap:wrap}
+    .breadcrumb a{color:var(--lft-ink-3)}
+    .breadcrumb .sep{color:var(--lft-ink-4)}
+    .breadcrumb .current{color:var(--lft-ink)}
+
+    /* ── NEW eyebrow + display headline ──────────────────────────── */
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--lft-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--lft-accent);font-weight:500;margin-bottom:16px}
+    .eyebrow::before{content:'';width:18px;height:1px;background:var(--lft-accent)}
+
+    /* ── PAGE WRAP — widened slightly to give the tool more room ── */
+    .page-wrap{max-width:920px;margin:0 auto;padding:28px 28px 56px}
+    .intro-block{margin-bottom:28px}
+    .intro-block h1{margin:0 0 18px;font-family:var(--lft-display);font-weight:400;font-size:clamp(2.4rem,6vw,4rem);line-height:1;letter-spacing:-.01em;color:var(--lft-ink)}
+    .intro-block h1 em{font-style:italic;color:var(--lft-accent-2)}
+    .intro-block p{margin:0 0 12px;color:var(--lft-ink-2);font-size:16px;line-height:1.6;max-width:680px}
+    .intro-block p strong{color:var(--lft-ink);font-weight:600}
+
+    /* ── TOOL SHELL — boarding-pass card ─────────────────────────── */
+    .tool-shell{background:var(--lft-bg-card);border:1px solid var(--lft-line);border-radius:18px;box-shadow:0 24px 60px rgba(14,24,40,.06);padding:28px}
+    .section+.section{margin-top:28px;padding-top:28px;border-top:1px dashed var(--lft-line)}
+    .section h2{margin:0 0 14px;font-size:1.25rem;line-height:1.3;color:var(--lft-ink);font-weight:600;letter-spacing:-.01em}
+    .section h3{margin:0 0 8px;font-size:1rem;color:var(--lft-ink);font-weight:600}
+    .small-text{font-size:.94rem;color:var(--lft-ink-2);line-height:1.6}
+    .warning-strip{background:var(--lft-bg-sky);color:var(--lft-ink-2);border:1px solid var(--lft-line);border-radius:12px;padding:14px 16px;margin:0 0 22px;font-size:.93rem}
+    .warning-strip strong{color:var(--lft-ink)}
+    .toggle-row{display:inline-flex;gap:4px;flex-wrap:wrap;padding:4px;background:var(--lft-bg-sky);border-radius:10px;border:1px solid var(--lft-line)}
+    .toggle-btn{min-height:40px;padding:8px 18px;border:0;border-radius:7px;background:transparent;color:var(--lft-ink-2);font-family:var(--lft-sans),sans-serif;font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.005em}
+    .toggle-btn.active{background:#fff;color:var(--lft-ink);box-shadow:0 1px 3px rgba(14,24,40,.06)}
+    .toggle-btn:focus-visible{outline:3px solid var(--lft-accent-soft);outline-offset:2px}
+    label{display:block;margin-bottom:8px;font-weight:500;font-size:13.5px;color:var(--lft-ink-2);font-family:var(--lft-mono);letter-spacing:.08em;text-transform:uppercase}
+    .search-wrap{position:relative}
+    .search-input,.select-input,.num-input,textarea{width:100%;min-height:48px;padding:13px 16px;border:1px solid var(--lft-line);border-radius:10px;background:#fff;color:var(--lft-ink);font-family:var(--lft-sans),sans-serif;font-size:15px;transition:border-color .15s,box-shadow .15s}
+    .search-input{padding-right:42px}
+    .search-input:focus-visible,.select-input:focus-visible,.num-input:focus-visible,textarea:focus-visible{outline:none;border-color:var(--lft-accent);box-shadow:0 0 0 3px var(--lft-accent-soft)}
+    .search-icon{position:absolute;right:14px;top:50%;transform:translateY(-50%);color:var(--lft-ink-3);pointer-events:none;font-size:1rem;line-height:1}
+    .search-dropdown{position:absolute;z-index:200;left:0;right:0;margin-top:8px;max-height:320px;overflow-y:auto;background:#ffffff!important;border:1px solid var(--lft-line)!important;border-radius:12px;box-shadow:0 20px 50px rgba(14,24,40,.12);padding:6px}
+    .search-dropdown[hidden]{display:none}
+    .search-option{width:100%;text-align:left;border:0;background:#ffffff!important;color:var(--lft-ink)!important;padding:11px 12px;border-radius:8px;cursor:pointer;font-family:var(--lft-sans),sans-serif;font-size:14.5px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+    .search-option.highlighted,.search-option:hover{background:var(--lft-accent-soft)!important;color:var(--lft-accent-2)!important;outline:none}
+    .region-chip{display:inline-block;border-radius:4px;padding:3px 8px;font-family:var(--lft-mono);font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:var(--lft-bg-sky)!important;color:var(--lft-ink-2)!important;white-space:nowrap}
+    .pill,.badge{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:5px 11px;font-family:var(--lft-mono);font-size:10.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+    .meta-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;margin-bottom:4px}
+    .badge-extreme{background:#fee2e2!important;color:#991b1b!important}
+    .badge-very{background:#fef3c7!important;color:#92400e!important}
+    .badge-strict{background:#fef9c3!important;color:#854d0e!important}
+    .badge-moderate{background:#d1fae5!important;color:#065f46!important}
+    .badge-relaxed{background:#dcfce7!important;color:#166534!important}
+    .card{background:#fff;border:1px solid var(--lft-line);border-radius:14px;box-shadow:0 4px 16px rgba(14,24,40,.04);padding:22px}
+    .airline-title{margin:0;font-family:var(--lft-display);font-weight:400;font-size:2rem;line-height:1.05;letter-spacing:-.01em;color:var(--lft-ink)}
+    .allowance-label{margin:6px 0 0;font-size:.95rem;color:var(--lft-ink-2);font-weight:500}
+    .info-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+    .info-box{border:1px solid var(--lft-line);background:#fff;border-radius:12px;padding:14px 16px}
+    .info-box strong{display:block;margin-bottom:6px;font-family:var(--lft-mono);font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--lft-ink-3);font-weight:500}
+    .info-box .val{font-weight:600;color:var(--lft-ink);font-size:1rem;letter-spacing:-.005em}
+    .info-box .sub{font-size:.82rem;color:var(--lft-ink-3);margin-top:4px}
+    .ceased-note{background:#fef3f2;border:none;border-left:3px solid #b42318;border-radius:8px;padding:14px 16px;font-size:.93rem;color:#5f1a14;line-height:1.55;margin-top:16px}
+    .ceased-note a{color:#b42318;font-weight:600;text-decoration:underline}
+    .ceased-tag{font-size:.72rem;font-weight:600;letter-spacing:.03em;text-transform:uppercase;background:#fef3f2;color:#b42318;border-radius:999px;padding:3px 9px;margin-left:8px;white-space:nowrap}
+    .badge-ceased{background:#fef3f2;color:#b42318}
+    .advisory-note{background:var(--lft-bg-sky);border:none;border-left:3px solid var(--lft-accent);border-radius:8px;padding:14px 16px;font-size:.93rem;color:var(--lft-ink-2);line-height:1.55;margin-top:16px}
+    .advisory-note strong{color:var(--lft-ink)}
+    .checker-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .weight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+    .input-note{margin-top:8px;font-size:.86rem;color:var(--lft-ink-3)}
+    .cta-btn{min-height:50px;padding:13px 24px;border-radius:999px;border:1px solid var(--lft-accent);background:var(--lft-accent);color:#fff;font-family:var(--lft-sans),sans-serif;font-size:15px;font-weight:500;cursor:pointer;letter-spacing:-.005em;transition:all .15s}
+    .cta-btn:hover{background:var(--lft-accent-2);border-color:var(--lft-accent-2)}
+    .cta-btn:focus-visible{outline:3px solid var(--lft-accent-soft);outline-offset:2px}
+    .verdict{border-radius:14px;padding:18px 20px;font-weight:500;display:none;margin-top:16px;line-height:1.55}
+    .verdict.show{display:block}
+    .verdict-title{display:flex;align-items:center;gap:8px;margin:0 0 10px;font-size:1.05rem;font-weight:600;letter-spacing:-.01em}
+    .verdict-pass{background:#e8f7ee;color:#0a5a37;border:1px solid #b8e2c9}
+    .verdict-fail{background:#fbe9e9;color:#7a1d1d;border:1px solid #f1b8b8}
+    .verdict-warn{background:#fcf3df;color:#6b3d0a;border:1px solid #f0d7a1}
+    .verdict-info{background:var(--lft-bg-sky);color:var(--lft-ink-2);border:1px solid var(--lft-line)}
+    .button-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+    .guide-btn{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;border:1px solid var(--lft-line);border-radius:999px;background:#fff;color:var(--lft-ink);font-family:var(--lft-sans),sans-serif;font-size:13.5px;font-weight:500;text-decoration:none;letter-spacing:-.005em;transition:all .15s}
+    .guide-btn:hover{background:var(--lft-accent-soft);border-color:var(--lft-accent);color:var(--lft-accent-2);text-decoration:none}
+    .guide-btn:focus-visible{outline:3px solid var(--lft-accent-soft);outline-offset:2px}
+    .inline-list{margin:0;padding-left:20px;color:var(--lft-ink-2)}
+    .inline-list li{margin-bottom:6px}
+    .faq-item+.faq-item{margin-top:16px}
+    textarea{min-height:130px;resize:vertical;font-family:var(--lft-mono),monospace;font-size:12.5px;background:var(--lft-bg-sky);color:var(--lft-ink-2);line-height:1.5}
+    .copy-btn{margin-top:12px;min-height:44px;padding:11px 22px;border:1px solid var(--lft-ink);border-radius:999px;background:var(--lft-ink);color:#fff;font-family:var(--lft-sans),sans-serif;font-size:14px;font-weight:500;cursor:pointer;letter-spacing:-.005em;transition:all .15s}
+    .copy-btn:hover{background:var(--lft-accent-2);border-color:var(--lft-accent-2)}
+    .copy-btn:focus-visible{outline:3px solid var(--lft-accent-soft);outline-offset:2px}
+    .footnote{margin-top:14px;font-size:.84rem;color:var(--lft-ink-3)}
+    .hidden{display:none!important}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--lft-accent-soft);outline-offset:2px}
+
+    /* ── NEW site footer (replaces old .site-footer chrome) ─────── */
+    .site-footer{background:var(--lft-bg-deep);color:#cfd8e6;padding:48px 0 24px;margin-top:64px}
+    .footer-grid{max-width:1280px;margin:0 auto;padding:0 28px;display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:40px;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .footer-brand .brand-mark{background:#fff;color:var(--lft-ink)}
+    .footer-brand p{font-size:13px;line-height:1.6;color:#8d9bb0;max-width:260px;margin:14px 0 0}
+    .footer-col h4{font-family:var(--lft-mono);font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:#7a8aa0;margin:0 0 14px}
+    .footer-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:9px}
+    .footer-col a{color:#cfd8e6;font-size:13.5px;text-decoration:none}
+    .footer-col a:hover{color:#fff;text-decoration:none}
+    .footer-bottom{max-width:1280px;margin:0 auto;padding:20px 28px 0;display:flex;justify-content:space-between;align-items:center;font-size:12px;color:#7a8aa0;flex-wrap:wrap;gap:12px}
+    .footer-bottom-links{display:flex;gap:18px}
+    .footer-bottom-links a{color:#7a8aa0;text-decoration:none}
+
+    /* ── Responsive: tablet & mobile ─────────────────────────────── */
+    @media(max-width:900px){
+      .header-inner{padding:14px 20px}
+      .breadcrumb{padding:16px 20px 0}
+      .page-wrap{padding:24px 20px 48px}
+      .site-nav{gap:18px;font-size:13px}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:30px;padding:0 20px 32px}
+    }
+    @media(max-width:680px){
+      .header-inner{gap:12px}
+      .site-nav{display:none}
+      .checker-grid,.info-grid,.weight-grid{grid-template-columns:1fr}
+      .tool-shell{padding:20px;border-radius:14px}
+      .intro-block h1{font-size:2.4rem;line-height:1}
+      .airline-title{font-size:1.7rem}
+      .footer-grid{grid-template-columns:1fr;gap:24px;padding:0 20px 28px}
+      .footer-bottom{padding:18px 20px 0;flex-direction:column;align-items:flex-start}
+    }
+    @media(max-width:380px){.toggle-btn{padding:7px 14px;font-size:13px}}
+
+    body{background:transparent}
+    .page-wrap{padding:0 0 12px}
+    .lft-embed-credit{margin:14px 2px 0;font-size:12.5px;line-height:1.5;color:var(--lft-ink-3)}
+    .lft-embed-credit a{color:var(--lft-accent);font-weight:600}
+  </style>
+</head>
+<body>
+<noscript><div style="max-width:780px;margin:24px auto;padding:14px;border:1px solid #fca5a5;background:#fee2e2;color:#7f1d1d;border-radius:12px;font-family:Arial,sans-serif;">This tool requires JavaScript to check bag sizes and airline rules.</div></noscript>
+
+
+<nav class="breadcrumb" aria-label="Breadcrumb">
+  <a href="/">HOME</a><span class="sep">/</span>
+  <a href="/tools/">TOOLS</a><span class="sep">/</span>
+  <span class="current">CARRY-ON SIZE CHECKER</span>
+</nav>
+
+<main class="page-wrap">
+  
+  <div class="tool-shell">
+    <div class="warning-strip" role="note">
+      <strong>Always confirm your exact fare type and baggage allowance with the airline before travel.</strong> Airlines can change rules, and some routes or fare families have stricter limits than shown here.
+    </div>
+
+    <section class="section" aria-labelledby="units-heading">
+      <h2 id="units-heading">1. Choose your units</h2>
+      <div class="toggle-row" role="group" aria-label="Measurement units">
+        <button type="button" class="toggle-btn active" data-unit="in" aria-pressed="true">Inches</button>
+        <button type="button" class="toggle-btn" data-unit="cm" aria-pressed="false">Centimetres</button>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="airline-heading">
+      <h2 id="airline-heading">2. Find your airline</h2>
+      <label for="airlineSearch">Search airline</label>
+      <div class="search-wrap">
+        <input id="airlineSearch" class="search-input" type="text" placeholder="Start typing an airline name…" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="airlineDropdown" role="combobox" spellcheck="false">
+        <span class="search-icon" aria-hidden="true">🔎</span>
+        <div id="airlineDropdown" class="search-dropdown" role="listbox" aria-label="Airlines" hidden></div>
+      </div>
+      <p class="input-note">Type to filter 51 airlines. Use arrow keys and Enter to select.</p>
+    </section>
+
+    <section class="section hidden" id="allowanceSection" aria-labelledby="allowance-heading">
+      <h2 id="allowance-heading">3. Choose your allowance type</h2>
+      <label for="allowanceSelect">Allowance type for your fare</label>
+      <select id="allowanceSelect" class="select-input"></select>
+      <p class="input-note">Different fares include different allowances — select the one that matches your ticket.</p>
+    </section>
+
+    <section class="section hidden" id="airlineCardSection" aria-labelledby="airline-card-title">
+      <h2 id="airline-card-title" class="hidden">Selected airline rules</h2>
+      <div id="airlineCard" class="card"></div>
+    </section>
+
+    <section class="section hidden" id="checkerSection" aria-labelledby="checker-heading">
+      <h2 id="checker-heading">4. Check my bag</h2>
+      <div class="checker-grid">
+        <div>
+          <label for="lengthInput" id="lengthLabel">Length (in)</label>
+          <input id="lengthInput" class="num-input" type="number" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 21.5" aria-describedby="dim-hint">
+        </div>
+        <div>
+          <label for="widthInput" id="widthLabel">Width (in)</label>
+          <input id="widthInput" class="num-input" type="number" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 14">
+        </div>
+        <div>
+          <label for="heightInput" id="heightLabel">Height (in)</label>
+          <input id="heightInput" class="num-input" type="number" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 9">
+        </div>
+      </div>
+      <p class="input-note" id="dim-hint">Measure the bag fully packed including wheels, handles and all pockets.</p>
+      <div class="weight-grid">
+        <div>
+          <label for="weightKg">Weight (kg) — optional</label>
+          <input id="weightKg" class="num-input" type="number" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 7.5">
+        </div>
+        <div>
+          <label for="weightLb">Weight (lbs) — optional</label>
+          <input id="weightLb" class="num-input" type="number" min="0" step="0.1" inputmode="decimal" placeholder="e.g. 16.5">
+        </div>
+      </div>
+      <p class="input-note">Enter weight in kg or lbs — the other field updates automatically.</p>
+      <div style="margin-top:16px">
+        <button type="button" id="checkBtn" class="cta-btn">Check my bag</button>
+      </div>
+      <div id="verdict" class="verdict" role="alert" aria-live="polite"></div>
+    </section>
+
+    <section class="section hidden" id="recommendSection" aria-labelledby="recommend-heading">
+      <h2 id="recommend-heading">Recommended guides</h2>
+      <p class="small-text" id="recommendIntro"></p>
+      <div id="recommendButtons" class="button-list"></div>
+    </section>
+
+    
+    
+    
+      </div>
+
+<div class="lft-embed-credit">
+  Carry-on size checker by
+  <a href="https://luggagefortravel.com/carry-on-size-checker/?utm_source=embed">Luggage for Travel</a>
+  — 51 airlines, fare-aware. Free to embed.
+</div>
+</main>
+
+
+<script>
+/* =====================================================================
+   AIRLINE DATA — 51 airlines
+   maxIn = [L,W,H] inches | maxCm = [L,W,H] centimetres
+   ===================================================================== */
+const AIRLINES=[
+
+/* ── EUROPE ──────────────────────────────────────────────────────────── */
+{name:"Ryanair",region:"Europe",enforcement:"extreme",feeText:"Priority / paid cabin bag required for larger overhead bag",
+recommendations:[{text:"Best Ryanair cabin bags →",url:"/airline-baggage-rules/best-ryanair-cabin-bag/"}],
+allowances:[
+  {code:"personal_item",label:"Free under-seat bag (all fares)",maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],
+   weight:{policy:"not_weighed",kg:null,lb:null,note:"Not usually weighed"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Must fit completely under the seat in front. Included free on all Ryanair fares."},
+  {code:"priority_cabin",label:"Priority / paid overhead cabin bag",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Free under-seat bag also included"},
+   advisoryNote:"Requires Priority boarding or a paid cabin-bag add-on. Measure including wheels and handles."}
+]},
+
+{name:"easyJet",region:"Europe",enforcement:"strict",feeText:"Large cabin bag requires upgrade, fare, or seat selection",
+recommendations:[{text:"easyJet carry-on rules guide →",url:"/easyjet-carry-on-size-rules/"}],
+allowances:[
+  {code:"small_cabin",label:"Free under-seat bag (all fares)",maxIn:[17.7,14.2,7.9],maxCm:[45,36,20],
+   weight:{policy:"per_item",kg:15,lb:33.1,note:"Must be liftable by passenger"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Includes handles and wheels. Must fit under the seat in front. Free on all fares."},
+  {code:"large_cabin",label:"Large cabin bag (eligible fares / upgrade)",maxIn:[22.0,17.7,9.8],maxCm:[56,45,25],
+   weight:{policy:"per_item",kg:15,lb:33.1,note:"Must be liftable by passenger"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,14.2,7.9],maxCm:[45,36,20],note:"Small cabin bag also allowed"},
+   advisoryNote:"Large overhead bag requires an eligible fare, seat selection, or paid upgrade. Measure including wheels and handles."}
+]},
+
+{name:"Wizz Air",region:"Europe",enforcement:"very",feeText:"WIZZ Priority required for trolley bag in overhead locker",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Free under-seat bag (all fares)",maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg free bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Must fit under the seat. Enforcement is strict — measure including all pockets and frame."},
+  {code:"priority_trolley",label:"WIZZ Priority trolley bag",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg total"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Free under-seat bag also included"},
+   advisoryNote:"WIZZ Priority allows an additional trolley bag in the overhead locker. Measure including wheels and handles."}
+]},
+
+{name:"British Airways",region:"Europe",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag + hand bag (all fares)",maxIn:[22.0,17.7,9.8],maxCm:[56,45,25],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit — must be liftable"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Small hand bag under seat"},
+   advisoryNote:"Includes wheels and handles. Passenger must be able to lift the bag into the overhead locker unaided."}
+]},
+
+{name:"Lufthansa",region:"Europe",enforcement:"moderate",feeText:"Economy Light: hand bag only; Classic and above: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"handbag_only",label:"Hand bag only (Economy Light fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg hand bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Economy Light fare includes one small hand bag only. Must fit under the seat."},
+  {code:"standard_cabin",label:"Cabin bag (Economy Classic and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Small hand bag also allowed under seat"},
+   advisoryNote:"8 kg weight limit can be checked at check-in and at the gate. Measure including wheels and handles."}
+]},
+
+{name:"Air France",region:"Europe",enforcement:"moderate",feeText:"Light fare: small bag only; Classic and above: cabin bag included",
+recommendations:[{text:"Best lightweight carry-ons →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"personal_item",label:"Small cabin bag only (Light fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"per_item",kg:12,lb:26.5,note:"Combined allowance"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Air France Light fare includes one small cabin bag under the seat only."},
+  {code:"standard_cabin",label:"Cabin bag (Classic and above)",maxIn:[21.7,13.8,9.8],maxCm:[55,35,25],
+   weight:{policy:"combined_total",kg:12,lb:26.5,note:"Combined allowance for cabin bag and personal item"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item under seat"},
+   advisoryNote:"12 kg combined weight applies to the cabin bag and personal item together."}
+]},
+
+{name:"KLM",region:"Europe",enforcement:"moderate",feeText:"Light fare: small bag only; Standard and above: cabin bag included",
+recommendations:[{text:"Best lightweight carry-ons →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"personal_item",label:"Small cabin bag only (Light fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"per_item",kg:12,lb:26.5,note:"Combined allowance"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"KLM Light fare includes one small cabin bag under the seat only."},
+  {code:"standard_cabin",label:"Cabin bag (Standard and above)",maxIn:[21.7,13.8,9.8],maxCm:[55,35,25],
+   weight:{policy:"combined_total",kg:12,lb:26.5,note:"Combined allowance for cabin bag and personal item"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item under seat"},
+   advisoryNote:"Same combined 12 kg policy as Air France — weigh cabin bag and personal item together."}
+]},
+
+{name:"Turkish Airlines",region:"Europe",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Small personal item under seat"},
+   advisoryNote:"8 kg weight limit enforced at check-in. Measure including wheels and handles."}
+]},
+
+{name:"Norwegian Air",region:"Europe",enforcement:"moderate",feeText:"LowFare: small bag only; LowFare+ and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"small_bag",label:"Small under-seat bag (LowFare)",maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit for small bag"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"LowFare ticket includes only a small bag that fits under the seat in front of you."},
+  {code:"cabin_bag",label:"Cabin bag (LowFare+ and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Small under-seat bag also included"},
+   advisoryNote:"LowFare+ and above includes a cabin bag in the overhead locker. Measure including wheels and handles."}
+]},
+
+{name:"Vueling",region:"Europe",enforcement:"strict",feeText:"Básico: small bag only; Optima/TimeFlex: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"small_bag",label:"Small under-seat bag (Básico fare)",maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg combined"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Básico fare includes only a small bag under the seat. Enforcement is strict."},
+  {code:"cabin_bag",label:"Cabin bag (Optima / TimeFlex)",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Small bag also included"},
+   advisoryNote:"Optima and TimeFlex fares include a cabin bag in the overhead locker. Measure including wheels and handles."}
+]},
+
+{name:"Iberia",region:"Europe",enforcement:"moderate",feeText:"Básico: personal item only; Clásico and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Básico fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Básico fare allows only a small personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Clásico and above)",maxIn:[22.0,15.7,9.8],maxCm:[56,40,25],
+   weight:{policy:"none",kg:null,lb:null,note:"No published cabin bag weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item also allowed"},
+   advisoryNote:"Clásico fare and above includes a cabin bag in the overhead locker."}
+]},
+
+{name:"SAS",region:"Europe",enforcement:"moderate",feeText:"Go Light: personal item only; Go and above: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (SAS Go Light)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"SAS Go Light fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (SAS Go and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item also allowed"},
+   advisoryNote:"SAS Go and above includes an overhead cabin bag. 8 kg limit is enforced."}
+]},
+
+{name:"Swiss International Air Lines",region:"Europe",enforcement:"moderate",feeText:"Economy Light: hand bag only; Classic and above: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"handbag",label:"Hand bag only (Economy Light)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg hand bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Economy Light includes one small hand bag only. Must fit under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Economy Classic and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Small hand bag also allowed under seat"},
+   advisoryNote:"Economy Classic and above includes a cabin bag in the overhead locker. 8 kg limit enforced."}
+]},
+
+{name:"Austrian Airlines",region:"Europe",enforcement:"moderate",feeText:"Economy Light: hand bag only; Classic and above: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"handbag",label:"Hand bag only (Economy Light)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg hand bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Economy Light includes one small hand bag only. Must fit under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Economy Classic and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Small hand bag also allowed"},
+   advisoryNote:"Same Lufthansa Group policy — 8 kg enforced. Economy Classic and above includes overhead cabin bag."}
+]},
+
+{name:"TAP Air Portugal",region:"Europe",enforcement:"moderate",feeText:"Discount: personal item only; Basic and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Discount fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"TAP Discount fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Basic and above)",maxIn:[21.7,15.7,9.8],maxCm:[55,40,25],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item also allowed"},
+   advisoryNote:"Basic fare and above includes an overhead cabin bag. Measure including wheels and handles."}
+]},
+
+{name:"Finnair",region:"Europe",enforcement:"moderate",feeText:"Superlight: personal item only; Light and above: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 8 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Superlight fare)",maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Superlight fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Light and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,5.9],maxCm:[40,30,15],note:"Personal item also allowed"},
+   advisoryNote:"Light fare and above includes an overhead cabin bag. 8 kg weight limit applies."}
+]},
+
+{name:"Aer Lingus",region:"Europe",enforcement:"strict",feeText:"Saver: small bag only; Plus / Priority boarding: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"small_bag",label:"Small under-seat bag (Saver fare)",maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Saver fare includes only a small bag that fits under the seat. Consistently enforced."},
+  {code:"cabin_bag",label:"Cabin bag (Plus fare / Priority boarding)",maxIn:[21.7,15.7,9.4],maxCm:[55,40,24],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Small under-seat bag also included"},
+   advisoryNote:"Plus fare or Priority boarding includes an overhead cabin bag. Measure including wheels and handles."}
+]},
+
+{name:"Jet2",region:"Europe",enforcement:"moderate",feeText:"Free — cabin bag included on all fares",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,17.7,9.8],maxCm:[56,45,25],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Must fit under the seat in front."},
+   advisoryNote:"One free cabin bag on all Jet2 fares. A second cabin bag can be purchased separately."}
+]},
+
+{name:"TUI Airways",region:"Europe",enforcement:"moderate",feeText:"Free — cabin bag included on all fares",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Must be stored under the seat in front."},
+   advisoryNote:"One free cabin bag on all TUI fares. Measure including wheels and handles."}
+]},
+
+/* ── NORTH AMERICA ───────────────────────────────────────────────────── */
+{name:"Delta Air Lines",region:"North America",enforcement:"moderate",feeText:"Free — all fare classes",
+recommendations:[{text:"Best 22×14×9 carry-ons →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[22,14,9],maxCm:[56,36,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard weight limit published"},
+   personalItemIncluded:true,personalItem:{maxIn:[18,14,8],maxCm:[46,36,20],note:"Personal item under seat"},
+   advisoryNote:"All Delta fares include one carry-on and one personal item. No weight limit. Measure including wheels and handles."}
+]},
+
+{name:"American Airlines",region:"North America",enforcement:"moderate",feeText:"Basic Economy domestic: personal item only",
+recommendations:[{text:"American Airlines carry-on size guide →",url:"/american-airlines-carry-on-size/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Basic Economy domestic)",maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Domestic Basic Economy fares allow only a personal item under the seat. International Basic Economy may allow a carry-on — verify your itinerary."},
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[22,14,9],maxCm:[56,36,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard carry-on weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],note:"Personal item under seat"},
+   advisoryNote:"Main Cabin and above includes a carry-on and personal item. No weight limit."}
+]},
+
+{name:"United Airlines",region:"North America",enforcement:"moderate",feeText:"Basic Economy: personal item only on most domestic trips",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Basic Economy)",maxIn:[16.9,9.8,8.7],maxCm:[43,25,22],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Most United Basic Economy trips allow only a personal item under the seat. A $25 gate surcharge applies if a carry-on is brought to the gate."},
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[22,13.8,8.7],maxCm:[56,35,22],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard carry-on weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[16.9,9.8,8.7],maxCm:[43,25,22],note:"Personal item under seat"},
+   advisoryNote:"Economy and above includes a carry-on and personal item. No weight limit."}
+]},
+
+{name:"Southwest Airlines",region:"North America",enforcement:"relaxed",feeText:"Free — most generous US carry-on policy",
+recommendations:[{text:"Best carry-ons for Southwest →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[24,16,10],maxCm:[61,41,25],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[18.5,8.5,13.5],maxCm:[47,22,34],note:"Personal item under seat"},
+   advisoryNote:"One of the most passenger-friendly US carry-on policies. No weight limit."}
+]},
+
+{name:"Spirit Airlines",region:"North America",enforcement:"extreme",feeText:"Ceased operations — no longer flying",
+ceased:{on:"2 May 2026",url:"/spirit-airlines-shutdown/"},
+recommendations:[{text:"What happened to Spirit, and your refund →",url:"/spirit-airlines-shutdown/"},{text:"Frontier carry-on rules — the closest match →",url:"/carry-on-size-by-airline/"},{text:"Best personal item bags for budget airlines →",url:"/luggage-reviews/best-underseat-bags-budget-airlines/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item included (base fare)",maxIn:[18,14,8],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published personal item weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"The personal item was the only included allowance on standard Spirit fares, and it was strictly enforced at the gate."},
+  {code:"paid_carry_on",label:"Paid carry-on bag",maxIn:[22,18,10],maxCm:[56,46,25],
+   weight:{policy:"none",kg:null,lb:null,note:"No published carry-on weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[18,14,8],maxCm:[45,35,20],note:"Personal item also allowed"},
+   advisoryNote:"The carry-on bag had to be purchased, and was cheapest when booked with the flight."}
+]},
+
+{name:"Frontier Airlines",region:"North America",enforcement:"extreme",feeText:"Carry-on usually costs extra on lower fares",
+recommendations:[{text:"Best personal item bags for budget airlines →",url:"/luggage-reviews/best-underseat-bags-budget-airlines/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item included (base fare)",maxIn:[18,14,8],maxCm:[46,36,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published personal item weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Personal item only on base fare. Size enforced during boarding."},
+  {code:"paid_carry_on",label:"Paid carry-on bag",maxIn:[24,16,10],maxCm:[61,41,25],
+   weight:{policy:"per_item",kg:15.9,lb:35,note:"35 lb carry-on limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[18,14,8],maxCm:[46,36,20],note:"Personal item also allowed"},
+   advisoryNote:"Carry-on must be purchased. Cheapest when added at booking. Measure including wheels and handles."}
+]},
+
+{name:"Allegiant Air",region:"North America",enforcement:"very",feeText:"Carry-on usually costs extra",
+recommendations:[{text:"Best Allegiant compliant bags →",url:"/airline-baggage-rules/allegiant-air-carry-on-size-rules/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item included (base fare)",maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Very tight 7-inch depth limit. Measure carefully including all pockets and expanded sections."},
+  {code:"paid_carry_on",label:"Paid carry-on bag",maxIn:[21.7,15.7,9.8],maxCm:[55,40,25],
+   weight:{policy:"none",kg:null,lb:null,note:"No published carry-on weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],note:"Personal item also allowed"},
+   advisoryNote:"Carry-on must be purchased in advance. Measure including wheels and handles."}
+]},
+
+{name:"JetBlue",region:"North America",enforcement:"moderate",feeText:"Blue Basic: personal item only",
+recommendations:[{text:"Best 22×14×9 carry-ons →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Blue Basic)",maxIn:[17,13,8],maxCm:[43,33,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Blue Basic fare allows only a personal item under the seat. Verify your current fare — JetBlue policy has changed over time."},
+  {code:"standard_cabin",label:"Carry-on included (Blue and above)",maxIn:[22,14,9],maxCm:[56,36,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17,13,8],maxCm:[43,33,20],note:"Personal item under seat"},
+   advisoryNote:"Blue and above fares include a carry-on and personal item. No weight limit."}
+]},
+
+{name:"Alaska Airlines",region:"North America",enforcement:"moderate",feeText:"Free — included on all fares including Saver",
+recommendations:[{text:"Best 22×14×9 carry-ons →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[22,14,9],maxCm:[56,36,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No standard weight limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17,13,6],maxCm:[43,33,15],note:"Personal item under seat"},
+   advisoryNote:"Free carry-on on all Alaska fares including Saver. Measure including wheels and handles."}
+]},
+
+{name:"WestJet",region:"North America",enforcement:"moderate",feeText:"EconoBasic: personal item only; Econo and above: carry-on included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (EconoBasic)",maxIn:[16.1,13,5.9],maxCm:[41,33,15],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"EconoBasic fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Carry-on included (Econo and above)",maxIn:[22,14.2,9.1],maxCm:[56,36,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit — must be liftable"},
+   personalItemIncluded:true,personalItem:{maxIn:[16.1,13,5.9],maxCm:[41,33,15],note:"Personal item also included"},
+   advisoryNote:"Econo fare and above includes a carry-on in the overhead locker. Measure including wheels and handles."}
+]},
+
+{name:"Air Canada",region:"North America",enforcement:"moderate",feeText:"Basic: personal item only; Standard and above: carry-on included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Basic fare)",maxIn:[16.9,13.0,6.3],maxCm:[43,33,16],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Air Canada Basic fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Carry-on included (Standard and above)",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit — must be liftable unaided"},
+   personalItemIncluded:true,personalItem:{maxIn:[16.9,13.0,6.3],maxCm:[43,33,16],note:"Personal item also included"},
+   advisoryNote:"Standard fare and above includes an overhead carry-on. Measure including wheels and handles."}
+]},
+
+/* ── LATIN AMERICA ───────────────────────────────────────────────────── */
+{name:"Aeromexico",region:"Latin America",enforcement:"moderate",feeText:"AM Basic: personal item only; AM Choice and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (AM Basic)",maxIn:[17.7,14.2,7.9],maxCm:[45,36,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"AM Basic fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (AM Choice and above)",maxIn:[21.7,15.7,9.8],maxCm:[55,40,25],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,14.2,7.9],maxCm:[45,36,20],note:"Personal item also included"},
+   advisoryNote:"AM Choice and above includes an overhead carry-on. 10 kg weight limit applies."}
+]},
+
+{name:"LATAM Airlines",region:"Latin America",enforcement:"moderate",feeText:"Economy Lite: personal item only; Economy Light and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item",label:"Personal item only (Economy Lite)",maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Economy Lite fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Economy Light and above)",maxIn:[21.7,13.8,9.8],maxCm:[55,35,25],
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],note:"Personal item also included"},
+   advisoryNote:"Economy Light and above includes an overhead carry-on. 8 kg weight limit applies. Confirm fare name for your specific route."}
+]},
+
+{name:"Avianca",region:"Latin America",enforcement:"moderate",feeText:"Go Lite: personal item only; Básico and above: cabin bag included",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"personal_item_only",label:"Personal item only (Basic fare)",maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Avianca's carry-on is included in every fare except Basic, which allows the personal item only."},
+  {code:"personal_item",label:"Personal item only (Go Lite)",maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Go Lite fare includes only a personal item under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (Básico and above)",maxIn:[21.7,13.8,9.8],maxCm:[55,35,25],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],note:"Personal item also included"},
+   advisoryNote:"Básico fare and above includes an overhead carry-on. 10 kg weight limit applies."}
+]},
+
+{name:"Copa Airlines",region:"Latin America",enforcement:"moderate",feeText:"Free — carry-on included on all Economy fares",
+recommendations:[{text:"Full carry-on size chart →",url:"/carry-on-size-by-airline/"}],
+allowances:[
+  {code:"standard_cabin",label:"Carry-on included",maxIn:[22.0,13.8,9.1],maxCm:[56,35,23],
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg carry-on limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[17.7,13.8,7.9],maxCm:[45,35,20],note:"Personal item under seat"},
+   advisoryNote:"Copa includes a carry-on and personal item on all Economy fares. 10 kg weight limit applies."}
+]},
+
+/* ── MIDDLE EAST ─────────────────────────────────────────────────────── */
+{name:"Emirates",region:"Middle East",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"economy_cabin",label:"Economy cabin bag",maxIn:[21.7,15.0,8.7],maxCm:[55,38,22],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit in Economy"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"7 kg limit for Economy. Business and First class have higher allowances. May be weighed at check-in."}
+]},
+
+{name:"Qatar Airways",region:"Middle East",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[19.7,14.6,9.8],maxCm:[50,37,25],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Laptop bag or handbag may be allowed in addition"},
+   advisoryNote:"7 kg carry-on limit. Qatar also has generous checked baggage allowances. Verify cabin class allowances."}
+]},
+
+{name:"Etihad Airways",region:"Middle East",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,14.2,9.1],maxCm:[56,36,23],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Handbag or laptop bag may be allowed in addition"},
+   advisoryNote:"7 kg limit enforced at Abu Dhabi hub. Verify your specific route and fare."}
+]},
+
+{name:"flydubai",region:"Middle East",enforcement:"strict",feeText:"Economy Lite: under-seat bag only; Economy Value+: overhead bag included",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"lite_bag",label:"Under-seat bag only (Economy Lite)",maxIn:[9.8,13,7.9],maxCm:[25,33,20],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg limit — no overhead locker access"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Economy Lite: one under-seat bag up to 7 kg. No overhead locker access included."},
+  {code:"cabin_bag",label:"Cabin bag (Economy Value and above)",maxIn:[21.7,15.0,7.9],maxCm:[55,38,20],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:[9.8,13,7.9],maxCm:[25,33,20],note:"Unusually narrow at 25 cm. Counts towards the 7 kg hand baggage allowance."},
+   advisoryNote:"Economy Value and above includes a 7 kg cabin bag in the overhead locker. Strictly enforced at Dubai DXB."}
+]},
+
+/* ── ASIA PACIFIC ────────────────────────────────────────────────────── */
+{name:"Singapore Airlines",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],linearSumCm:115,
+   weight:{policy:"combined_total",kg:7,lb:15.4,note:"7 kg combined for cabin bag and any personal item"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Small personal item included within the 7 kg combined allowance"},
+   advisoryNote:"7 kg combined weight applies to the cabin bag and any additional personal item together."}
+]},
+
+{name:"Cathay Pacific",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,14.2,9.1],maxCm:[56,36,23],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Small personal item may be allowed in addition"},
+   advisoryNote:"7 kg weight limit enforced. Check cabin class allowances for Business or First."}
+]},
+
+{name:"Qantas",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,14.2,9.1],maxCm:[56,36,23],
+   weight:{policy:"combined_total",kg:7,lb:15.4,note:"7 kg combined on many routes"},
+   personalItemIncluded:true,personalItem:{maxIn:[18.9,13.4,9.1],maxCm:[48,34,23],note:"Small personal item may be allowed within combined allowance"},
+   advisoryNote:"Domestic Australian rules can differ by route and cabin. Verify your specific itinerary."}
+]},
+
+{name:"Air New Zealand",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,9.1],maxCm:[55,40,23],linearSumCm:118,
+   weight:{policy:"combined_total",kg:7,lb:15.4,note:"7 kg combined allowance"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Small personal item included within combined total"},
+   advisoryNote:"7 kg combined weight rule — weigh your cabin bag and personal item together."}
+]},
+
+{name:"Japan Airlines (JAL)",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,9.8],maxCm:[55,40,25],linearSumCm:115,
+   weight:{policy:"combined_total",kg:10,lb:22,note:"10 kg combined for all cabin bags"},
+   personalItemIncluded:true,personalItem:{maxIn:null,maxCm:null,note:"Small personal item included within 10 kg combined total"},
+   advisoryNote:"10 kg combined allowance for all cabin baggage. Up to 2 items may be allowed — verify your cabin class."}
+]},
+
+{name:"ANA (All Nippon Airways)",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,9.8],maxCm:[55,40,25],linearSumCm:115,
+   weight:{policy:"combined_total",kg:10,lb:22,note:"10 kg combined for all cabin bags"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,7.9],maxCm:[40,30,20],note:"Small personal item included within 10 kg combined total"},
+   advisoryNote:"10 kg combined allowance for all cabin baggage. Verify your specific fare class and route."}
+]},
+
+{name:"Korean Air",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],linearSumCm:115,
+   weight:{policy:"per_item",kg:10,lb:22,note:"10 kg per item"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"One cabin bag in the overhead locker. 10 kg per item limit. Verify if additional personal items are permitted on your route."}
+]},
+
+{name:"AirAsia",region:"Asia Pacific",enforcement:"strict",feeText:"No free carry-on — 7 kg total for all cabin items combined",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"cabin_bag",label:"Cabin bag allowance (all items combined)",maxIn:[22.0,14.2,9.1],maxCm:[56,36,23],
+   weight:{policy:"combined_total",kg:7,lb:15.4,note:"7 kg total for all cabin items combined"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,3.9],maxCm:[40,30,10],note:"All cabin items combined must not exceed 7 kg"},
+   advisoryNote:"All cabin items (carry-on + personal item) combined must not exceed 7 kg and fit within the size limit. Strictly enforced."}
+]},
+
+{name:"IndiGo",region:"Asia Pacific",enforcement:"strict",feeText:"Free — 7 kg cabin bag included",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,13.8,9.8],maxCm:[55,35,25],linearSumCm:115,
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"7 kg cabin bag limit strictly enforced at Indian airports. Leave a weight margin."}
+]},
+
+{name:"Scoot",region:"Asia Pacific",enforcement:"strict",feeText:"Fly fare: no free carry-on; FlyBag / FlyBagEat: cabin bag included",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"no_carry_on",label:"Personal items only (Fly fare)",maxIn:[15.7,11.8,3.9],maxCm:[40,30,10],
+   weight:{policy:"none",kg:null,lb:null,note:"No published weight limit for personal items"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"Scoot's basic Fly fare does not include a cabin bag — only small personal items that fit under the seat."},
+  {code:"cabin_bag",label:"Cabin bag (FlyBag / FlyBagEat)",maxIn:[21.3,15.0,9.1],maxCm:[54,38,23],linearSumCm:115,
+   weight:{policy:"combined_total",kg:10,lb:22,note:"10 kg combined for all cabin items"},
+   personalItemIncluded:true,personalItem:{maxIn:[15.7,11.8,3.9],maxCm:[40,30,10],note:"Personal item also included"},
+   advisoryNote:"FlyBag includes a 10 kg combined cabin baggage allowance. Measure including wheels and handles."}
+]},
+
+{name:"Air India",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — cabin bag included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[21.7,15.7,7.9],maxCm:[55,40,20],linearSumCm:115,
+   weight:{policy:"per_item",kg:8,lb:17.6,note:"8 kg cabin bag limit in Economy"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"8 kg cabin bag limit in Economy. Verify your fare and route — policy may differ on code-share or older aircraft."}
+]},
+
+{name:"Thai Airways",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — cabin bag included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,17.7,9.8],maxCm:[56,45,25],
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg per piece limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"7 kg per piece limit enforced in Economy. One cabin bag plus one personal item usually permitted — verify your fare class."}
+]},
+
+{name:"Malaysia Airlines",region:"Asia Pacific",enforcement:"moderate",feeText:"Free — cabin bag included on all fares",
+recommendations:[{text:"Best lightweight bags for 7 kg routes →",url:"/luggage-reviews/best-lightweight-carry-on-under-7kg/"}],
+allowances:[
+  {code:"standard_cabin",label:"Cabin bag included",maxIn:[22.0,14.2,9.1],maxCm:[56,36,23],linearSumCm:115,
+   weight:{policy:"per_item",kg:7,lb:15.4,note:"7 kg cabin bag limit"},
+   personalItemIncluded:false,personalItem:null,
+   advisoryNote:"7 kg cabin bag limit. Business class allows more. Measure including wheels and handles."}
+]}
+
+]; /* end AIRLINES — 51 total */
+
+const FIXED_GUIDES=[
+  {text:"Compare all airline baggage fees →",url:"/airline-baggage-fee-comparison/"},
+  {text:"Full carry-on size chart — 50+ airlines →",url:"/carry-on-size-by-airline/"}
+];
+
+/* ── STATE ── */
+let currentUnit="in",selectedAirline=null,selectedAllowanceIndex=0;
+let filteredAirlines=[...AIRLINES],activeDropdownIndex=-1,isSyncingWeight=false;
+
+/* ── DOM ── */
+const unitButtons=document.querySelectorAll(".toggle-btn");
+const airlineSearch=document.getElementById("airlineSearch");
+const airlineDropdown=document.getElementById("airlineDropdown");
+const allowanceSection=document.getElementById("allowanceSection");
+const allowanceSelect=document.getElementById("allowanceSelect");
+const airlineCardSection=document.getElementById("airlineCardSection");
+const airlineCard=document.getElementById("airlineCard");
+const checkerSection=document.getElementById("checkerSection");
+const recommendSection=document.getElementById("recommendSection");
+const recommendButtons=document.getElementById("recommendButtons");
+const recommendIntro=document.getElementById("recommendIntro");
+const verdictEl=document.getElementById("verdict");
+const lengthInput=document.getElementById("lengthInput");
+const widthInput=document.getElementById("widthInput");
+const heightInput=document.getElementById("heightInput");
+const weightKg=document.getElementById("weightKg");
+const weightLb=document.getElementById("weightLb");
+const checkBtn=document.getElementById("checkBtn");
+const copyEmbed=document.getElementById("copyEmbed");
+const embedCode=document.getElementById("embedCode");
+
+/* ── HELPERS ── */
+const isCeased=a=>!!(a&&a.ceased);
+const enfText={extreme:"Extremely strict",very:"Very strict",strict:"Strict",moderate:"Moderate",relaxed:"Relaxed"};
+function rfu(v,u){if(v==null||isNaN(v))return"";return u==="cm"?String(Math.round(v)):String((Math.round(v*10)/10).toFixed(1).replace(/\.0$/,""));}
+function fda(a,u){if(!a||!Array.isArray(a))return"See airline notes";return`${rfu(a[0],u)} × ${rfu(a[1],u)} × ${rfu(a[2],u)} ${u}`;}
+function i2c(v){return v*2.54;}function c2i(v){return v/2.54;}
+function toIn(v){if(v==null||v==="")return null;const n=Number(v);if(!isFinite(n))return null;return currentUnit==="cm"?c2i(n):n;}
+function frIn(v){return currentUnit==="cm"?i2c(v):v;}
+function rw(v){if(!isFinite(v))return"";return(Math.round(v*10)/10).toFixed(1).replace(/\.0$/,"");}
+function fmtW(w){
+  if(!w)return"No weight data";
+  if(w.policy==="none")return w.note||"No published weight limit";
+  if(w.policy==="not_weighed")return w.note||"Typically not weighed";
+  if(w.kg&&w.lb)return`${rw(w.kg)} kg / ${rw(w.lb)} lbs — ${w.note||""}`;
+  if(w.kg)return`${rw(w.kg)} kg — ${w.note||""}`;
+  if(w.lb)return`${rw(w.lb)} lbs — ${w.note||""}`;
+  return w.note||"Weight policy varies";
+}
+function wSum(w){
+  if(!w)return"";
+  if(w.policy==="none")return"No published weight limit";
+  if(w.policy==="not_weighed")return"Not usually weighed";
+  if(w.policy==="combined_total")return"Combined allowance (bag + personal item)";
+  return"Weight limit applies";
+}
+function getAllow(){return selectedAirline?(selectedAirline.allowances[selectedAllowanceIndex]||null):null;}
+function clearV(){verdictEl.className="verdict";verdictEl.innerHTML="";}
+
+/* ── UNITS ── */
+function setLabels(){
+  const u=currentUnit;
+  document.getElementById("lengthLabel").textContent=`Length (${u})`;
+  document.getElementById("widthLabel").textContent=`Width (${u})`;
+  document.getElementById("heightLabel").textContent=`Height (${u})`;
+  lengthInput.placeholder=u==="cm"?"e.g. 55":"e.g. 21.5";
+  widthInput.placeholder=u==="cm"?"e.g. 36":"e.g. 14";
+  heightInput.placeholder=u==="cm"?"e.g. 23":"e.g. 9";
+}
+function convInputs(next){
+  [lengthInput,widthInput,heightInput].forEach(f=>{
+    if(!f.value)return;const n=Number(f.value);if(!isFinite(n))return;
+    const c=next==="cm"?i2c(n):c2i(n);
+    f.value=next==="cm"?Math.round(c):(Math.round(c*10)/10).toFixed(1).replace(/\.0$/,"");
+  });
+}
+unitButtons.forEach(btn=>{
+  btn.addEventListener("click",()=>{
+    const nxt=btn.dataset.unit;if(nxt===currentUnit)return;
+    convInputs(nxt);currentUnit=nxt;
+    unitButtons.forEach(b=>{const a=b.dataset.unit===currentUnit;b.classList.toggle("active",a);b.setAttribute("aria-pressed",a?"true":"false");});
+    setLabels();if(selectedAirline)renderCard();clearV();
+  });
+});
+
+/* ── DROPDOWN ── */
+function renderDD(items){
+  airlineDropdown.innerHTML="";
+  if(!items.length){
+    const m=document.createElement("div");m.style.cssText="padding:12px 14px;color:#64748b;font-size:14px;";
+    m.textContent="No airlines found — try a different spelling.";
+    airlineDropdown.appendChild(m);airlineDropdown.hidden=false;airlineSearch.setAttribute("aria-expanded","true");return;
+  }
+  items.forEach((al,i)=>{
+    const btn=document.createElement("button");btn.type="button";
+    btn.className="search-option"+(i===activeDropdownIndex?" highlighted":"");
+    btn.setAttribute("role","option");btn.setAttribute("aria-selected",i===activeDropdownIndex?"true":"false");
+    btn.innerHTML=`<span>${al.name}${isCeased(al)?'<span class="ceased-tag">Ceased<\/span>':""}<\/span><span class="region-chip">${al.region}<\/span>`;
+    btn.addEventListener("click",()=>selAirline(al.name));
+    airlineDropdown.appendChild(btn);
+  });
+  airlineDropdown.hidden=false;airlineSearch.setAttribute("aria-expanded","true");
+}
+function filterAirlines(q){
+  const s=q.trim().toLowerCase();
+  filteredAirlines=!s?[...AIRLINES]:AIRLINES.filter(a=>a.name.toLowerCase().includes(s)||a.region.toLowerCase().includes(s));
+  activeDropdownIndex=-1;renderDD(filteredAirlines);
+}
+airlineSearch.addEventListener("input",e=>filterAirlines(e.target.value));
+airlineSearch.addEventListener("focus",()=>{if(airlineDropdown.hidden)filterAirlines(airlineSearch.value);});
+airlineSearch.addEventListener("keydown",e=>{
+  if(airlineDropdown.hidden)return;
+  if(e.key==="ArrowDown"){e.preventDefault();if(!filteredAirlines.length)return;activeDropdownIndex=Math.min(activeDropdownIndex+1,filteredAirlines.length-1);renderDD(filteredAirlines);}
+  else if(e.key==="ArrowUp"){e.preventDefault();if(!filteredAirlines.length)return;activeDropdownIndex=Math.max(activeDropdownIndex-1,0);renderDD(filteredAirlines);}
+  else if(e.key==="Enter"){e.preventDefault();if(!filteredAirlines.length)return;selAirline(filteredAirlines[activeDropdownIndex>=0?activeDropdownIndex:0].name);}
+  else if(e.key==="Escape"){airlineDropdown.hidden=true;airlineSearch.setAttribute("aria-expanded","false");}
+});
+document.addEventListener("click",e=>{if(!e.target.closest(".search-wrap")){airlineDropdown.hidden=true;airlineSearch.setAttribute("aria-expanded","false");}});
+
+/* ── SELECT AIRLINE ── */
+function selAirline(name){
+  selectedAirline=AIRLINES.find(a=>a.name===name)||null;selectedAllowanceIndex=0;
+  airlineSearch.value=selectedAirline?selectedAirline.name:"";
+  airlineDropdown.hidden=true;airlineSearch.setAttribute("aria-expanded","false");
+  clearV();[lengthInput,widthInput,heightInput,weightKg,weightLb].forEach(f=>f.value="");
+  renderAllowSel();renderCard();renderRecs();
+  checkerSection.classList.toggle("hidden",!selectedAirline||isCeased(selectedAirline));
+  recommendSection.classList.toggle("hidden",!selectedAirline);
+  if(selectedAirline){
+    const tgt=allowanceSection.classList.contains("hidden")?airlineCardSection:allowanceSection;
+    setTimeout(()=>tgt.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"start"}),50);
+  }
+}
+
+/* ── ALLOWANCE SELECT ── */
+function renderAllowSel(){
+  allowanceSelect.innerHTML="";
+  if(!selectedAirline){allowanceSection.classList.add("hidden");return;}
+  selectedAirline.allowances.forEach((al,i)=>{
+    const o=document.createElement("option");o.value=String(i);o.textContent=al.label;allowanceSelect.appendChild(o);
+  });
+  allowanceSelect.value=String(selectedAllowanceIndex);
+  allowanceSection.classList.toggle("hidden",selectedAirline.allowances.length<=1);
+}
+allowanceSelect.addEventListener("change",()=>{selectedAllowanceIndex=Number(allowanceSelect.value)||0;clearV();renderCard();});
+
+/* ── AIRLINE CARD ── */
+function piBox(al){
+  if(!al.personalItemIncluded)return`<div class="info-box"><strong>Personal item</strong><div class="val">—</div><div class="sub">Not included with this allowance</div></div>`;
+  const it=al.personalItem;if(!it)return`<div class="info-box"><strong>Personal item</strong><div class="val">Included</div></div>`;
+  const arr=currentUnit==="cm"?it.maxCm:it.maxIn;
+  const sz=(arr&&Array.isArray(arr))?fda(arr,currentUnit):(it.note||"Included — see advisory");
+  return`<div class="info-box"><strong>Personal item</strong><div class="val">${sz}</div><div class="sub">${it.note||""}</div></div>`;
+}
+function renderCard(){
+  if(!selectedAirline){airlineCardSection.classList.add("hidden");return;}
+  const al=getAllow();
+  const sn=["extreme","very","strict"].includes(selectedAirline.enforcement)?" Measure including wheels and handles.":"";
+  const arr=currentUnit==="cm"?al.maxCm:al.maxIn;
+  airlineCard.innerHTML=`
+    <h3 class="airline-title">${selectedAirline.name}</h3>
+    <p class="allowance-label">${al.label}</p>
+    <div class="meta-row">
+      <span class="badge ${isCeased(selectedAirline)?"badge-ceased":"badge-"+selectedAirline.enforcement}">${isCeased(selectedAirline)?"Ceased operations":(enfText[selectedAirline.enforcement]||selectedAirline.enforcement)}</span>
+      <span class="pill" style="background:#eff6ff;color:#1e3a5f;padding:6px 12px;font-size:.85rem;font-weight:600;">${selectedAirline.region}</span>
+      <span class="pill" style="background:#f8fafc;color:#334155;padding:6px 12px;font-size:.85rem;font-weight:600;">${selectedAirline.feeText}</span>
+    </div>
+    <div class="info-grid">
+      <div class="info-box"><strong>Max size</strong><div class="val">${fda(arr,currentUnit)}</div><div class="sub">L × W × H</div></div>
+      <div class="info-box"><strong>Weight limit</strong><div class="val">${fmtW(al.weight)}</div><div class="sub">${wSum(al.weight)}</div></div>
+      ${piBox(al)}
+    </div>
+    ${isCeased(selectedAirline)?`<div class="ceased-note"><strong>${selectedAirline.name} stopped flying on ${selectedAirline.ceased.on}.</strong> The limits above are kept for reference only — there is no ${selectedAirline.name} flight to check a bag against. <a href="${selectedAirline.ceased.url}">What happened, refunds, and the airlines now flying these routes →</a></div>`:""}
+    ${al.advisoryNote?`<div class="advisory-note"><strong>${isCeased(selectedAirline)?"For reference":"Advisory"}:<\/strong> ${al.advisoryNote}${isCeased(selectedAirline)?"":sn}<\/div>`:""}
+  `;
+  airlineCardSection.classList.remove("hidden");
+}
+
+/* ── RECOMMENDATIONS ── */
+function renderRecs(){
+  if(!selectedAirline)return;
+  recommendIntro.textContent=`Recommended guides for ${selectedAirline.name}`;
+  recommendButtons.innerHTML="";const seen=new Set();
+  const addBtn=(text,url)=>{
+    if(!text||!url||seen.has(url))return;seen.add(url);
+    const a=document.createElement("a");a.className="guide-btn";a.href=url;a.textContent=text;
+    const ext=/^https?:\/\//i.test(url)&&!url.includes("luggagefortravel.com");
+    if(ext){a.target="_blank";a.rel="noopener noreferrer";}
+    recommendButtons.appendChild(a);
+  };
+  (selectedAirline.recommendations||[]).slice(0,3).forEach(r=>addBtn(r.text,r.url));
+  FIXED_GUIDES.forEach(g=>addBtn(g.text,g.url));
+}
+
+/* ── BAG CHECKER ── */
+function parsePos(v){
+  if(v===""||v==null)return null;const n=Number(v);if(!isFinite(n)||n<=0)return NaN;return n;
+}
+function valDims(){
+  const raw=[lengthInput.value,widthInput.value,heightInput.value],p=raw.map(parsePos);
+  if(p.some(v=>v===null))return{valid:false,message:"Enter your bag length, width and height in all three fields."};
+  if(p.some(v=>isNaN(v)))return{valid:false,message:"Enter valid numbers greater than 0 for all three dimensions."};
+  const iv=p.map(toIn);
+  if(iv.some(v=>v>80))return{valid:false,message:"Those dimensions look too large for a cabin bag. Check your values and units."};
+  return{valid:true,valuesIn:iv};
+}
+function getWt(){
+  const kg=parsePos(weightKg.value),lb=parsePos(weightLb.value);
+  if(isNaN(kg)||isNaN(lb))return{valid:false,message:"Enter a valid positive bag weight, or leave the weight fields blank."};
+  if(kg===null&&lb===null)return{valid:true,kg:null,lb:null,entered:false};
+  if(kg!==null)return{valid:true,kg,lb:kg*2.20462,entered:true};
+  return{valid:true,kg:lb/2.20462,lb,entered:true};
+}
+/* Compare in CENTIMETRES against maxCm, the field the airline publishes. This used to
+   compare inches against maxIn, stored to one decimal place: a bag entered as exactly
+   56 cm became 22.047 in and failed a 22.0 in limit, so EVERY bag at exactly the
+   published centimetre limit was reported "too large by 0 cm". Overages are now in cm. */
+const FIT_TOL_CM=0.05;
+function bestFit(ui,maxCm){
+  const u=[...ui].map(v=>v*2.54).sort((a,b)=>b-a),m=[...maxCm].sort((a,b)=>b-a);
+  const ov=u.map((v,i)=>v-m[i]);
+  return{failed:ov.some(v=>v>FIT_TOL_CM),overages:ov};
+}
+function ovTxt(cr){
+  const L=["largest","middle","smallest"];
+  return cr.overages.map((o,i)=>o>FIT_TOL_CM
+    ?`${L[i]} dimension by ${rfu(currentUnit==="cm"?o:o/2.54,currentUnit)} ${currentUnit}`:null)
+    .filter(Boolean).join(", ");
+}
+function showV(type,title,body){verdictEl.className=`verdict show verdict-${type}`;verdictEl.innerHTML=`<div class="verdict-title">${title}</div><div>${body}</div>`;}
+function checkBag(){
+  clearV();
+  if(!selectedAirline){showV("info","ℹ Select an airline first","Search and select an airline before checking your bag.");return;}
+  const al=getAllow(),dims=valDims();
+  if(!dims.valid){showV("fail","✗ Invalid dimensions",dims.message);return;}
+  const wi=getWt();if(!wi.valid){showV("fail","✗ Invalid weight",wi.message);return;}
+  const sc=bestFit(dims.valuesIn,al.maxCm),wp=al.weight?al.weight.policy:"none";
+  /* Some airlines cap the SUM of the three dimensions as well as each one. JAL and ANA
+     allow 55 x 40 x 25 per axis but only 115 cm combined, so a bag can clear every axis
+     and still be refused. */
+  const linMax=al.linearSumCm||null;
+  const linSum=linMax?dims.valuesIn.reduce((t,v)=>t+v*2.54,0):null;
+  const linF=linMax!=null&&linSum>linMax+0.01;
+  let wF=false,wU=false;
+  if(wp==="per_item"||wp==="combined_total"){
+    if(!wi.entered)wU=true;
+    else if(al.weight&&al.weight.kg&&wi.kg>al.weight.kg+0.0001)wF=true;
+  }
+  const ent=dims.valuesIn.map(v=>rfu(frIn(v),currentUnit)).join(" × ");
+  const alw=fda(currentUnit==="cm"?al.maxCm:al.maxIn,currentUnit);
+  const tip=["extreme","very","strict"].includes(selectedAirline.enforcement)
+    ?`<br><br><strong>Tip:</strong> Measure including wheels, handles and any bulging pockets — this airline enforces external dimensions strictly.`:"";
+  const linTxt=linMax?`<br><br>This airline also caps the three dimensions added together at <strong>${linMax} cm</strong>. Yours total <strong>${Math.round(linSum)} cm</strong>.`:"";
+  if(linF&&!sc.failed){
+    showV("fail","✗ Over the combined-dimensions limit",`Your bag fits each individual dimension (allowed: <strong>${alw}</strong>) but this airline also limits the three added together to <strong>${linMax} cm</strong>. Yours total <strong>${Math.round(linSum)} cm</strong>, over by <strong>${Math.round(linSum-linMax)} cm</strong>.${tip}`);
+  }else if(linF&&sc.failed){
+    showV("fail","✗ Bag too large",`Your bag is too large. Allowed: <strong>${alw}</strong>.<br><br>Exceeds in: <strong>${ovTxt(sc)}</strong>.${linTxt}${tip}`);
+  }else if(!sc.failed&&!wF&&!wU){
+    showV("pass","✓ Your bag fits",`Your ${ent} ${currentUnit} bag fits within the <strong>${alw}</strong> limit for the selected allowance.${linTxt}${tip}`);
+  }else if(!sc.failed&&!wF&&wU){
+    showV("info","ℹ Size fits — weight not entered",`Your ${ent} ${currentUnit} bag fits the size limit (<strong>${alw}</strong>).<br><br>This airline has a weight rule but you haven't entered a bag weight. Enter your bag's weight to complete the check.`);
+  }else if(sc.failed&&!wF){
+    showV("fail","✗ Bag too large",`Your bag is too large. Allowed: <strong>${alw}</strong>.<br><br>Exceeds in: <strong>${ovTxt(sc)}</strong>.${tip}`);
+  }else if(!sc.failed&&wF){
+    const ok=wi.kg-al.weight.kg;
+    showV("warn","⚠ Size fits — but overweight",`Your bag fits the size limit but exceeds the weight rule by <strong>${rw(ok)} kg</strong>.<br>Allowance: <strong>${fmtW(al.weight)}</strong>.`);
+  }else{
+    const ok=al.weight&&al.weight.kg?wi.kg-al.weight.kg:null;
+    showV("fail","✗ Size and weight both exceeded",`Your bag exceeds both size and weight limits.<br><br>Size overages: <strong>${ovTxt(sc)}</strong>${ok!=null?`<br>Weight over by <strong>${rw(ok)} kg</strong>`:""}.${tip}`);
+  }
+  verdictEl.scrollIntoView({behavior:window.matchMedia("(prefers-reduced-motion:reduce)").matches?"auto":"smooth",block:"nearest"});
+}
+checkBtn.addEventListener("click",checkBag);
+
+/* ── WEIGHT SYNC ── */
+weightKg.addEventListener("input",()=>{
+  if(isSyncingWeight)return;const v=parsePos(weightKg.value);
+  isSyncingWeight=true;weightLb.value=(v===null||isNaN(v))?"":rw(v*2.20462);isSyncingWeight=false;clearV();
+});
+weightLb.addEventListener("input",()=>{
+  if(isSyncingWeight)return;const v=parsePos(weightLb.value);
+  isSyncingWeight=true;weightKg.value=(v===null||isNaN(v))?"":rw(v/2.20462);isSyncingWeight=false;clearV();
+});
+[lengthInput,widthInput,heightInput].forEach(i=>i.addEventListener("input",clearV));
+
+/* ── EMBED COPY ── */
+const copyEmbedSimple=document.getElementById("copyEmbedSimple");
+const embedCodeSimple=document.getElementById("embedCodeSimple");
+if(copyEmbedSimple&&embedCodeSimple){
+  copyEmbedSimple.addEventListener("click",async()=>{
+    try{await navigator.clipboard.writeText(embedCodeSimple.value);}
+    catch{embedCodeSimple.focus();embedCodeSimple.select();document.execCommand("copy");}
+    const o=copyEmbedSimple.textContent;copyEmbedSimple.textContent="Copied ✓";
+    setTimeout(()=>{copyEmbedSimple.textContent=o;},1800);
+  });
+}
+if(copyEmbed&&embedCode){
+copyEmbed.addEventListener("click",async()=>{
+  try{await navigator.clipboard.writeText(embedCode.value);}
+  catch{embedCode.focus();embedCode.select();document.execCommand("copy");}
+  const orig=copyEmbed.textContent;copyEmbed.textContent="Copied ✓";
+  setTimeout(()=>{copyEmbed.textContent=orig;},1800);
+});
+}
+
+/* ── INIT ── */
+setLabels();
+
+/* ── iframe auto-height: report our height to the host on every change ── */
+(function(){
+  if(window.parent===window)return;
+  let last=0;
+  const post=()=>{
+    const h=Math.ceil(document.documentElement.getBoundingClientRect().height);
+    if(h&&Math.abs(h-last)>8){last=h;
+      window.parent.postMessage({type:"lft-checker-height",height:h},"*");}
+  };
+  if(window.ResizeObserver)new ResizeObserver(post).observe(document.documentElement);
+  window.addEventListener("load",post);
+  document.addEventListener("click",()=>setTimeout(post,120),true);
+  setInterval(post,1000);
+  post();
+})();
+
+</script>
+</body>
+</html>

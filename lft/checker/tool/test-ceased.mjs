@@ -1,5 +1,8 @@
 import { createRequire } from 'node:module';
 const require_ = createRequire(import.meta.url);
+import { dirname, join } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+const TOOL = pathToFileURL(join(dirname(fileURLToPath(import.meta.url)), 'carry-on-size-checker.html')).href;
 let chromium;
 for (const c of ['playwright','/opt/node-tools/node_modules/playwright','/opt/node22/lib/node_modules/playwright']) {
   try { ({ chromium } = require_(c)); break; } catch {}
@@ -7,7 +10,7 @@ for (const c of ['playwright','/opt/node-tools/node_modules/playwright','/opt/no
 const b = await chromium.launch();
 const p = await b.newPage();
 const errs=[]; p.on('pageerror',e=>errs.push(String(e)));
-await p.goto('file:///home/user/CV/lft/checker/tool/carry-on-size-checker.html');
+await p.goto(TOOL);
 const pass=[],fail=[];
 const t=(n,c)=> (c?pass:fail).push(n);
 
